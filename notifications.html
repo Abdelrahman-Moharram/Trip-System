@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myposts</title>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+    </style>
+</head>
+<body>
+    
+    <div class="new-post-window">
+
+        <div class="new-post">
+            <i class="las la-times close-new-post" onclick="closePost()"></i>
+            <form action="" method="POST">
+                <div class="header-container">
+                    <input onclick="showLine('header-container')" type="text" max="300" id="newpost-header" placeholder="add title ...">
+                    <div class="form-input-divider"><div class="form-input-insider"></div></div>
+
+                </div>
+                
+                <div class="newpost-body-container" style="margin-bottom: 0px;">
+                    <textarea onclick="showLine('newpost-body-container')" type="text" max="3000" id="newpost-content"  placeholder="Write Post"></textarea>
+                    <div class="form-input-divider"><div class="form-input-insider" style="margin-top: -7px;"></div></div>
+                </div>
+                <input type="file" name="file" id="file" class="add-file" data-multiple-caption="{count} files selected" multiple />
+                <label class="btn btn-primary  " for="file">choose file <i class="las la-cloud-upload-alt"></i></label>
+                <!-- <input type="submit" name="submit" value="Upload"> -->
+
+                <div class="newpost-submition">
+                    <button class="btn btn-primary mb-3 submit-post">Submit</button>
+                    <button class="btn btn-primary mb-3 cancel-post">Cancel</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+    <nav class="navbar" style="display:block;">
+
+        <a href="javascript:void(0)" class="open-nav" onclick="openNav()"><i class="las la-bars"></i></a>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="las la-times"></i></a>
+        <a class="nav-brand" href="agency.html">Dash Board</a>
+href="#">Navbar</a>
+--------------------------------nav bar and side nav bar----------------------------------------------------------->
+        <div id="mySidenav" class="sidenav">
+            
+            <a href="link-1"  class="link-item"><i class="las la-user"  style="margin-left: 8px;margin-right: 5px;"></i> <span class="nav-text">profile </span></a>
+            <a class="link-item" onclick="createPost()" id="create-post"><i class="las la-plus"  style="margin-left: 8px;margin-right: 5px;cursor: pointer;"></i> <span  class="nav-text">Create Post </span></a>
+            <a href="myposts.html" class="link-item"><i class="las la-photo-video"  style="margin-left: 8px;margin-right: 5px;"></i><span  class="nav-text"> My Posts</span></a>
+            
+            
+            <a class="link-item active-sideNav"><div id="notify-num">200</div><i class="las la-bell" style="margin-left: 8px;margin-right: 5px;"></i><span class="nav-text"> Recived Questions </span></a>
+          </div>
+          
+         
+
+          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+          <script src="js/script.js"></script>
+          <script>
+  
+                  
+  
+              
+          </script>
+  </body>
+  </html>

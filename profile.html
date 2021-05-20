@@ -14,6 +14,63 @@
     
 
     <style>
+        .edit-info-feild{
+            margin: auto;
+        }
+        .container-fluid .row form {
+            margin: 30px 20px;
+            width: 100%;
+        }
+        .edit-info-feild{
+            width: 300px;
+            height: 25px;
+            padding: 20px;
+            outline: none;
+            border-radius: 10px;
+            margin: 20px 10px;
+            border: none;
+            color: #007bff;
+
+        }
+        #edit-info-cont,#reset-pass-cont{
+            background-color: #004bb9;
+        }
+        .edit-info-label{
+            color: #eee;
+        }
+        .change-data{
+            width: fit-content;
+            margin-left: 40px;
+        }
+        .edit-info-buttons{
+            margin: 20px 40px;
+        }
+        .submition-data
+        {
+            margin-left: 40px;
+            border: #007bff solid 1px;
+            transition: all .2s linear;
+            font-weight: 500;
+            background-color: #007bff;
+            color: #eee;
+            border-radius: 5px;
+        }
+        .submition-data:hover{
+            background-color: #eee;
+            color: #007bff;
+        }
+        .reset-password-child{
+            margin: 0px auto;
+        }
+        .cancel-changes{
+            margin-left: 40px; 
+            background-color: #f00; 
+            color: #eee;
+        }
+        .cancel-changes:hover{
+            background-color: #eee;
+            color: #f00;
+        }
         
     </style>
 
@@ -52,7 +109,7 @@
         <nav class="navbar" style="display:block;">
             <!-- <a href="javascript:void(0)" class="open-nav" onclick="openNav()"><i class="las la-bars"></i></a>
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="las la-times"></i></a> -->
-            <a class="nav-brand" href="agency.html">Dash Board</a>
+            <a class="nav-brand" href="agency.html">Fcatory</a>
         </nav>
         <!-------------------------------------------------------nav bar and side nav bar----------------------------------------------------------->
             <!-- <div id="mySidenav" class="sidenav">
@@ -115,20 +172,35 @@
                        </div>
 
 
-                        <div class="container-fluid user-info-container" id="edit-info-cont">
+                        <div class="container user-info-container" id="edit-info-cont">
                             <div class="row">
-                                 <div class="user-name-pic col-lg-3 col-sm-11">
-                                <img src="assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg" class="user-profile-pic">
-                                <div class="user-name">Abdelrahman Moharram</div>
-                                 </div>
-                             <!-- <div style="margin-left: 20px;"></div> -->
-                                 <div class="user-typed-infos col-lg-8">
+                                 <form action="" method="POST">
+                                    <div class="change-data">
+                                        <div class="first-name-contain">
+                                            <label for="fname" class="edit-info-label">Fname</label>
+                                            <input name="fname" class="edit-info-feild" type="text">
+                                        </div>
+                                        <div class="first-name-change">
+                                            <label for="lname" class="edit-info-label">Lname</label>
+                                            <input name="lname" class="edit-info-feild" type="text">
+                                        </div>
+                                        <div class="change-email-contain">
+                                            <label for="email" class="edit-info-label">Email</label>
+                                            <input name="email" class="edit-info-feild" type="email">
+                                        </div>
+                                        <div class="phone-email-contain">
+                                            <label for="phone" class="edit-info-label">Phone</label>
+                                            <input name="phone" class="edit-info-feild" type="text">
+                                        </div>
+                                        <div class="edit-info-buttons">
+                                            <button style="margin-left: 40px; background-color: #f00; color: #eee;" class="btn" type="submit">cancel</button>
+                                            <button class="btn submition-data" type="submit">Save New Data</button>
+                                        </div>
+                                            
+                                    </div> 
 
-                                    <div class="user-single-info-cont user-email"><i class="las la-envelope single-info-icon"></i>abd0m07arram@yahoo.com</div>
-                                    <div class="user-single-info-cont user-phone"><i class="las la-mobile-alt single-info-icon"></i>01133311297</div>
-                                    <div class="user-single-info-cont user-location"><i class="las la-map-marker single-info-icon"></i>Egypt,Cairo</div>
-                                    <div class="user-single-info-cont user-created-date"><i class="las la-clock single-info-icon"></i>11-3-2017</div>
-                                 </div>
+                                    
+                                 </form>
 
                              </div>
                         </div>
@@ -138,18 +210,29 @@
 
                         <div class="container-fluid user-info-container" id="reset-pass-cont">
                             <div class="row">
-                                 <div class="user-name-pic col-lg-3 col-sm-11">
-                                <img src="assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg" class="user-profile-pic">
-                                <div class="user-name">Abdelrahman Moharram</div>
-                                 </div>
-                                 <!-- <div style="margin-left: 20px;"></div> -->
-                                 <div class="user-typed-infos col-lg-8">
- 
-                                     <div class="user-single-info-cont user-email"><i class="las la-envelope single-info-icon"></i>abd0m07arram@yahoo.com</div>
-                                     <div class="user-single-info-cont user-phone"><i class="las la-mobile-alt single-info-icon"></i>01233311297</div>
-                                     <div class="user-single-info-cont user-location"><i class="las la-map-marker single-info-icon"></i>Egypt,Cairo</div>
-                                     <div class="user-single-info-cont user-created-date"><i class="las la-clock single-info-icon"></i>11-3-2017</div>
-                                 </div>
+                                <div class="reset-password-child">
+                                    <form action="" method="POST">
+                                        <div class="change-pass-contain">
+                                            <label for="oldpass" class="edit-info-label">old password</label>
+                                            <input name="oldpass" class="edit-info-feild" type="password">
+                                        </div>
+                                        <div class="change-pass-contain">
+                                            <label for="newPass" class="edit-info-label">new password</label>
+                                            <input name="newPass" class="edit-info-feild" type="password">
+                                        </div>
+                                        <div class="change-pass-contain">
+                                            <label for="subnewPass" class="edit-info-label">submit password</label>
+                                            <input name="subnewPass" class="edit-info-feild" type="password">
+                                        </div>
+                                        
+                                            
+                                        <div class="edit-info-buttons">
+                                            <button class="btn cancel-changes" type="submit">cancel</button>
+                                            <button class="btn submition-data" type="submit">Save New Data</button>
+                                        </div>
+                                        
+                                    </form>
+                                </div> 
                              </div>
                         </div>
 

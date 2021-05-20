@@ -669,11 +669,12 @@
 
 
 .settings-cont{
-    margin: 30px auto;
+    margin: 50px auto;
     background-color: #0d6efd;
     padding: 20px 10px 30px;
     overflow-x: hidden;
     height: fit-content;
+    border-radius: 5px;
 }
 .single-setting-cont{
     padding: 10px 20px;
@@ -683,16 +684,18 @@
     display: block;
     color: #007bff;
     border-radius: 10px;
+    transition: all linear .1s;
 }
 .single-setting-cont:hover{
     text-decoration: none;
     color: #007bff;
-    background-color: #fff;
-}
+    background-color: #b9b9b9;
+    }
 .info-cont{
     background-color:#0d6efd ;
     margin: 30px auto;
     padding: 20px 10px;
+    border-radius: 5px;
 }
 
 .user-profile-pic{
@@ -733,4 +736,20 @@
 .single-info-icon{
     font-size: 20px;
     margin-right: 10px;
+}
+
+
+.active-profile-settings{
+    background-color: #004bb9;
+    color: #eee;
+}
+.active-profile-settings:hover{
+    color: #eee;
+    background-color: #004bb9;
+}
+.user-info-container{
+    display: none;
+}
+#profile-info-cont{
+    display: block;
 }

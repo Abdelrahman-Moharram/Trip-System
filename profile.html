@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
+    
+
+    <style>
+        
+    </style>
 
     
 </head>
@@ -81,17 +86,18 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-2 col-md-3 col-sm-11 settings-cont">            
-                        <a class="single-setting-cont">Edit Info</a>
-                        <a class="single-setting-cont">Reset Password</a>
-                        <a class="single-setting-cont">Setting-3</a>
-                        <a class="single-setting-cont">Setting-4</a>
-                        <a class="single-setting-cont">Setting-5</a>
-                        <a class="single-setting-cont">Delete or Detictive</a>
+                        <a onclick="switchProfileSetting('user-info','profile-info-cont')" class="single-setting-cont active-profile-settings" id="user-info">USER Info</a>
+                        <a onclick="switchProfileSetting('edit-info','edit-info-cont')" class="single-setting-cont" id="edit-info">Edit Info</a>
+                        <a onclick="switchProfileSetting('reset-password','reset-pass-cont')" class="single-setting-cont" id="reset-password">Reset Password</a>
+                        <a onclick="switchProfileSetting('delete-detective','delete-user-cont')" class="single-setting-cont" id="delete-detective">Delete or Detictive</a>
+                        <a onclick="switchProfileSetting()" class="single-setting-cont">Setting-4</a>
+                        <a onclick="switchProfileSetting()" class="single-setting-cont">Setting-5</a>
                     </div>
 
 
                     <div class="col-lg-9 col-md-7 col-sm-11 info-cont">
-                       <div class="container-fluid user-info-container">
+
+                       <div class="container-fluid user-info-container" id="profile-info-cont">
                            <div class="row">
                                 <div class="user-name-pic col-lg-3 col-sm-11">
                                <img src="assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg" class="user-profile-pic">
@@ -107,7 +113,72 @@
                                 </div>
                             </div>
                        </div>
+
+
+                        <div class="container-fluid user-info-container" id="edit-info-cont">
+                            <div class="row">
+                                 <div class="user-name-pic col-lg-3 col-sm-11">
+                                <img src="assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg" class="user-profile-pic">
+                                <div class="user-name">Abdelrahman Moharram</div>
+                                 </div>
+                             <!-- <div style="margin-left: 20px;"></div> -->
+                                 <div class="user-typed-infos col-lg-8">
+
+                                    <div class="user-single-info-cont user-email"><i class="las la-envelope single-info-icon"></i>abd0m07arram@yahoo.com</div>
+                                    <div class="user-single-info-cont user-phone"><i class="las la-mobile-alt single-info-icon"></i>01133311297</div>
+                                    <div class="user-single-info-cont user-location"><i class="las la-map-marker single-info-icon"></i>Egypt,Cairo</div>
+                                    <div class="user-single-info-cont user-created-date"><i class="las la-clock single-info-icon"></i>11-3-2017</div>
+                                 </div>
+
+                             </div>
+                        </div>
+
+
+
+
+                        <div class="container-fluid user-info-container" id="reset-pass-cont">
+                            <div class="row">
+                                 <div class="user-name-pic col-lg-3 col-sm-11">
+                                <img src="assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg" class="user-profile-pic">
+                                <div class="user-name">Abdelrahman Moharram</div>
+                                 </div>
+                                 <!-- <div style="margin-left: 20px;"></div> -->
+                                 <div class="user-typed-infos col-lg-8">
+ 
+                                     <div class="user-single-info-cont user-email"><i class="las la-envelope single-info-icon"></i>abd0m07arram@yahoo.com</div>
+                                     <div class="user-single-info-cont user-phone"><i class="las la-mobile-alt single-info-icon"></i>01233311297</div>
+                                     <div class="user-single-info-cont user-location"><i class="las la-map-marker single-info-icon"></i>Egypt,Cairo</div>
+                                     <div class="user-single-info-cont user-created-date"><i class="las la-clock single-info-icon"></i>11-3-2017</div>
+                                 </div>
+                             </div>
+                        </div>
+
+
+
+                        <div class="container-fluid user-info-container" id="delete-user-cont">
+                            <div class="row">
+                                 <div class="user-name-pic col-lg-3 col-sm-11">
+                                <img src="assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg" class="user-profile-pic">
+                                <div class="user-name">Abdelrahman Moharram</div>
+                                 </div>
+                                 <!-- <div style="margin-left: 20px;"></div> -->
+                                 <div class="user-typed-infos col-lg-8">
+ 
+                                     <div class="user-single-info-cont user-email"><i class="las la-envelope single-info-icon"></i>abd0m07arram@yahoo.com</div>
+                                     <div class="user-single-info-cont user-phone"><i class="las la-mobile-alt single-info-icon"></i>01333311297</div>
+                                     <div class="user-single-info-cont user-location"><i class="las la-map-marker single-info-icon"></i>Egypt,Cairo</div>
+                                     <div class="user-single-info-cont user-created-date"><i class="las la-clock single-info-icon"></i>11-3-2017</div>
+                                 </div>
+                             </div>
+                        </div>
+
                     </div>
+
+
+
+
+
+                     
                 </div>
             </div>
             
@@ -138,11 +209,8 @@
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-        <script src="js/script.js"></script>
-        <script src="js/posts.js"></script>
+        <!-- <script src="js/script.js"></script> -->
 
-        <script>
-   
-        </script>
+        <script src="js/profileSettings.js"></script>
 </body>
 </html>

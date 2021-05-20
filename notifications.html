@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Notifications</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
+
+    <style>
+        
+        .all-notifications{
+            margin-top: 30px;
+            border-radius: 5px;
+            width: 70%;
+        }
+        .all-notifications .row{
+            margin: 0px;
+        }
+
+        .notification-cont  {
+            width: 100%;
+            padding:20px 50px;
+            background-color: #ddd;
+            border-bottom: rgb(197, 197, 197) 1px solid;
+        }
+        .notifi-name{
+            font-weight: 530;
+        }
+        .notifi-date{
+            display: block;
+            font-size: 10px;
+            opacity: .7;
+        }
+        .user-notification-pic{
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            float: left;
+            margin-right: 10px;
+            margin-top: 0px;
+        }
+        .notification-options{
+            font-size: 16px;
+            float:right;
+        }
+        .post-noti-icon{
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        .dropdown-item{
+            cursor: pointer;
+        }
+    </style>
+
+    
+</head>
+<body>
+
+
+    <div class="new-post-window">
+
+        <div class="new-post">
+            <i class="las la-times close-new-post" onclick="closePost()"></i>
+            <form action="" method="POST">
+                <div class="header-container">
+                    <input onclick="showLine('header-container')" type="text" max="300" id="newpost-header" placeholder="add title ...">
+                    <div class="form-input-divider"><div class="form-input-insider"></div></div>
+
+                </div>
+                
+                <div class="newpost-body-container" style="margin-bottom: 0px;">
+                    <textarea onclick="showLine('newpost-body-container')" type="text" max="3000" id="newpost-content"  placeholder="Write Post"></textarea>
+                    <div class="form-input-divider"><div class="form-input-insider" style="margin-top: -7px;"></div></div>
+                </div>
+                <input type="file" name="file" id="file" class="add-file" data-multiple-caption="{count} files selected" multiple />
+                <label class="btn btn-primary  " for="file">choose file <i class="las la-cloud-upload-alt"></i></label>
+                <!-- <input type="submit" name="submit" value="Upload"> -->
+
+                <div class="newpost-submition">
+                    <button class="btn btn-primary mb-3 submit-post">Submit</button>
+                    <button class="btn btn-primary mb-3 cancel-post">Cancel</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+    <nav class="navbar" style="display:block;">
+
+        <a href="javascript:void(0)" class="open-nav" onclick="openNav()"><i class="las la-bars"></i></a>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="las la-times"></i></a>
+        <a class="nav-brand" href="agency.html">Dash Board</a>
+  
+  
+      </nav>
+        <!-------------------------------------------------------nav bar and side nav bar----------------------------------------------------------->
+        <div id="mySidenav" class="sidenav">
+            
+            <a href="link-1"  class="link-item"><i class="las la-user"  style="margin-left: 8px;margin-right: 5px;"></i> <span class="nav-text">profile </span></a>
+            <a class="link-item" onclick="createPost()" id="create-post"><i class="las la-plus"  style="margin-left: 8px;margin-right: 5px;cursor: pointer;"></i> <span  class="nav-text">Create Post </span></a>
+            <a href="myposts.html" class="link-item"><i class="las la-photo-video"  style="margin-left: 8px;margin-right: 5px;"></i><span  class="nav-text"> My Posts</span></a>
+            
+            
+            <a id="notifis" onclick="showNotifi()" class="link-item active-sideNav"><div id="notify-num">200</div><i class="las la-bell" style="margin-left: 8px;margin-right: 5px;"></i><span class="nav-text"> Recived Questions </span></a>
+        </div>
+        
+        
+        <div class="container-fluid">
+            <div class="row">
+                <div id="notification-menu" class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                    <a href="notifications.html" class="notifi-tab">
+                        see all notifications 
+                    </a>
+
+        <div class="notfis-list">
+
+                    <a class="single-notifi" id="comment-0">
+                        <i class="las la-times-circle close-notifi" onclick="closeNotifi('comment-0')"></i>
+                        <div class="notifi-name">Abdelrahman Moharram</div>
+                        <img src="assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg" class="user-post-pic" alt="">
+                        <div class="notifi-body">
+                            <div>is asked you a questions on your post at 02:00pm 11-3-2021</div>
+                        </div>
+                    </a>
+        
+
+
+            <a class="single-notifi" id="comment-1">
+                <i class="las la-times-circle close-notifi" onclick="closeNotifi('comment-1')"></i>
+                <div class="notifi-name">Atef Hamdy</div>
+                <img src="assets/userimgs/atef.jpg" class="user-post-pic" alt="">
+                <div class="notifi-body">
+                    <div>is asked you a questions on your post at 02:00pm 11-3-2021</div>
+                </div>
+            </a>
+
+
+
+
+            <a class="single-notifi" id="comment-2">
+                <i class="las la-times-circle close-notifi" onclick="closeNotifi('comment-2')"></i>
+                <div class="notifi-name">حامد فرج</div>
+                <img src="assets/userimgs/hamed.jpg" class="user-post-pic" alt="">
+                <div class="notifi-body">
+                    <div>is asked you a questions on your post at 02:00pm 11-3-2021</div>
+                </div>
+            </a>
+        </div>
+            
+            </div>
+        </div>
+        </div>
+         
+
+
+        <!---------------------------------------------------------------- body and cards -------------------------------------------------->
+
+
+
+
+
+        <div class="container all-notifications">
+            <div class="row">
+
+
+                <div class="notification-cont" id="not-0">
+                    <img class="user-notification-pic" src="assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg" alt="">
+                    <div class="notifi-name">Abdelrahman Moharram</div>
+                    <div class="dropdown  notification-options">
+                        <i class="las la-ellipsis-h"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" onclick="hidenotification('not-0')"><i class="las la-ban"></i>hide</a>
+                        </div>
+                      </div>
+                    <div class="notifi-date">22 jan 2022 at 8:42am</div>
+                    <div class="notifi-content">is asked you a questions on your post at 02:00pm 11-3-2021</div>
+                </div>
+
+
+                <div class="notification-cont" id="not-1">
+                    <img class="user-notification-pic" src="assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg" alt="">
+                    <div class="notifi-name">Abdelrahman Moharram</div>
+                    <div class="dropdown  notification-options">
+                        <i class="las la-ellipsis-h"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" onclick="hidenotification('not-1')"><i class="las la-ban"></i>hide</a>
+                        </div>
+                      </div>
+                    <div class="notifi-date">22 jan 2022 at 8:42am</div>
+                    <div class="notifi-content">is asked you a questions on your post at 02:00pm 11-3-2021</div>
+                </div>
+
+
+                <div class="notification-cont" id="not-2">
+                    <img class="user-notification-pic" src="assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg" alt="">
+                    <div class="notifi-name">Abdelrahman Moharram</div>
+                    <div class="dropdown  notification-options">
+                        <i class="las la-ellipsis-h"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" onclick="hidenotification('not-2')"><i class="las la-ban"></i>hide</a>
+                        </div>
+                      </div>
+                    <div class="notifi-date">22 jan 2022 at 8:42am</div>
+                    <div class="notifi-content">is asked you a questions on your post at 02:00pm 11-3-2021</div>
+                </div>
+
+                
+            </div>
+        </div>
+
+        
+
+
+        <!------------------------------------------------------------------------------------------------------------------>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script>
+       function hidenotification(id){
+           document.getElementById(id).style.display = "none"
+       }
+    </script>
+</body>
+</html>
+
+
+
+<!-- <label for="exampleColorInput" class="form-label">Color picker</label>
+<input type="color" class="form-control form-control-color" id="exampleColorInput" value="#563d7c" title="Choose your color"> -->

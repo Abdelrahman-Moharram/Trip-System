@@ -91,22 +91,19 @@ like[id].style.transform = "scale(1.0,1.0)";
 function comment_show(id){
 var comment = document.getElementsByClassName("post-comments");
 var comm_icon = document.getElementsByClassName("post-comment-icon");
-console.log(id);
-if(comment[id].style.display === "none")
+console.log(comment[id].style.display);
+if(comment[id].style.display !== "none")
 {
-    comment[id].style.display = "inline-block";
-    comm_icon[id].style.color = "#009900";
-    comm_icon[id].style.transform = "scale(1.3,1.3)";
-}
-else{
+    
+
     comment[id].style.display = "none";
     comm_icon[id].style.color = "#1a1a1a";
     comm_icon[id].style.transform = "scale(1.0,1.0)";
 }
+else{
+    comment[id].style.display = "inline-block";
+    comm_icon[id].style.color = "#009900";
+    comm_icon[id].style.transform = "scale(1.3,1.3)";
 }
-
-function hidePost(id){
-var post = document.getElementById(id);
-post.style.display = "none";
 }
 

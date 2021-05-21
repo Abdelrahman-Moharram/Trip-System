@@ -3,3 +3,21 @@ function closeCard(id){
     card[id].style.display = "none";
 
 }
+
+function showPopup(id){
+    if(id == "user-profile-full-cont"){
+        document.getElementById("profile-pic-options").style.transform = "scaleX(0)";
+    }
+    document.getElementById(id).style.transform = "scaleX(1)";
+}
+function hidePopup(id){
+    document.getElementById(id).style.transform = "scaleX(0)";
+}
+
+
+
+function hidePost(id){
+    var post = document.getElementById(id);
+    post.style.display = "none";
+    }
+    

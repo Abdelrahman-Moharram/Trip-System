@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>accept posts</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .acception{
+            float: left;
+            margin: 10px 20px;
+        }
+        .acception-icon{
+            padding: 10px;
+            background-color: #f00;
+            color: #eee;
+            font-weight: bolder;
+            border-radius: 100%;
+            cursor: pointer;
+            border: 1px solid #f00;
+            transition: all .3s ease-out;
+        }
+        .acception-icon:hover{
+            background-color: transparent;
+            color:#f00;
+        }
+        
+        .acception .la-check{
+            background-color: #0f0;
+            margin-left: 30px;
+            border: 1px solid #0f0;
+        }
+        .acception .la-check:hover{
+            background-color: transparent;
+            color: #0f0;
+        }
+        .acception button{
+            border: none;
+            outline: none;
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="massive-container">
+           
+            <div class="container">
+                <div class="row">
+    
+    
+                    <div class="post col-lg-8 col-md-10 col-sm-12" id="0">
+                        <div class="post-header">
+                            <div class="post-auther">
+                                <img class="user-post-pic" src="assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg" alt="">
+                                <div class="post-auther-name">Abdelrahman Moharram</div>
+                                <div class="dropdown  post-options">
+                                    <i class="las la-ellipsis-v"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                      <a class="dropdown-item" onclick="hidePost(0)"><i class="las la-ban"></i>hide</a>
+                                      <a class="dropdown-item"><i class="las la-bookmark"></i> save</a>
+                                    </div>
+                                </div>
+                              <div class="post-date">published at: 28 April 2025</div>
+                            </div>
+                            
+                            <div class="post-title">
+                                Travel to helwan university
+                            </div>
+                            <div class="post-detials">
+                                صباح النصر علي اوسخ جامعه في مصر
+                            </div>
+                        </div>
+    
+                        <img class="post-img" src="assets/postsImgs/slide-hawaii.jpg">
+                        <div class="date-location-cont">
+                            <div class="trip-location"><i class="las la-map-marker-alt"></i> country, city</div>
+                            <div class="trip-date"><i class="lar la-clock" style="font-size: 17px;margin-right: 10px;position: absolute;margin-top: 2px;"></i><span style="margin-left: 24px;">launched at : 22 Dec 2021 at 11:30am</span></div>
+                        </div>  
+                        <form class="acception" method="POST">
+                            <button type="submit"> <i class="las la-times acception-icon"></i></button>
+                            <button type="submit"> <i class="las la-check acception-icon"></i></button>
+                        </form>                     
+                    </div>  
+                </div>
+            </div>            
+    </div>
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script>
+
+    </script>
+</body>
+</html>

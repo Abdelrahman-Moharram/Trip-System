@@ -754,3 +754,160 @@
 #profile-info-cont{
     display: block;
 }
+
+
+
+
+.edit-info-feild{
+    width: 300px;
+    height: 25px;
+    padding: 20px;
+    outline: none;
+    border-radius: 10px;
+    margin: 20px 10px;
+    border: none;
+    color: #007bff;
+
+}
+/* #edit-info-cont,#reset-pass-cont{
+    background-color: #004bb9;
+} */
+
+.edit-info-input{
+    width: 90%;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 10px
+}
+.edit-info-container
+{
+    padding: 10px;
+    background-color: #eee;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 1px #ddd;
+}
+
+.update-data-button{
+    margin: 40px auto;
+    width: 100px;
+    border-radius: 7px;
+}
+.submit-data{
+    background-color: #007bff;
+    color: #eee;
+    margin-left: 20px;
+}
+.cancel-data{
+    background-color: #f00;
+    color: #eee;
+}
+.edit-info-tail{
+    padding: 20px 10px 0px;
+}
+.container-fluid .row form{
+    padding: 30px;
+    display: contents;
+}
+.user-typed-infos{
+    padding: 30px;
+}
+.buttons-conteh{
+    margin-right: 50px;
+    float: right;
+    padding-top: 40px;
+}
+.warn-change-data{
+    margin-top: 20px;
+}
+.delete-account-btn{
+    cursor: pointer;
+    width: max-content;
+    margin: 20px 40px;
+    background-color: #f00;
+    color: #eee;
+    font-weight: 500;
+    border: 2px solid #f00;
+    border-radius: 7px;
+}
+.delete-account-btn:hover{
+    background-color: transparent;
+    color: #f00;
+}
+.user-profile-ing-child{
+    width: 42%;
+    margin: 50px auto;
+}
+#full-user-img{
+    width: 100%;
+}
+#user-profile-full-cont{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 3;
+    transform: scaleX(0);
+    transition: all .2s linear;
+}
+.option-profile-pic-icon{
+    font-size: 20px;
+    float: right;
+    color: #fff;
+    padding: 10px;
+    background-color: #f00;
+    border-radius: 100%;
+    margin: 15px 20px ;
+    cursor: pointer;
+}
+.option-profile-pic-icon:hover{
+    background-color: rgb(228, 0, 0);
+}
+#user-pic-update-view{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 3;
+}
+.user-pic-update-view-child{
+    width: 30%;
+    margin: 10% auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #007bff;
+}
+.view-photo-options{
+    width: 100%;
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 0px 0px 10px 10px;
+    color: #007bff;
+    cursor:pointer;
+    transition: all .3s ease;
+}
+.upload-photo-options{
+    width: 100%;
+    background-color: #eee !important;
+    padding: 10px;
+    border-radius: 10px 10px 0px 0px;
+    color: #007bff !important; 
+    cursor:pointer;
+    transition: all .3s ease;
+}
+.view-photo-options:hover{
+    background-color: rgb(191, 190, 190);
+}
+.upload-photo-options:hover{
+    background-color: rgb(191, 190, 190) !important;
+}
+#profile-pic-options{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 3;
+    transform: scaleX(0);
+    transition: all .2s linear;
+}

@@ -81,7 +81,7 @@
 
 
     .cards{
-        height: auto;
+        height: fit-content;
         border-radius: 20px;
         padding: 20px 20px;
         /*border: 3px solid #ff4d4d;*/
@@ -705,6 +705,7 @@
     width: 100%;
     float: left;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 .user-info-container{
     background-color: #ddd;

@@ -496,7 +496,39 @@
 
 
 
-
+    .acception{
+        float: left;
+        margin: 10px 20px;
+    }
+    .acception-icon{
+        padding: 10px;
+        background-color: #f00;
+        color: #eee;
+        font-weight: bolder;
+        border-radius: 100%;
+        cursor: pointer;
+        border: 1px solid #f00;
+        transition: all .3s ease-out;
+    }
+    .acception-icon:hover{
+        background-color: transparent;
+        color:#f00;
+    }
+    
+    .acception .la-check{
+        background-color: #0f0;
+        margin-left: 30px;
+        border: 1px solid #0f0;
+    }
+    .acception .la-check:hover{
+        background-color: transparent;
+        color: #0f0;
+    }
+    .acception button{
+        border: none;
+        outline: none;
+        background-color: transparent;
+    }
 
 
 
@@ -782,7 +814,7 @@
     border: none;
     outline: none;
     padding: 10px 20px;
-    border-radius: 10px
+    border-radius: 10px;
 }
 .edit-info-container
 {
@@ -1018,4 +1050,69 @@
 }
 .login-button{
     border-radius: 0px 0px 10px 0px;
+}
+
+
+
+
+
+
+
+.register{
+    height: auto;
+    background-color: #ddd;
+    padding: 50px 0px;
+    margin:30px auto;
+    border-radius: 10px;
+
+}
+
+/* .reg-container{
+    padding: 5px 10px;
+} */
+.regist-form{
+    margin: auto;
+}
+
+.register-form-cont-parent{
+    background-color: #ddd;
+    height: auto;
+}
+.register-form-cont-child{
+    margin: 0px auto;
+}
+.register-button{
+    margin: 0px;
+    width: 100px;
+    border-radius: 7px;
+}
+.button-reg-cont
+{
+    margin-right: 10px;
+    float: right;
+    padding-top: 40px;
+}
+.register-input-feild
+{
+    width: 90%;
+    border: none;
+    outline: none;
+    padding: 50px 20px;
+    border-radius: 10px;
+}
+.register-input-cont
+{
+    padding: 5px 10px;
+    background-color: #eee;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 1px #ddd;
+}
+
+.sign-input{
+    width: 85%;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 10px;
 }

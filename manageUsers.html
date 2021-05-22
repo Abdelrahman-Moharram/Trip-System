@@ -15,10 +15,31 @@
 
     <style>       
         
-        .user-card-options{
-            font-size: 25px;
-            margin-top: 10px;
+        
+        
+
+
+        .user-options-bar-icon{
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 100%;
+            background-color: rgb(255, 255, 255);
+            cursor: pointer;
+            transition: all .3s ease-out;
+            margin: 0px 15px;
         }
+        .user-options-bar-icon:hover{
+            background-color: rgb(197, 197, 197);
+            text-decoration: none;
+        }
+        
+        .user-options-bar{
+            width: 50%;
+            margin: 0px auto;
+            padding: 0px;
+        }
+
+
 
     </style>
 
@@ -32,10 +53,12 @@
 
 
 
-                <div class="col-lg-9 col-md-7 col-sm-11 info-cont">
+                <div class="col-lg-9 col-md-10  col-sm-11 info-cont">
 
                     <div class="container-fluid user-info-container" id="profile-info-cont">
                         <div class="row">
+
+                            
                             
                              <div class="user-name-pic col-lg-3 col-sm-11">
                                 <img onerror='this.onerror=null;this.src="assets/defaultpics/940-9406687_already-a-proact-user-employee-icon-white-png.png"' src="assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg" onclick="showPopup('profile-pic-options')" class="user-profile-pic">
@@ -53,25 +76,27 @@
                                  <div class="user-single-info-cont user-created-date"><i class="las la-clock single-info-icon"></i>11-3-2017</div>
                                  
                             </div>
-                             
-                            <div class="dropdown user-card-options">
-                                <i class="las la-ellipsis-v"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <a href="updateUserInfo.html" class="dropdown-item"><i class="las la-user-edit"></i> update</a>
-                                  <a class="dropdown-item"><i class="las la-trash"></i> Remove</a>
-                                </div>
+
+
+                            <div class="d-flex user-options-bar justify-content-center">
+                                <a title="remove user" style="color: #f00;" class="las la-trash user-options-bar-icon"></a>
+                                <a href="updateUserInfo.html" title="edit user info" class="las la-user-edit user-options-bar-icon"></a>
+                                <a onclick="hidePost(0)" title="hide user" class="las la-eye-slash user-options-bar-icon"></a>
                             </div>
+                             
+                            
                              
                          </div>
                     </div>
                 </div>
 
 
-
-                <div class="col-lg-9 col-md-7 col-sm-11 info-cont">
+                <div class="col-lg-9 col-md-10  col-sm-11 info-cont">
 
                     <div class="container-fluid user-info-container" id="profile-info-cont">
                         <div class="row">
+
+                            
                             
                              <div class="user-name-pic col-lg-3 col-sm-11">
                                 <img onerror='this.onerror=null;this.src="assets/defaultpics/940-9406687_already-a-proact-user-employee-icon-white-png.png"' src="assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg" onclick="showPopup('profile-pic-options')" class="user-profile-pic">
@@ -89,26 +114,37 @@
                                  <div class="user-single-info-cont user-created-date"><i class="las la-clock single-info-icon"></i>11-3-2017</div>
                                  
                             </div>
-                             
-                            <div class="dropdown user-card-options">
-                                <i class="las la-ellipsis-v"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <a href="updateUserInfo.html" class="dropdown-item"><i class="las la-user-edit"></i> update</a>
-                                  <a class="dropdown-item"><i class="las la-trash"></i> Remove</a>
-                                </div>
+
+
+                            <div class="d-flex user-options-bar justify-content-center">
+                                <a title="remove user" style="color: #f00;" class="las la-trash user-options-bar-icon"></a>
+                                <a href="updateUserInfo.html" title="edit user info" class="las la-user-edit user-options-bar-icon"></a>
+                                <a onclick="hidePost(0)" title="hide user" class="las la-eye-slash user-options-bar-icon"></a>
                             </div>
+                             
+                            
                              
                          </div>
                     </div>
                 </div>
+                
 
 
 
 
-                <div class="col-lg-9 col-md-7 col-sm-11 info-cont">
+
+
+
+
+
+
+
+                <div class="col-lg-9 col-md-10  col-sm-11 info-cont">
 
                     <div class="container-fluid user-info-container" id="profile-info-cont">
                         <div class="row">
+
+                            
                             
                              <div class="user-name-pic col-lg-3 col-sm-11">
                                 <img onerror='this.onerror=null;this.src="assets/defaultpics/940-9406687_already-a-proact-user-employee-icon-white-png.png"' src="assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg" onclick="showPopup('profile-pic-options')" class="user-profile-pic">
@@ -126,19 +162,19 @@
                                  <div class="user-single-info-cont user-created-date"><i class="las la-clock single-info-icon"></i>11-3-2017</div>
                                  
                             </div>
-                             
-                            <div class="dropdown user-card-options">
-                                <i class="las la-ellipsis-v"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <a href="updateUserInfo.html" class="dropdown-item"><i class="las la-user-edit"></i> update</a>
-                                  <a class="dropdown-item"><i class="las la-trash"></i> Remove</a>
-                                </div>
+
+
+                            <div class="d-flex user-options-bar justify-content-center">
+                                <a title="remove user" style="color: #f00;" class="las la-trash user-options-bar-icon"></a>
+                                <a href="updateUserInfo.html" title="edit user info" class="las la-user-edit user-options-bar-icon"></a>
+                                <a onclick="hidePost(0)" title="hide user" class="las la-eye-slash user-options-bar-icon"></a>
                             </div>
+                             
+                            
                              
                          </div>
                     </div>
                 </div>
-
 
 
 

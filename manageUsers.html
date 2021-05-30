@@ -19,27 +19,42 @@
         
 
 
-        .user-options-bar-icon{
-            font-size: 20px;
-            padding: 10px;
-            border-radius: 100%;
-            background-color: rgb(255, 255, 255);
-            cursor: pointer;
-            transition: all .3s ease-out;
-            margin: 0px 15px;
-        }
-        .user-options-bar-icon:hover{
-            background-color: rgb(197, 197, 197);
-            text-decoration: none;
-        }
-        
-        .user-options-bar{
-            width: 50%;
+        .users-table-cont{
+            padding-top: 40px;
             margin: 0px auto;
-            padding: 0px;
+        }
+        .users-table{
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .users-table .btn{
+            padding: 6px 10px;
+            line-height: normal;
+        }
+        .users-table thead tr{
+            background-color: #0d6efd;
+            color: #fff;
+        }
+        .users-table thead tr:hover{
+            background-color: #0d6efd;
+        }
+        .users-table th ,.users-table tr{
+            text-align: center;
+            text-align: center;
+        }
+        .table td{
+            padding: 5px 10px;
+            vertical-align: top;
+            border-top: 1px solid rgba(0, 0, 0, 0.3);
+        }
+        .table tr{
+            transition: background-color .5s ease-out;
+        }
+        .table tr:hover{
+            background-color: #ccc;
         }
 
-
+        
 
     </style>
 
@@ -47,139 +62,68 @@
 </head>
 <body>
 
+    
+
+    <nav class="navbar" style="display:block;">
+
+        
+        <a class="nav-brand" href="agency.html">Factory</a>
+  
+  
+      </nav>
+
     <div class="massive-container">
-        <div class="container-fluid">
+        <div class="container users-table-cont">
+
             <div class="row">
-
-
-
-                <div class="col-lg-9 col-md-10  col-sm-11 info-cont">
-
-                    <div class="container-fluid user-info-container" id="profile-info-cont">
-                        <div class="row">
-
-                            
-                            
-                             <div class="user-name-pic col-lg-3 col-sm-11">
-                                <img onerror='this.onerror=null;this.src="assets/defaultpics/940-9406687_already-a-proact-user-employee-icon-white-png.png"' src="assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg" onclick="showPopup('profile-pic-options')" class="user-profile-pic">
-                                <div class="user-name">Abdelrahman Moharram</div>
-                             </div>
-            
-            
-            
-                             <!-- <div style="margin-left: 20px;"></div> -->
-                             <div class="user-typed-infos col-lg-8">
-            
-                                 <div class="user-single-info-cont user-email"><i class="las la-envelope single-info-icon"></i>abd0m07arram@yahoo.com</div>
-                                 <div class="user-single-info-cont user-phone"><i class="las la-mobile-alt single-info-icon"></i>01033311297</div>
-                                 <div class="user-single-info-cont user-location"><i class="las la-map-marker single-info-icon"></i>Egypt,Cairo</div>
-                                 <div class="user-single-info-cont user-created-date"><i class="las la-clock single-info-icon"></i>11-3-2017</div>
-                                 
-                            </div>
-
-
-                            <div class="d-flex user-options-bar justify-content-center">
-                                <a title="remove user" style="color: #f00;" class="las la-trash user-options-bar-icon"></a>
-                                <a href="updateUserInfo.html" title="edit user info" class="las la-user-edit user-options-bar-icon"></a>
-                                <a onclick="hidePost(0)" title="hide user" class="las la-eye-slash user-options-bar-icon"></a>
-                            </div>
-                             
-                            
-                             
-                         </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-9 col-md-10  col-sm-11 info-cont">
-
-                    <div class="container-fluid user-info-container" id="profile-info-cont">
-                        <div class="row">
-
-                            
-                            
-                             <div class="user-name-pic col-lg-3 col-sm-11">
-                                <img onerror='this.onerror=null;this.src="assets/defaultpics/940-9406687_already-a-proact-user-employee-icon-white-png.png"' src="assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg" onclick="showPopup('profile-pic-options')" class="user-profile-pic">
-                                <div class="user-name">Abdelrahman Moharram</div>
-                             </div>
-            
-            
-            
-                             <!-- <div style="margin-left: 20px;"></div> -->
-                             <div class="user-typed-infos col-lg-8">
-            
-                                 <div class="user-single-info-cont user-email"><i class="las la-envelope single-info-icon"></i>abd0m07arram@yahoo.com</div>
-                                 <div class="user-single-info-cont user-phone"><i class="las la-mobile-alt single-info-icon"></i>01033311297</div>
-                                 <div class="user-single-info-cont user-location"><i class="las la-map-marker single-info-icon"></i>Egypt,Cairo</div>
-                                 <div class="user-single-info-cont user-created-date"><i class="las la-clock single-info-icon"></i>11-3-2017</div>
-                                 
-                            </div>
-
-
-                            <div class="d-flex user-options-bar justify-content-center">
-                                <a title="remove user" style="color: #f00;" class="las la-trash user-options-bar-icon"></a>
-                                <a href="updateUserInfo.html" title="edit user info" class="las la-user-edit user-options-bar-icon"></a>
-                                <a onclick="hidePost(0)" title="hide user" class="las la-eye-slash user-options-bar-icon"></a>
-                            </div>
-                             
-                            
-                             
-                         </div>
-                    </div>
-                </div>
-                
-
-
-
-
-
-
-
-
-
-
-
-                <div class="col-lg-9 col-md-10  col-sm-11 info-cont">
-
-                    <div class="container-fluid user-info-container" id="profile-info-cont">
-                        <div class="row">
-
-                            
-                            
-                             <div class="user-name-pic col-lg-3 col-sm-11">
-                                <img onerror='this.onerror=null;this.src="assets/defaultpics/940-9406687_already-a-proact-user-employee-icon-white-png.png"' src="assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg" onclick="showPopup('profile-pic-options')" class="user-profile-pic">
-                                <div class="user-name">Abdelrahman Moharram</div>
-                             </div>
-            
-            
-            
-                             <!-- <div style="margin-left: 20px;"></div> -->
-                             <div class="user-typed-infos col-lg-8">
-            
-                                 <div class="user-single-info-cont user-email"><i class="las la-envelope single-info-icon"></i>abd0m07arram@yahoo.com</div>
-                                 <div class="user-single-info-cont user-phone"><i class="las la-mobile-alt single-info-icon"></i>01033311297</div>
-                                 <div class="user-single-info-cont user-location"><i class="las la-map-marker single-info-icon"></i>Egypt,Cairo</div>
-                                 <div class="user-single-info-cont user-created-date"><i class="las la-clock single-info-icon"></i>11-3-2017</div>
-                                 
-                            </div>
-
-
-                            <div class="d-flex user-options-bar justify-content-center">
-                                <a title="remove user" style="color: #f00;" class="las la-trash user-options-bar-icon"></a>
-                                <a href="updateUserInfo.html" title="edit user info" class="las la-user-edit user-options-bar-icon"></a>
-                                <a onclick="hidePost(0)" title="hide user" class="las la-eye-slash user-options-bar-icon"></a>
-                            </div>
-                             
-                            
-                             
-                         </div>
-                    </div>
-                </div>
-
-
-
-                
-            </div>
+    
+            <table class="table  bg-light table-borderless users-table">
+                <thead>
+                    <tr>
+                      <th scope="col">id</th>
+                      <th scope="col">Full Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Phone</th>
+                      <th scope="col">usertype</th>
+                      <th scope="col">Edit Informations</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+    
+                    <tr>
+                        <th scope="row">0</th>
+                        <td>Tareq Yehia</td>
+                        <td>Tarek1@gmail.com</td>
+                        <td>0106666666</td>
+                        <td>Agency</td>
+                        <td><a href="profile.html" class="btn btn-primary">View Profile</a></td>
+                      </tr>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Tareq Yehia</td>
+                      <td>Tarek1@gmail.com</td>
+                      <td>0106666666</td>
+                      <td>Agency</td>
+                      <td><a href="profile.html" class="btn btn-primary">View Profile</a></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Tareq Yehia</td>
+                      <td>Tarek1@gmail.com</td>
+                      <td>0106666666</td>
+                      <td>Agency</td>
+                      <td><a href="profile.html" class="btn btn-primary">View Profile</a></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Tareq Yehia</td>
+                      <td>Tarek1@gmail.com</td>
+                      <td>0106666666</td>
+                      <td>Agency</td>
+                      <td><a href="profile.html" class="btn btn-primary">View Profile</a></td>
+                    </tr>
+                  </tbody>
+            </table>
         </div>
     </div>
     

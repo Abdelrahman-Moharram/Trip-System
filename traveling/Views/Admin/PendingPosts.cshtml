@@ -1,0 +1,53 @@
+﻿@{ ViewBag.Title = "Pending Posts"; }
+<div class="massive-container">
+
+    <div class="container">
+        <div class="row">
+
+
+            <div class="post col-lg-8 col-md-10 col-sm-12" id="0">
+                <div class="post-header">
+                    <div class="post-auther">
+                        <img class="user-post-pic" src="@Url.Content("~/assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg")" alt="">
+                        <div class="post-auther-name">Abdelrahman Moharram</div>
+                        <div class="dropdown  post-options">
+                            <i class="las la-ellipsis-v" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" onclick="hidePost(0)"><i class="las la-ban"></i>hide</a>
+                                <a class="dropdown-item"><i class="las la-bookmark"></i> save</a>
+                            </div>
+                        </div>
+                        <div class="post-date">published at: 28 April 2025</div>
+                    </div>
+
+                    <div class="post-title">
+                        Travel to helwan university
+                    </div>
+                    <div class="post-detials">
+                        صباح النصر علي اوسخ جامعه في مصر
+                    </div>
+                </div>
+
+                <img class="post-img" src="@Url.Content("~/assets/postsImgs/slide-hawaii.jpg")">
+                <div class="date-location-cont">
+                    <div class="trip-location"><i class="las la-map-marker-alt"></i> country, city</div>
+                    <div class="trip-date"><i class="lar la-clock" style="font-size: 17px;margin-right: 10px;position: absolute;margin-top: 2px;"></i><span style="margin-left: 24px;">launched at : 22 Dec 2021 at 11:30am</span></div>
+                </div>
+                <form class="acception" method="POST">
+                    <button type="submit"> <i class="las la-times acception-icon"></i></button>
+                    <button type="submit"> <i class="las la-check acception-icon"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<script src="@Url.Content("~/Scripts/script.js")"></script>

@@ -1,0 +1,81 @@
+﻿@model traveling.viewModel.userUpdateView
+@{ ViewBag.Title = "Update User Info"; }
+
+
+<div class="massive-container">
+	<div class="container-fluid">
+		<div class="row">
+
+
+			<div class="col-lg-9 col-md-7 col-sm-11 info-cont">
+
+				<div class="container-fluid user-info-container" id="edit-info-cont" style="padding-top: 30px;display:block;">
+                    <div class="row">
+
+
+                        @using (Html.BeginForm("update", "Admin"))
+                        {
+                            <div class="user-typed-infos col-lg-6 col-md-12">
+
+                                <div class="edit-info-container ">
+                                    <i class="las la-user single-info-icon"></i>
+
+                                    @Html.TextBoxFor(m => m.user.fname, new { type = "text", placeholder = "First Name", @class = "sign-input" })
+                                </div>
+
+
+                                <div class="edit-info-container">
+                                    <i class="las la-user single-info-icon"></i>
+
+                                    @Html.TextBoxFor(m => m.user.lname, new { type = "text", placeholder = "Last Name", @class = "sign-input" })
+                                </div>
+
+
+                                <div class="edit-info-container">
+                                    <i class="las la-mobile-alt single-info-icon"></i>
+                                    @Html.TextBoxFor(m => m.user.phone, new { type = "text", placeholder = "Phone ...", @class = "sign-input" })
+                                </div>
+                                <div class="register-input-cont">
+                                    <i class="las la-envelope single-info-icon"></i>
+                                    @Html.TextBoxFor(m => m.user.email, new { type = "email", placeholder = "E-Mail ...", @class = "sign-input" })
+                                </div>
+
+                                
+
+                            </div>
+
+
+                            <div class="col-lg-6 col-md-12 edit-info-tail">
+                                <a class="cards warn-card warn-change-data">
+
+                                    <div class="card-title"> Warning!</div>
+                                    <div class="card-cont">If you removed user all user's information will be deleted permenanetly</div>
+
+
+                                </a>
+                                <div class="buttons-conteh">
+                                    <button type="submit" class="btn update-data-button submit-data">Submit</button>
+                                </div>
+                            </div>
+
+                            <div class="d-flex user-options-bar justify-content-center">
+                                <a title="remove user" style="color: #f00;" class="las la-trash user-options-bar-icon"></a>
+                            </div>
+                        }
+
+
+
+                    </div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+
+
+
+
+<script src="@Url.Content("~/Scripts/profileSettings.js")"></script>
+<script src="@Url.Content("~/Scripts/script.js")"></script>

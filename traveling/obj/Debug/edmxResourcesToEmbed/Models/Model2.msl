@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="safariModel2StoreContainer" CdmEntityContainer="safariEntities2">
+    <EntitySetMapping Name="comments">
+      <EntityTypeMapping TypeName="safariModel2.comments">
+        <MappingFragment StoreEntitySet="comments">
+          <ScalarProperty Name="commentID" ColumnName="commentID" />
+          <ScalarProperty Name="userCommentID" ColumnName="userCommentID" />
+          <ScalarProperty Name="postCommentID" ColumnName="postCommentID" />
+          <ScalarProperty Name="commentTitle" ColumnName="commentTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="like">
+      <EntityTypeMapping TypeName="safariModel2.like">
+        <MappingFragment StoreEntitySet="like">
+          <ScalarProperty Name="likeID" ColumnName="likeID" />
+          <ScalarProperty Name="userLikeID" ColumnName="userLikeID" />
+          <ScalarProperty Name="postLikeID" ColumnName="postLikeID" />
+          <ScalarProperty Name="likes" ColumnName="likes" />
+          <ScalarProperty Name="dislike" ColumnName="dislike" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="post">
+      <EntityTypeMapping TypeName="safariModel2.post">
+        <MappingFragment StoreEntitySet="post">
+          <ScalarProperty Name="postID" ColumnName="postID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="postTripID" ColumnName="postTripID" />
+          <ScalarProperty Name="postDate" ColumnName="postDate" />
+          <ScalarProperty Name="likesID" ColumnName="likesID" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="postTitle" ColumnName="postTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="safariModel2.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trips">
+      <EntityTypeMapping TypeName="safariModel2.trips">
+        <MappingFragment StoreEntitySet="trips">
+          <ScalarProperty Name="tripID" ColumnName="tripID" />
+          <ScalarProperty Name="tripPrice" ColumnName="tripPrice" />
+          <ScalarProperty Name="tripDetails" ColumnName="tripDetails" />
+          <ScalarProperty Name="tripDate" ColumnName="tripDate" />
+          <ScalarProperty Name="tripImagePath" ColumnName="tripImagePath" />
+          <ScalarProperty Name="tripDestination" ColumnName="tripDestination" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_s">
+      <EntityTypeMapping TypeName="safariModel2.user_s">
+        <MappingFragment StoreEntitySet="user_s">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="photoPath" ColumnName="photoPath" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="safariModel2.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="safariModel2.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="safariModel2.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="safariModel2.Store.sp_helpdiagramdefinition" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="safariModel2.Store.sp_helpdiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="safariModel2.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="safariModel2.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

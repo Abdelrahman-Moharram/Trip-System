@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="safariModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="comments">
+          <Key>
+            <PropertyRef Name="commentID" />
+          </Key>
+          <Property Name="commentID" Type="int" Nullable="false" />
+          <Property Name="userCommentID" Type="int" Nullable="false" />
+          <Property Name="postCommentID" Type="int" Nullable="false" />
+          <Property Name="commentTitle" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="like">
+          <Key>
+            <PropertyRef Name="likeID" />
+          </Key>
+          <Property Name="likeID" Type="int" Nullable="false" />
+          <Property Name="userLikeID" Type="int" Nullable="false" />
+          <Property Name="postLikeID" Type="int" Nullable="false" />
+          <Property Name="likes" Type="binary" MaxLength="50" />
+          <Property Name="dislike" Type="binary" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="post">
+          <Key>
+            <PropertyRef Name="postID" />
+          </Key>
+          <Property Name="postID" Type="int" Nullable="false" />
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="postTripID" Type="int" Nullable="false" />
+          <Property Name="postDate" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="likesID" Type="int" Nullable="false" />
+          <Property Name="state" Type="binary" MaxLength="50" Nullable="false" />
+          <Property Name="postTitle" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="trips">
+          <Key>
+            <PropertyRef Name="tripID" />
+          </Key>
+          <Property Name="tripID" Type="int" Nullable="false" />
+          <Property Name="tripPrice" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tripDetails" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="tripDate" Type="date" Nullable="false" />
+          <Property Name="tripImagePath" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tripDestination" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_s">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="photoPath" Type="varchar" MaxLength="100" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userType" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_comments_post">
+          <End Role="post" Type="Self.post" Multiplicity="1" />
+          <End Role="comments" Type="Self.comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post">
+              <PropertyRef Name="postID" />
+            </Principal>
+            <Dependent Role="comments">
+              <PropertyRef Name="postCommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comments_user_s">
+          <End Role="user_s" Type="Self.user_s" Multiplicity="1" />
+          <End Role="comments" Type="Self.comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_s">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="comments">
+              <PropertyRef Name="userCommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_like_post">
+          <End Role="post" Type="Self.post" Multiplicity="1" />
+          <End Role="like" Type="Self.like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post">
+              <PropertyRef Name="postID" />
+            </Principal>
+            <Dependent Role="like">
+              <PropertyRef Name="postLikeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_like_user_s">
+          <End Role="user_s" Type="Self.user_s" Multiplicity="1" />
+          <End Role="like" Type="Self.like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_s">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="like">
+              <PropertyRef Name="userLikeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_trips">
+          <End Role="trips" Type="Self.trips" Multiplicity="1" />
+          <End Role="post" Type="Self.post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="trips">
+              <PropertyRef Name="tripID" />
+            </Principal>
+            <Dependent Role="post">
+              <PropertyRef Name="postTripID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_user_s">
+          <End Role="user_s" Type="Self.user_s" Multiplicity="1" />
+          <End Role="post" Type="Self.post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_s">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="post">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="safariModelStoreContainer">
+          <EntitySet Name="comments" EntityType="Self.comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="like" EntityType="Self.like" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="post" EntityType="Self.post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="trips" EntityType="Self.trips" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_s" EntityType="Self.user_s" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_comments_post" Association="Self.FK_comments_post">
+            <End Role="post" EntitySet="post" />
+            <End Role="comments" EntitySet="comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comments_user_s" Association="Self.FK_comments_user_s">
+            <End Role="user_s" EntitySet="user_s" />
+            <End Role="comments" EntitySet="comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_like_post" Association="Self.FK_like_post">
+            <End Role="post" EntitySet="post" />
+            <End Role="like" EntitySet="like" />
+          </AssociationSet>
+          <AssociationSet Name="FK_like_user_s" Association="Self.FK_like_user_s">
+            <End Role="user_s" EntitySet="user_s" />
+            <End Role="like" EntitySet="like" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_trips" Association="Self.FK_post_trips">
+            <End Role="trips" EntitySet="trips" />
+            <End Role="post" EntitySet="post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_user_s" Association="Self.FK_post_user_s">
+            <End Role="user_s" EntitySet="user_s" />
+            <End Role="post" EntitySet="post" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="safariModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="comment">
+          <Key>
+            <PropertyRef Name="commentID" />
+          </Key>
+          <Property Name="commentID" Type="Int32" Nullable="false" />
+          <Property Name="userCommentID" Type="Int32" Nullable="false" />
+          <Property Name="postCommentID" Type="Int32" Nullable="false" />
+          <Property Name="commentTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="post" Relationship="Self.FK_comments_post" FromRole="comments" ToRole="post" />
+          <NavigationProperty Name="post1" Relationship="safariModel.FK_comments_post1" FromRole="comment" ToRole="post" />
+          <NavigationProperty Name="user_s" Relationship="safariModel.FK_comments_user_s" FromRole="comment" ToRole="user_s" />
+        </EntityType>
+        <EntityType Name="like">
+          <Key>
+            <PropertyRef Name="likeID" />
+          </Key>
+          <Property Name="likeID" Type="Int32" Nullable="false" />
+          <Property Name="userLikeID" Type="Int32" Nullable="false" />
+          <Property Name="postLikeID" Type="Int32" Nullable="false" />
+          <Property Name="likes" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="dislike" Type="Binary" MaxLength="50" FixedLength="true" />
+          <NavigationProperty Name="post" Relationship="Self.FK_like_post" FromRole="like" ToRole="post" />
+          <NavigationProperty Name="user_s" Relationship="safariModel.FK_like_user_s" FromRole="like" ToRole="user_s" />
+        </EntityType>
+        <EntityType Name="post">
+          <Key>
+            <PropertyRef Name="postID" />
+          </Key>
+          <Property Name="postID" Type="Int32" Nullable="false" />
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="postTripID" Type="Int32" Nullable="false" />
+          <Property Name="postDate" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="likesID" Type="Int32" Nullable="false" />
+          <Property Name="state" Type="Binary" MaxLength="50" FixedLength="true" Nullable="false" />
+          <NavigationProperty Name="comment" Relationship="Self.FK_comments_post" FromRole="post" ToRole="comments" />
+          <NavigationProperty Name="likes" Relationship="Self.FK_like_post" FromRole="post" ToRole="like" />
+          <NavigationProperty Name="trip" Relationship="Self.FK_post_trips" FromRole="post" ToRole="trips" />
+          <NavigationProperty Name="comments" Relationship="safariModel.FK_comments_post1" FromRole="post" ToRole="comment" />
+          <Property Name="postTitle" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="user_s" Relationship="safariModel.FK_post_user_s" FromRole="post" ToRole="user_s" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="trip">
+          <Key>
+            <PropertyRef Name="tripID" />
+          </Key>
+          <Property Name="tripID" Type="Int32" Nullable="false" />
+          <Property Name="tripDetails" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tripDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="tripImagePath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tripDestination" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="posts" Relationship="Self.FK_post_trips" FromRole="trips" ToRole="post" />
+          <Property Name="tripPrice" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_comments_post">
+          <End Role="post" Type="Self.post" Multiplicity="1" />
+          <End Role="comments" Type="Self.comment" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="post">
+              <PropertyRef Name="postID" />
+            </Principal>
+            <Dependent Role="comments">
+              <PropertyRef Name="commentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_like_post">
+          <End Role="post" Type="Self.post" Multiplicity="1" />
+          <End Role="like" Type="Self.like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post">
+              <PropertyRef Name="postID" />
+            </Principal>
+            <Dependent Role="like">
+              <PropertyRef Name="postLikeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_trips">
+          <End Role="trips" Type="Self.trip" Multiplicity="1" />
+          <End Role="post" Type="Self.post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="trips">
+              <PropertyRef Name="tripID" />
+            </Principal>
+            <Dependent Role="post">
+              <PropertyRef Name="postTripID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="safariEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="comments" EntityType="Self.comment" />
+          <EntitySet Name="likes" EntityType="Self.like" />
+          <EntitySet Name="posts" EntityType="Self.post" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="trips" EntityType="Self.trip" />
+          <AssociationSet Name="FK_comments_post" Association="Self.FK_comments_post">
+            <End Role="post" EntitySet="posts" />
+            <End Role="comments" EntitySet="comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_like_post" Association="Self.FK_like_post">
+            <End Role="post" EntitySet="posts" />
+            <End Role="like" EntitySet="likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_trips" Association="Self.FK_post_trips">
+            <End Role="trips" EntitySet="trips" />
+            <End Role="post" EntitySet="posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comments_post1" Association="safariModel.FK_comments_post1">
+            <End Role="post" EntitySet="posts" />
+            <End Role="comment" EntitySet="comments" />
+          </AssociationSet>
+          <EntitySet Name="user_s" EntityType="safariModel.user_s" />
+          <AssociationSet Name="FK_comments_user_s" Association="safariModel.FK_comments_user_s">
+            <End Role="user_s" EntitySet="user_s" />
+            <End Role="comment" EntitySet="comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_like_user_s" Association="safariModel.FK_like_user_s">
+            <End Role="user_s" EntitySet="user_s" />
+            <End Role="like" EntitySet="likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_user_s" Association="safariModel.FK_post_user_s">
+            <End Role="user_s" EntitySet="user_s" />
+            <End Role="post" EntitySet="posts" />
+          </AssociationSet>
+          </EntityContainer>
+        <Association Name="FK_comments_post1">
+          <End Type="safariModel.post" Role="post" Multiplicity="1" />
+          <End Type="safariModel.comment" Role="comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post">
+              <PropertyRef Name="postID" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="postCommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="user_s">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="fname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="photoPath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userType" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="comments" Relationship="safariModel.FK_comments_user_s" FromRole="user_s" ToRole="comment" />
+          <NavigationProperty Name="likes" Relationship="safariModel.FK_like_user_s" FromRole="user_s" ToRole="like" />
+          <NavigationProperty Name="posts" Relationship="safariModel.FK_post_user_s" FromRole="user_s" ToRole="post" />
+        </EntityType>
+        <Association Name="FK_comments_user_s">
+          <End Type="safariModel.user_s" Role="user_s" Multiplicity="1" />
+          <End Type="safariModel.comment" Role="comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_s">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="userCommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_like_user_s">
+          <End Type="safariModel.user_s" Role="user_s" Multiplicity="1" />
+          <End Type="safariModel.like" Role="like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_s">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="like">
+              <PropertyRef Name="userLikeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_user_s">
+          <End Type="safariModel.user_s" Role="user_s" Multiplicity="1" />
+          <End Type="safariModel.post" Role="post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_s">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="post">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="safariModelStoreContainer" CdmEntityContainer="safariEntities">
+          <EntitySetMapping Name="comments">
+            <EntityTypeMapping TypeName="safariModel.comment">
+              <MappingFragment StoreEntitySet="comments">
+                <ScalarProperty Name="commentID" ColumnName="commentID" />
+                <ScalarProperty Name="userCommentID" ColumnName="userCommentID" />
+                <ScalarProperty Name="postCommentID" ColumnName="postCommentID" />
+                <ScalarProperty Name="commentTitle" ColumnName="commentTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="likes">
+            <EntityTypeMapping TypeName="safariModel.like">
+              <MappingFragment StoreEntitySet="like">
+                <ScalarProperty Name="likeID" ColumnName="likeID" />
+                <ScalarProperty Name="userLikeID" ColumnName="userLikeID" />
+                <ScalarProperty Name="postLikeID" ColumnName="postLikeID" />
+                <ScalarProperty Name="likes" ColumnName="likes" />
+                <ScalarProperty Name="dislike" ColumnName="dislike" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="posts">
+            <EntityTypeMapping TypeName="safariModel.post">
+              <MappingFragment StoreEntitySet="post">
+                <ScalarProperty Name="postTitle" ColumnName="postTitle" />
+                <ScalarProperty Name="postID" ColumnName="postID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="postTripID" ColumnName="postTripID" />
+                <ScalarProperty Name="postDate" ColumnName="postDate" />
+                <ScalarProperty Name="likesID" ColumnName="likesID" />
+                <ScalarProperty Name="state" ColumnName="state" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="safariModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="trips">
+            <EntityTypeMapping TypeName="safariModel.trip">
+              <MappingFragment StoreEntitySet="trips">
+                <ScalarProperty Name="tripPrice" ColumnName="tripPrice" />
+                <ScalarProperty Name="tripID" ColumnName="tripID" />
+                <ScalarProperty Name="tripDetails" ColumnName="tripDetails" />
+                <ScalarProperty Name="tripDate" ColumnName="tripDate" />
+                <ScalarProperty Name="tripImagePath" ColumnName="tripImagePath" />
+                <ScalarProperty Name="tripDestination" ColumnName="tripDestination" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_s">
+            <EntityTypeMapping TypeName="safariModel.user_s">
+              <MappingFragment StoreEntitySet="user_s">
+                <ScalarProperty Name="userType" ColumnName="userType" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="photoPath" ColumnName="photoPath" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="lname" ColumnName="lname" />
+                <ScalarProperty Name="fname" ColumnName="fname" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,209 @@
+﻿
+@{ ViewBag.Title = "Factory"; }
+
+<div class="new-post-window">
+
+    <div class="new-post">
+        <i class="las la-times close-new-post" onclick="closePost()"></i>
+        <form action="" method="POST">
+            <div class="header-container">
+                <input onclick="showLine('header-container')" type="text" max="300" id="newpost-header" placeholder="add title ...">
+                <div class="form-input-divider"><div class="form-input-insider"></div></div>
+
+            </div>
+
+            <div class="newpost-body-container" style="margin-bottom: 0px;">
+                <textarea onclick="showLine('newpost-body-container')" type="text" max="3000" id="newpost-content" placeholder="Write Post"></textarea>
+                <div class="form-input-divider"><div class="form-input-insider" style="margin-top: -6px;"></div></div>
+            </div>
+            <input type="file" name="file" id="file" class="add-file" data-multiple-caption="{count} files selected" multiple />
+            <label class="btn btn-primary  " for="file">choose file <i class="las la-cloud-upload-alt"></i></label>
+            <!-- <input type="submit" name="submit" value="Upload"> -->
+
+            <div class="newpost-submition">
+                <button class="btn btn-primary mb-3 submit-post">Submit</button>
+                <button class="btn btn-primary mb-3 cancel-post">Cancel</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+<nav class="navbar" style="display:block;">
+
+    <a href="javascript:void(0)" class="open-nav" onclick="openNav()"><i class="las la-bars"></i></a>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="las la-times"></i></a>
+    <a class="nav-brand" href="agency.html" style="color: #171717;">Factory</a>
+
+
+</nav>
+<!-------------------------------------------------------nav bar and side nav bar----------------------------------------------------------->
+<div id="mySidenav" class="sidenav">
+
+    <a href="profile.html" class="link-item"><i class="las la-user" style="margin-left: 8px;margin-right: 5px;"></i> <span class="nav-text">profile </span></a>
+    <a class="link-item" onclick="createPost()" id="create-post"><i class="las la-plus" id="create-post-icon" style="margin-left: 8px;margin-right: 5px;cursor: pointer;"></i> <span class="nav-text">Create Post </span></a>
+    <a href="myposts.html" class="link-item"><i class="las la-photo-video" style="margin-left: 8px;margin-right: 5px;"></i><span class="nav-text"> My Posts</span></a>
+
+
+    <a id="notifis" onclick="showNotifi()" class="link-item"><div id="notify-num">200</div><i class="las la-bell" style="margin-left: 8px;margin-right: 5px;"></i><span class="nav-text"> Recived Questions </span></a>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div id="notification-menu" class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+            <a href="notifications.html" class="notifi-tab">
+                see all notifications
+            </a>
+
+            <div class="notfis-list">
+
+                <a class="single-notifi" id="comment-0">
+                    <i class="las la-times-circle close-notifi" onclick="closeNotifi('comment-0')"></i>
+                    <div class="notifi-name">Abdelrahman Moharram</div>
+                    <img src="@Url.Content("~/assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg")" class="user-post-pic" alt="">
+                    <div class="notifi-body">
+                        <div>is asked you a questions on your post at 02:00pm 11-3-2021</div>
+                    </div>
+                </a>
+
+
+
+                <a class="single-notifi" id="comment-1">
+                    <i class="las la-times-circle close-notifi" onclick="closeNotifi('comment-1')"></i>
+                    <div class="notifi-name">Atef Hamdy</div>
+                    <img src="@Url.Content("~/assets/userimgs/atef.jpg")" class="user-post-pic" alt="">
+                    <div class="notifi-body">
+                        <div>is asked you a questions on your post at 02:00pm 11-3-2021</div>
+                    </div>
+                </a>
+
+
+
+
+                <a class="single-notifi" id="comment-2">
+                    <i class="las la-times-circle close-notifi" onclick="closeNotifi('comment-2')"></i>
+                    <div class="notifi-name">حامد فرج</div>
+                    <img src="@Url.Content("~/assets/userimgs/hamed.jpg")" class="user-post-pic" alt="">
+                    <div class="notifi-body">
+                        <div>is asked you a questions on your post at 02:00pm 11-3-2021</div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!---------------------------------------------------------------- body and cards -------------------------------------------------->
+
+<div class="massive-container">
+    <div class="container-fluid dashboard-agency">
+        <div class="row">
+
+
+
+
+            <a class="cards warn-card col-xl-2 col-lg-2 col-md-5 col-sm-10" id="card-0">
+
+                <i class="las la-times close-card" id="0" onclick="closeCard(id)"></i>
+                <div class="card-title"> Warning!</div>
+                <div class="card-cont">Lorem ipsum dolor sit </div>
+            </a>
+
+
+            <a class="cards warn-card col-xl-2 col-lg-2 col-md-5 col-sm-10" id="card-1">
+
+                <i class="las la-times close-card" id="1" onclick="closeCard(id)"></i>
+                <div class="card-title"> Warning!</div>
+                <div class="card-cont">Lorem ipsum dolor sit </div>
+            </a>
+
+
+            <a class="cards warn-card col-xl-2 col-lg-2 col-md-5 col-sm-10" id="card-2">
+
+                <i class="las la-times close-card" id="2" onclick="closeCard(id)"></i>
+                <div class="card-title"> Warning!</div>
+                <div class="card-cont">Lorem ipsum dolor sit </div>
+            </a>
+
+
+            <a class="cards warn-card col-xl-2 col-lg-2 col-md-5 col-sm-10" id="card-3">
+
+                <i class="las la-times close-card" id="3" onclick="closeCard(id)"></i>
+                <div class="card-title"> Warning!</div>
+                <div class="card-cont">Lorem ipsum dolor sit </div>
+            </a>
+
+
+
+            <a class="cards success-card col-xl-2 col-lg-2 col-md-5 col-sm-10" id="card-4">
+                <i class="las la-times close-card" id="4" onclick="closeCard(id)"></i>
+                <div class="card-title"> Success</div>
+                <div class="card-cont">Lorem ipsum dolor, sit amet consectetur adipisicing elit.   </div>
+            </a>
+
+
+            <a class="cards inform-card col-xl-2 col-lg-2 col-md-5 col-sm-10" id="card-5">
+                <i class="las la-times close-card" id="5" onclick="closeCard(id)"></i>
+                <div class="card-title"> Inform</div>
+                <div class="card-cont">Lorem ipsum dolor, sit amet  aliquam  </div>
+            </a>
+
+
+            <a class="cards dark-card col-xl-2 col-lg-2 col-md-5 col-sm-10" id="card-6">
+                <i class="las la-times close-card" id="6" onclick="closeCard(id)"></i>
+                <div class="card-title"> Dark</div>
+                <div class="card-cont">Lorem ipsum dolor,  adipisicing elit.  </div>
+            </a>
+
+
+
+
+        </div>
+    </div>
+    <div class="notification-controller" onclick="hideNotifications()"><i class="las la-plus notification-controller-icon"></i></div>
+
+
+
+    <div class="all-notifications">
+        <div class="container-fluid notifications-container">
+            <div class="row">
+
+
+                <div class="notification-cont col-lg-12 col-md-12 col-sm-12" id="not-0">
+                    <img class="user-notification-pic" src="@Url.Content("~/assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg")" alt="">
+                    <div class="notifi-name">Abdelrahman Moharram</div>
+                    <div class="dropdown  notification-options">
+                        <i class="las la-ellipsis-h" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" onclick="hidenotification('not-0')"><i class="las la-ban"></i>hide</a>
+                        </div>
+                    </div>
+                    <div class="notifi-date">22 jan 2022 at 8:42am</div>
+                    <div class="notifi-content">is asked you a questions on your post at 02:00pm 11-3-2021</div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<script src="@Url.Content("~/Scripts/notifications.js")"></script>
+<script src="@Url.Content("~/Scripts/script.js")"></script>
+<script src="@Url.Content("~/Scripts/sideNav.js")"></script>
+
+
+<!-- <label for="exampleColorInput" class="form-label">Color picker</label>
+<input type="color" class="form-control form-control-color" id="exampleColorInput" value="#563d7c" title="Choose your color"> -->

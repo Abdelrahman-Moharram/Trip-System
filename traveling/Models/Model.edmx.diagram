@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6b77b61431fe4764b57c78e3840aa596" Name="Diagram1">
+        <EntityTypeShape EntityType="safariModel.comment" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="safariModel.like" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="safariModel.post" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="safariModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="safariModel.trip" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <AssociationConnector Association="safariModel.FK_comments_post" ManuallyRouted="false" />
+        <AssociationConnector Association="safariModel.FK_like_post" ManuallyRouted="false" />
+        <AssociationConnector Association="safariModel.FK_post_trips" ManuallyRouted="false" />
+        <AssociationConnector Association="safariModel.FK_comments_post1" />
+        <EntityTypeShape EntityType="safariModel.user_s" Width="1.5" PointX="3" PointY="3" />
+        <AssociationConnector Association="safariModel.FK_comments_user_s" />
+        <AssociationConnector Association="safariModel.FK_like_user_s" />
+        <AssociationConnector Association="safariModel.FK_post_user_s" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

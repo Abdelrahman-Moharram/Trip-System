@@ -1,0 +1,215 @@
+@{ ViewBag.Title = "Saved Posts"; }
+
+<div class="new-post-window">
+
+    <div class="new-post">
+        <i class="las la-times close-new-post" onclick="closePost()"></i>
+        <form action="" method="POST">
+            <div class="header-container">
+                <input onclick="showLine('header-container')" type="text" max="300" id="newpost-header" placeholder="add title ...">
+                <div class="form-input-divider"><div class="form-input-insider"></div></div>
+
+            </div>
+
+            <div class="newpost-body-container" style="margin-bottom: 0px;">
+                <textarea onclick="showLine('newpost-body-container')" type="text" max="3000" id="newpost-content" placeholder="Write Post"></textarea>
+                <div class="form-input-divider"><div class="form-input-insider" style="margin-top: -6px;"></div></div>
+            </div>
+            <input type="file" name="file" id="file" class="add-file" data-multiple-caption="{count} files selected" multiple />
+            <label class="btn btn-primary  " for="file">upload photo or video <i class="las la-cloud-upload-alt"></i></label>
+            <!-- <input type="submit" name="submit" value="Upload"> -->
+
+            <div class="newpost-submition">
+                <button class="btn btn-primary mb-3 submit-post">Submit</button>
+                <button class="btn btn-primary mb-3 cancel-post">Cancel</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+<nav class="navbar" style="display:block;">
+    <a href="javascript:void(0)" class="open-nav" onclick="openNav()"><i class="las la-bars"></i></a>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="las la-times"></i></a>
+    <a class="nav-brand" href="agency.html">Factory</a>
+</nav>
+<!-------------------------------------------------------nav bar and side nav bar----------------------------------------------------------->
+<div id="mySidenav" class="sidenav">
+
+    <a href="profile.html" class="link-item"><i class="las la-user" style="margin-left: 8px;margin-right: 5px;"></i> <span class="nav-text">profile </span></a>
+    <a class="link-item" onclick="createPost()" id="create-post"><i class="las la-plus" id="create-post-icon" style="margin-left: 8px;margin-right: 5px;cursor: pointer;"></i> <span class="nav-text">Create Post </span></a>
+    <a class="link-item active-sideNav"><i class="las la-photo-video" style="margin-left: 8px;margin-right: 5px;"></i><span class="nav-text"> My Posts</span></a>
+
+
+    <a onclick="showNotifi()" id="notifis" class="link-item"><div id="notify-num">200</div><i class="las la-bell" style="margin-left: 8px;margin-right: 5px;"></i><span class="nav-text"> Recived Questions </span></a>
+    <!--  -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!------------------------------------------------------------------------------------------------------------------>
+<div class="massive-container">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div id="notification-menu" class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <a href="agency.html" class="notifi-tab">
+                    see all notifications
+                </a>
+
+                <div class="notfis-list">
+
+                    <a class="single-notifi" id="comment-0">
+                        <i class="las la-times-circle close-notifi" onclick="closeNotifi('comment-0')"></i>
+                        <div class="notifi-name">Abdelrahman Moharram</div>
+                        <img src="@Url.Content("~/assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg")" class="user-post-pic" alt="">
+                        <div class="notifi-body">
+                            <div>is asked you a questions on your post at 02:00pm 11-3-2021</div>
+                        </div>
+                    </a>
+
+
+
+                    <a class="single-notifi" id="comment-1">
+                        <i class="las la-times-circle close-notifi" onclick="closeNotifi('comment-1')"></i>
+                        <div class="notifi-name">Atef Hamdy</div>
+                        <img src="@Url.Content("~/assets/userimgs/atef.jpg")" class="user-post-pic" alt="">
+                        <div class="notifi-body">
+                            <div>is asked you a questions on your post at 02:00pm 11-3-2021</div>
+                        </div>
+                    </a>
+
+
+
+
+                    <a class="single-notifi" id="comment-2">
+                        <i class="las la-times-circle close-notifi" onclick="closeNotifi('comment-2')"></i>
+                        <div class="notifi-name">حامد فرج</div>
+                        <img src="@Url.Content("~/assets/userimgs/hamed.jpg")" class="user-post-pic" alt="">
+                        <div class="notifi-body">
+                            <div>is asked you a questions on your post at 02:00pm 11-3-2021</div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+
+        <div class="container">
+            <div class="row">
+
+
+                <div class="post col-lg-8 col-md-10 col-sm-12" id="0">
+                    <div class="post-header">
+                        <div class="post-auther">
+                            <img class="user-post-pic" src="@Url.Content("~/assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg")" alt="">
+                            <div class="post-auther-name">Abdelrahman Moharram</div>
+                            <div class="dropdown  post-options">
+                                <i class="las la-ellipsis-v" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" onclick="hidePost(0)"><i class="las la-ban"></i>hide</a>
+                                    <a class="dropdown-item" href="#"><i class="las la-unlink"></i>unsave post</a>
+                                </div>
+                            </div>
+                            <div class="post-date">published at: 28 April 2025</div>
+                        </div>
+
+                        <div class="post-title">
+                            Travel to helwan university
+                        </div>
+                        <div class="post-detials">
+                            صباح النصر علي اوسخ جامعه في مصر
+                        </div>
+                    </div>
+
+                    <img class="post-img" src="@Url.Content("~/assets/postsImgs/slide-hawaii.jpg")">
+                    <div class="date-location-cont">
+                        <div class="trip-location"><i class="las la-map-marker-alt"></i> country, city</div>
+                        <div class="trip-date"><i class="lar la-clock" style="font-size: 17px;margin-right: 10px;position: absolute;margin-top: 2px;"></i><span style="margin-left: 24px;">launched at : 22 Dec 2021 at 11:30am</span></div>
+                    </div>
+                    <div class="post-tail">
+                        <i class="las la-thumbs-up post-like-icon" onclick="like(0,10,3)"></i>
+                        <i class="las la-thumbs-down post-dislike-icon" onclick="dislike(0,10,3)"></i>
+                        <div class="likes-counter">
+                            <div class="gaven-likes-counter"></div>
+                            <div class="gaven-dislikes-counter"></div>
+                        </div>
+                        <i class="lar la-comment post-comment-icon" onclick="comment_show(0)"></i>
+                    </div>
+
+                    <div class="post-comments">
+                        <div class="post-single-comment">
+                            <div class="comment-auther">
+                                <img class="user-post-pic" src="@Url.Content("~/assets/userimgs/saeed.jpg")" alt="">
+                                <div class="comment-auther-name">saeed Mohamed</div>
+                                <div class="comment-date">28 April 2025</div>
+                            </div>
+                            <div class="comment-content">
+                                welcome in hell
+                            </div>
+                        </div>
+
+
+                        <div class="post-single-comment">
+                            <div class="comment-auther">
+                                <img class="user-post-pic" src="@Url.Content("~/assets/userimgs/hamed.jpg")" alt="">
+                                <div class="comment-auther-name">حامد فرج</div>
+                                <div class="comment-date">28 April 2025</div>
+                            </div>
+                            <div class="comment-content">
+                                ايه يسطا اخبار شمردن ايه سلملي عليه وقوله ربنا يحرق انت والكلية
+                            </div>
+                        </div>
+
+
+                        <div class="post-single-comment">
+                            <div class="comment-auther">
+                                <img class="user-post-pic" src="@Url.Content("~/assets/userimgs/atef.jpg")" alt="">
+                                <div class="comment-auther-name">Atef Hamdy</div>
+                                <div class="comment-date">28 April 2025</div>
+                            </div>
+                            <div class="comment-content" dir=auto>
+                                عقبال ما تتخرج سنه 2130
+                            </div>
+                        </div>
+
+                        <form action="" method="POST" class="add-comment">
+                            <div class="comment-auther">
+                                <img class="user-post-pic" src="@Url.Content("~/assets/userimgs/hamed.jpg")" alt="">
+                                <div class="post-auther-name">حامد فرج</div>
+                            </div>
+                            <!-- onclick="comment(2)" -->
+                            <input type="text" class="write-comment">
+                            <button type="submit" class="btn btn-primary comment-submit-button" dir="auto">Post</button>
+                        </form>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="@Url.Content("~/Scripts/posts.js")"></script>
+<script src="@Url.Content("~/Scripts/script.js")"></script>
+<script src="@Url.Content("~/Scripts/sideNav.js")"></script>

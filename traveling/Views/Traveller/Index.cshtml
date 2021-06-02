@@ -1,0 +1,295 @@
+﻿@model traveling.Models.user_s
+@{ ViewBag.Title = "Home Page"; }
+
+
+<div id="login-form">
+	<i class="las la-times option-profile-pic-icon" onclick="hidePopup('login-form')"></i>
+	<div class="container">
+
+		<div class="register col-lg-8 col-md-10 col-sm-12" style="margin-top: 10%;">
+
+			<div class="container-fluid register-form-cont-parent">
+				<div class="row">
+
+					<div class="register-form-cont-child col-lg-10 col-md-11 col-sm-11 col-xs-11">
+
+						@using (Html.BeginForm("login", "Traveller"))
+						{
+							<div class="regist-form">
+
+								
+
+
+								
+
+								<div class="register-input-cont">
+									<i class="las la-envelope single-info-icon"></i>
+									@Html.TextBoxFor(m => m.email, new { type = "email", placeholder = "E-Mail ...", @class = "sign-input" })
+								</div>
+					
+								<div class="register-input-cont">
+									<i class="las la-lock single-info-icon"></i>
+									@Html.TextBoxFor(m => m.password, new { type = "password", placeholder = "Password ...", @class = "sign-input" })
+								</div>
+								
+								<div class="button-reg-cont">
+									<button type="submit" class="btn register-button submit-data">Submit</button>
+								</div>
+
+							</div>
+
+
+						}
+
+
+
+						<!--
+	<form action="" method="POST" class="regist-form">
+		<div class="register-input-cont"><i class="las la-envelope single-info-icon"></i><input placeholder="Email" name="email" class="sign-input" type="email"></div>
+		<div class="register-input-cont"><i class="las la-lock single-info-icon"></i><input placeholder="Password" name="password" class="sign-input" type="password"></div>
+		<div class="button-reg-cont">
+			<button type="submit" class="btn register-button submit-data">Submit</button>
+		</div>
+	</form>
+		-->
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="register-form">
+	<i class="las la-times option-profile-pic-icon" onclick="hidePopup('register-form')"></i>
+	<div class="container">
+
+		<div class="register col-lg-8 col-md-10 col-sm-12" style=";">
+			<div class="container-fluid register-form-cont-parent">
+				<div class="row">
+					<div class="register-form-cont-child col-lg-10 col-md-11 col-sm-11 col-xs-11">
+						@using (Html.BeginForm("register", "Traveller"))
+						{
+                        <div class="regist-form">
+
+                            <div class="register-input-cont ">
+                                <i class="las la-user single-info-icon"></i>
+
+                                @Html.TextBoxFor(m => m.fname, new { type = "text", placeholder = "First Name", @class = "sign-input" })
+                            </div>
+
+
+                            <div class="register-input-cont">
+                                <i class="las la-user single-info-icon"></i>
+
+                                @Html.TextBoxFor(m => m.lname, new { type = "text", placeholder = "Last Name", @class = "sign-input" })
+                            </div>
+
+
+                            <div class="register-input-cont">
+                                <i class="las la-mobile-alt single-info-icon"></i>
+                                @Html.TextBoxFor(m => m.phone, new { type = "text", placeholder = "Phone ...", @class = "sign-input" })
+                            </div>
+                            <div class="register-input-cont">
+                                <i class="las la-envelope single-info-icon"></i>
+                                @Html.TextBoxFor(m => m.email, new { type = "email", placeholder = "E-Mail ...", @class = "sign-input" })
+                            </div>
+                            @*@<div class="register-input-cont">
+                                @Html.TextBoxFor(m => m.User.fname, new { @class = "sign-input" })
+                            </div>*@
+                            <div class="register-input-cont">
+                                <i class="las la-lock single-info-icon"></i>
+                                @Html.TextBoxFor(m => m.password, new { type="password", placeholder = "Password ...", @class = "sign-input" })
+                            </div>
+                            <div class="register-input-cont">
+                                @*@Html.TextBoxFor(m => m.type.typeNum, new { @class = "sign-input" })*@
+                                <div class="register-input-cont">
+                                    <i class="las la-user-tag single-info-icon"></i>
+                                    @Html.DropDownListFor(m => m.userType,new SelectList(new[] {"","agency", "traveller"}), new { placeholder = "Make Your Choice", @class = "sign-input" })
+                                </div>
+
+
+
+                                <!--
+
+    <form action="" method="POST" class="regist-form">
+                       <div class="register-input-cont"><i class="las la-user single-info-icon"></i><input placeholder="First Name" name="fname" class="sign-input" type="text"></div>
+                       <div class="register-input-cont"><i class="las la-user single-info-icon"></i><input placeholder="Last Name" name="lname" class="sign-input" type="text"></div>
+                       <div class="register-input-cont"><i class="las la-mobile-alt single-info-icon"></i><input placeholder="Phone ..." name="phone" class="sign-input" type="text"></div>
+                       <div class="register-input-cont"><i class="las la-envelope single-info-icon"></i><input placeholder="E-Mail ..." name="email" class="sign-input" type="email"></div>
+                       <div class="register-input-cont"><i class="las la-lock single-info-icon"></i><input placeholder="Password ..." name="password" class="sign-input" type="password"></div>
+
+                       <div class="register-input-cont">
+                           <i class="las la-user-tag single-info-icon"></i>
+                           <select name="" class="sign-input" id="">
+                               <option aria-placeholder="select" value=""></option>
+                               <option value="0">Agency</option>
+                               <option value="1">Traveller</option>
+                           </select>
+                       </div>
+                       <div class="button-reg-cont">
+                           <button type="submit" class="btn register-button submit-data">Submit</button>
+                       </div>
+                   </form>
+
+    -->
+
+
+
+                            </div>
+								<div class="button-reg-cont">
+									<button type="submit" class="btn register-button submit-data">Submit</button>
+								</div>
+
+                            </div>
+                            }
+
+
+
+                        </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="container-fluid" id="profile-pic-options">
+	<i class="las la-times option-profile-pic-icon" onclick="hidePopup('profile-pic-options')"></i>
+	<div class="row">
+
+
+		<div class="user-pic-update-view-child col-lg-4 col-md-8 col-sm-10 col-xs-12">
+
+			<div class="not-reg-error">You are not registered please register first</div>
+			<div class="error-options-cont">
+				<a onclick="showPopup('register-form')" class="button-haif reg-button">Register</a>
+				<a onclick="showPopup('login-form')" class="button-haif login-button">Login</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<nav class="navbar fixed-top">
+	<div class="container-fluid">
+		<form class="d-flex">
+			<input class="form-search" type="search" placeholder="Search" aria-label="Search">
+			<button class="search-btn" type="submit"><i class="las la-search"></i></button>
+		</form>
+
+		<div class="justify-content-end">
+			<div onclick="showPopup('login-form')" class="sign-nav-button">Login</div>
+			<div onclick="showPopup('register-form')" class="sign-nav-button" style="margin-left: 5px;">Register</div>
+		</div>
+	</div>
+</nav>
+
+<div class="massive-container">
+	<div>
+
+		<div class="container">
+			<div class="row">
+
+
+
+				<div class="post col-lg-8 col-md-10 col-sm-12" id="0">
+					<div class="post-header">
+						<div class="post-auther">
+							<img class="user-post-pic" src="@Url.Content("~/assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg")" alt="">
+							<div class="post-auther-name">Abdelrahman Moharram</div>
+							<div class="dropdown  post-options">
+								<i class="las la-ellipsis-v" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" onclick="hidePost(0)"><i class="las la-ban"></i>hide</a>
+									<a class="dropdown-item"><i class="las la-bookmark"></i> save</a>
+								</div>
+							</div>
+							<div class="post-date">published at: 28 April 2025</div>
+						</div>
+
+						<div class="post-title">
+							Travel to helwan university
+						</div>
+						<div class="post-detials">
+							صباح النصر علي اوسخ جامعه في مصر
+						</div>
+					</div>
+
+
+					<img class="post-img" src="@Url.Content("~/assets/postsImgs/slide-hawaii.jpg")">
+					<div class="date-location-cont">
+						<div class="trip-location"><i class="las la-map-marker-alt"></i> country, city</div>
+						<div class="trip-date"><i class="lar la-clock" style="font-size: 17px;margin-right: 10px;position: absolute;margin-top: 2px;"></i><span style="margin-left: 24px;">launched at : 22 Dec 2021 at 11:30am</span></div>
+					</div>
+					<div class="post-tail">
+						<i class="las la-thumbs-up post-like-icon" onclick="like(0,10,3)"></i>
+						<i class="las la-thumbs-down post-dislike-icon" onclick="dislike(0,10,3)"></i>
+						<div class="likes-counter">
+							<div class="gaven-likes-counter"></div>
+							<div class="gaven-dislikes-counter"></div>
+						</div>
+						<i class="lar la-comment post-comment-icon" onclick="comment_show(0)"></i>
+					</div>
+
+					<div class="post-comments">
+						<div class="post-single-comment">
+							<div class="comment-auther">
+								<img class="user-post-pic" src="@Url.Content("~/assets/userimgs/saeed.jpg")" alt="">
+								<div class="comment-auther-name">saeed Mohamed</div>
+								<div class="comment-date">28 April 2025</div>
+							</div>
+							<div class="comment-content">
+								welcome in hell
+							</div>
+						</div>
+
+
+						<div class="post-single-comment">
+							<div class="comment-auther">
+								<img class="user-post-pic" src="@Url.Content("~/assets/userimgs/hamed.jpg")" alt="">
+								<div class="comment-auther-name">حامد فرج</div>
+								<div class="comment-date">28 April 2025</div>
+							</div>
+							<div class="comment-content">
+								ايه يسطا اخبار شمردن ايه سلملي عليه وقوله ربنا يحرق انت والكلية
+							</div>
+						</div>
+
+
+						<div class="post-single-comment">
+							<div class="comment-auther">
+								<img class="user-post-pic" src="@Url.Content("~/assets/userimgs/atef.jpg")" alt="">
+								<div class="comment-auther-name">Atef Hamdy</div>
+								<div class="comment-date">28 April 2025</div>
+							</div>
+							<div class="comment-content" dir=auto>
+								عقبال ما تتخرج سنه 2130
+							</div>
+						</div>
+
+						<form action="" method="POST" class="add-comment">
+							<div class="comment-auther">
+								<img class="user-post-pic" src="@Url.Content("~/assets/userimgs/hamed.jpg")" alt="">
+								<div class="post-auther-name">حامد فرج</div>
+							</div>
+							<!-- onclick="comment(2)" -->
+							<input type="text" class="write-comment">
+							<button type="submit" class="btn btn-primary comment-submit-button" dir="auto">Post</button>
+						</form>
+					</div>
+				</div>
+
+
+
+
+
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<script src="@Url.Content("~/Scripts/posts.js")"></script>
+<script src="@Url.Content("~/Scripts/script.js")"></script>

@@ -9,7 +9,8 @@ namespace traveling.viewModel
 {
     public class viewUserModel
     {
-        public List<user_s> users { get; set; }
+        public List<user> users { get; set; }
 
+        
     }
 }

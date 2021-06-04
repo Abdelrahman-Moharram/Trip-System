@@ -4,19 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="06a7b43a23c243ac8284a4a2ed68b7cf" Name="Diagram1">
-        <EntityTypeShape EntityType="safariModel1.comment" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="safariModel1.like" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="safariModel1.post" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="safariModel1.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="safariModel1.trip" Width="1.5" PointX="3.75" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="safariModel1.user_s" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
-        <AssociationConnector Association="safariModel1.FK_comments_post" ManuallyRouted="false" />
-        <AssociationConnector Association="safariModel1.FK_comments_user_s" ManuallyRouted="false" />
-        <AssociationConnector Association="safariModel1.FK_like_post" ManuallyRouted="false" />
-        <AssociationConnector Association="safariModel1.FK_like_user_s" ManuallyRouted="false" />
-        <AssociationConnector Association="safariModel1.FK_post_trips" ManuallyRouted="false" />
-        <AssociationConnector Association="safariModel1.FK_post_user_s" ManuallyRouted="false" />
+      <Diagram DiagramId="33e9eea016c5423daf97023471a2b375" Name="Diagram1">
+        <EntityTypeShape EntityType="Database1Model.comment" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.post" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.React" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.savedPost" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.user" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="Database1Model.FK__comments__pid__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__comments__uid__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__post__uid__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Reacts__pid__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__savedPosts__pid__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Reacts__uid__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__savedPosts__uid__4D94879B" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

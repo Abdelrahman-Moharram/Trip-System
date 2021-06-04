@@ -14,12 +14,12 @@ namespace traveling.Models
     
     public partial class comment
     {
-        public int commentID { get; set; }
-        public int userCommentID { get; set; }
-        public int postCommentID { get; set; }
-        public string commentTitle { get; set; }
+        public int Id { get; set; }
+        public string commentDetail { get; set; }
+        public int uid { get; set; }
+        public int pid { get; set; }
     
         public virtual post post { get; set; }
-        public virtual user_s user_s { get; set; }
+        public virtual user user { get; set; }
     }
 }

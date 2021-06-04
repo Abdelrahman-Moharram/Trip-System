@@ -8,6 +8,6 @@ namespace traveling.viewModel
 {
     public class userUpdateView
     {
-        public user_s user { get; set; }
+        public user user { get; set; }
     }
 }

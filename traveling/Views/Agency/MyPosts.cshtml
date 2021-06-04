@@ -1,5 +1,5 @@
 ﻿@{ ViewBag.Title = "MyPosts"; }
-@model IEnumerable<traveling.Models.trip>
+@model IEnumerable<traveling.Models.post>
 
 
 
@@ -56,7 +56,7 @@
                 </div>
 
 
-                <img class="post-img" src="@Url.Content(item.tripImagePath)">
+                <img class="post-img" src="@Url.Content(item.tripImg)">
                 <div class="date-location-cont">
                     <div class="trip-location"><i class="las la-map-marker-alt"></i>  @Html.DisplayFor(modelItem => item.tripDestination)</div>
                     <div class="trip-date"><i class="lar la-clock" style="font-size: 17px;margin-right: 10px;position: absolute;margin-top: 2px;"></i><span style="margin-left: 24px;">launched at : @Html.DisplayFor(modelItem => item.tripDate)</span></div>

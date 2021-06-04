@@ -29,12 +29,12 @@
                                 {
 
                                     <tr>
-                                        <th>@user.userID</th>
+                                        <th>@user.Id</th>
                                         <td>@user.fname @user.lname</td>
                                         <td>@user.email</td>
                                         <td>@user.phone</td>
                                         <td>@user.userType</td>
-                                        <td>@Html.ActionLink("view profile", "UpdateUserInfo", new { id = user.userID }, new { @class="btn btn-primary"})</td>
+                                        <td>@Html.ActionLink("view profile", "UpdateUserInfo", new { id = user.Id }, new { @class="btn btn-primary"})</td>
                                     </tr>
                                 }
                                 </tbody>

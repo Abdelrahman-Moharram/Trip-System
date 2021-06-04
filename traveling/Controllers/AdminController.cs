@@ -10,17 +10,17 @@ namespace traveling.Controllers
 {
     public class AdminController : Controller
     {
-        private safariEntities2 safari;
+        private Database1Entities safari;
 
         public AdminController()
         {
-            safari = new safariEntities2();
+            safari = new Database1Entities();
         }
         // GET: Admin
         public ActionResult Index()
         {
 
-            var result = safari.user_s.ToList();
+            var result = safari.users.ToList();
 
             var Viewuser = new viewUserModel
             {
@@ -38,7 +38,7 @@ namespace traveling.Controllers
         public ActionResult UpdateUserInfo(int id)
         {
 
-            var returnedUser = safari.user_s.SingleOrDefault(c => c.userID == id);
+            var returnedUser = safari.users.SingleOrDefault(c => c.Id == id);
 
           //  var returnedUsers =
           //    from user in safari.user_s
@@ -54,10 +54,10 @@ namespace traveling.Controllers
         }
         public ActionResult update(userUpdateView model)
         {
-            int id = model.user.userID;
+            int id = model.user.Id;
            
     
-            var returnedUser = safari.user_s.SingleOrDefault(c => c.userID == id);
+            var returnedUser = safari.users.SingleOrDefault(c => c.Id == id);
 
             returnedUser.fname = model.user.fname;
             returnedUser.lname = model.user.lname;
@@ -76,15 +76,15 @@ namespace traveling.Controllers
         {
             // Query the database for the rows to be deleted.
             var returnedUsers =
-                from user in safari.user_s
-                where user.userID == id
+                from user in safari.users
+                where user.Id == id
                 select user;
 
             foreach (var user in returnedUsers)
             {
 
 
-                _ = safari.user_s.Remove(user);
+                _ = safari.users.Remove(user);
                
 
             }

@@ -18,22 +18,26 @@ namespace traveling.Models
         public post()
         {
             this.comments = new HashSet<comment>();
-            this.likes = new HashSet<like>();
+            this.Reacts = new HashSet<React>();
+            this.savedPosts = new HashSet<savedPost>();
         }
     
-        public int postID { get; set; }
-        public int userID { get; set; }
-        public int postTripID { get; set; }
+        public int postId { get; set; }
+        public string tripTitle { get; set; }
+        public string tripDetails { get; set; }
         public byte[] postDate { get; set; }
-        public int likesID { get; set; }
-        public byte[] state { get; set; }
-        public string postTitle { get; set; }
+        public System.DateTime tripDate { get; set; }
+        public string tripDestination { get; set; }
+        public string tripImg { get; set; }
+        public string tripPrice { get; set; }
+        public int uid { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<comment> comments { get; set; }
+        public virtual user user { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<like> likes { get; set; }
-        public virtual trip trip { get; set; }
-        public virtual user_s user_s { get; set; }
+        public virtual ICollection<React> Reacts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<savedPost> savedPosts { get; set; }
     }
 }

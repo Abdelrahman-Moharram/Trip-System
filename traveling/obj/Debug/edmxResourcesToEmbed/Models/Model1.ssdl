@@ -1,203 +1,177 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="safariModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="comments">
     <Key>
-      <PropertyRef Name="commentID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="commentID" Type="int" Nullable="false" />
-    <Property Name="userCommentID" Type="int" Nullable="false" />
-    <Property Name="postCommentID" Type="int" Nullable="false" />
-    <Property Name="commentTitle" Type="varchar" MaxLength="100" />
-  </EntityType>
-  <EntityType Name="like">
-    <Key>
-      <PropertyRef Name="likeID" />
-    </Key>
-    <Property Name="likeID" Type="int" Nullable="false" />
-    <Property Name="userLikeID" Type="int" Nullable="false" />
-    <Property Name="postLikeID" Type="int" Nullable="false" />
-    <Property Name="likes" Type="binary" MaxLength="50" />
-    <Property Name="dislike" Type="binary" MaxLength="50" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="commentDetail" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="uid" Type="int" Nullable="false" />
+    <Property Name="pid" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="post">
     <Key>
-      <PropertyRef Name="postID" />
+      <PropertyRef Name="postId" />
     </Key>
-    <Property Name="postID" Type="int" Nullable="false" />
-    <Property Name="userID" Type="int" Nullable="false" />
-    <Property Name="postTripID" Type="int" Nullable="false" />
+    <Property Name="postId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tripTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tripDetails" Type="nvarchar(max)" Nullable="false" />
     <Property Name="postDate" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
-    <Property Name="likesID" Type="int" Nullable="false" />
-    <Property Name="state" Type="binary" MaxLength="50" Nullable="false" />
-    <Property Name="postTitle" Type="nchar" MaxLength="10" />
+    <Property Name="tripDate" Type="datetime" Nullable="false" />
+    <Property Name="tripDestination" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="tripImg" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="tripPrice" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="uid" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
+  <EntityType Name="Reacts">
     <Key>
-      <PropertyRef Name="diagram_id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="likes" Type="binary" MaxLength="50" />
+    <Property Name="dislikes" Type="binary" MaxLength="50" />
+    <Property Name="uid" Type="int" />
+    <Property Name="pid" Type="int" />
   </EntityType>
-  <EntityType Name="trips">
+  <EntityType Name="savedPosts">
     <Key>
-      <PropertyRef Name="tripID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="tripID" Type="int" Nullable="false" />
-    <Property Name="tripPrice" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="tripDetails" Type="varchar" MaxLength="200" Nullable="false" />
-    <Property Name="tripDate" Type="date" Nullable="false" />
-    <Property Name="tripImagePath" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="tripDestination" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="uid" Type="int" Nullable="false" />
+    <Property Name="pid" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="user_s">
+  <EntityType Name="user">
     <Key>
-      <PropertyRef Name="userID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="fname" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="lname" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="phone" Type="varchar" MaxLength="50" />
-    <Property Name="photoPath" Type="varchar" MaxLength="100" />
-    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="userType" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="lname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="phone" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="photo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="userType" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <Association Name="FK_comments_post">
+  <Association Name="FK__comments__pid__4AB81AF0">
     <End Role="post" Type="Self.post" Multiplicity="1" />
     <End Role="comments" Type="Self.comments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="post">
-        <PropertyRef Name="postID" />
+        <PropertyRef Name="postId" />
       </Principal>
       <Dependent Role="comments">
-        <PropertyRef Name="postCommentID" />
+        <PropertyRef Name="pid" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_comments_user_s">
-    <End Role="user_s" Type="Self.user_s" Multiplicity="1" />
+  <Association Name="FK__comments__uid__49C3F6B7">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
     <End Role="comments" Type="Self.comments" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="user_s">
-        <PropertyRef Name="userID" />
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="comments">
-        <PropertyRef Name="userCommentID" />
+        <PropertyRef Name="uid" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_like_post">
-    <End Role="post" Type="Self.post" Multiplicity="1" />
-    <End Role="like" Type="Self.like" Multiplicity="*" />
+  <Association Name="FK__post__uid__412EB0B6">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="post" Type="Self.post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="post">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reacts__pid__46E78A0C">
+    <End Role="post" Type="Self.post" Multiplicity="0..1" />
+    <End Role="Reacts" Type="Self.Reacts" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="post">
-        <PropertyRef Name="postID" />
+        <PropertyRef Name="postId" />
       </Principal>
-      <Dependent Role="like">
-        <PropertyRef Name="postLikeID" />
+      <Dependent Role="Reacts">
+        <PropertyRef Name="pid" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_like_user_s">
-    <End Role="user_s" Type="Self.user_s" Multiplicity="1" />
-    <End Role="like" Type="Self.like" Multiplicity="*" />
+  <Association Name="FK__Reacts__uid__45F365D3">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="Reacts" Type="Self.Reacts" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="user_s">
-        <PropertyRef Name="userID" />
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="like">
-        <PropertyRef Name="userLikeID" />
+      <Dependent Role="Reacts">
+        <PropertyRef Name="uid" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_post_trips">
-    <End Role="trips" Type="Self.trips" Multiplicity="1" />
-    <End Role="post" Type="Self.post" Multiplicity="*" />
+  <Association Name="FK__savedPosts__pid__4E88ABD4">
+    <End Role="post" Type="Self.post" Multiplicity="1" />
+    <End Role="savedPosts" Type="Self.savedPosts" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="trips">
-        <PropertyRef Name="tripID" />
+      <Principal Role="post">
+        <PropertyRef Name="postId" />
       </Principal>
-      <Dependent Role="post">
-        <PropertyRef Name="postTripID" />
+      <Dependent Role="savedPosts">
+        <PropertyRef Name="pid" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_post_user_s">
-    <End Role="user_s" Type="Self.user_s" Multiplicity="1" />
-    <End Role="post" Type="Self.post" Multiplicity="*" />
+  <Association Name="FK__savedPosts__uid__4D94879B">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="savedPosts" Type="Self.savedPosts" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="user_s">
-        <PropertyRef Name="userID" />
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="post">
-        <PropertyRef Name="userID" />
+      <Dependent Role="savedPosts">
+        <PropertyRef Name="uid" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <EntityContainer Name="safariModel1StoreContainer">
+  <EntityContainer Name="Database1ModelStoreContainer">
     <EntitySet Name="comments" EntityType="Self.comments" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="like" EntityType="Self.like" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="post" EntityType="Self.post" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="trips" EntityType="Self.trips" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="user_s" EntityType="Self.user_s" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_comments_post" Association="Self.FK_comments_post">
+    <EntitySet Name="Reacts" EntityType="Self.Reacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="savedPosts" EntityType="Self.savedPosts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__comments__pid__4AB81AF0" Association="Self.FK__comments__pid__4AB81AF0">
       <End Role="post" EntitySet="post" />
       <End Role="comments" EntitySet="comments" />
     </AssociationSet>
-    <AssociationSet Name="FK_comments_user_s" Association="Self.FK_comments_user_s">
-      <End Role="user_s" EntitySet="user_s" />
+    <AssociationSet Name="FK__comments__uid__49C3F6B7" Association="Self.FK__comments__uid__49C3F6B7">
+      <End Role="user" EntitySet="user" />
       <End Role="comments" EntitySet="comments" />
     </AssociationSet>
-    <AssociationSet Name="FK_like_post" Association="Self.FK_like_post">
-      <End Role="post" EntitySet="post" />
-      <End Role="like" EntitySet="like" />
-    </AssociationSet>
-    <AssociationSet Name="FK_like_user_s" Association="Self.FK_like_user_s">
-      <End Role="user_s" EntitySet="user_s" />
-      <End Role="like" EntitySet="like" />
-    </AssociationSet>
-    <AssociationSet Name="FK_post_trips" Association="Self.FK_post_trips">
-      <End Role="trips" EntitySet="trips" />
+    <AssociationSet Name="FK__post__uid__412EB0B6" Association="Self.FK__post__uid__412EB0B6">
+      <End Role="user" EntitySet="user" />
       <End Role="post" EntitySet="post" />
     </AssociationSet>
-    <AssociationSet Name="FK_post_user_s" Association="Self.FK_post_user_s">
-      <End Role="user_s" EntitySet="user_s" />
+    <AssociationSet Name="FK__Reacts__pid__46E78A0C" Association="Self.FK__Reacts__pid__46E78A0C">
       <End Role="post" EntitySet="post" />
+      <End Role="Reacts" EntitySet="Reacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reacts__uid__45F365D3" Association="Self.FK__Reacts__uid__45F365D3">
+      <End Role="user" EntitySet="user" />
+      <End Role="Reacts" EntitySet="Reacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__savedPosts__pid__4E88ABD4" Association="Self.FK__savedPosts__pid__4E88ABD4">
+      <End Role="post" EntitySet="post" />
+      <End Role="savedPosts" EntitySet="savedPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__savedPosts__uid__4D94879B" Association="Self.FK__savedPosts__uid__4D94879B">
+      <End Role="user" EntitySet="user" />
+      <End Role="savedPosts" EntitySet="savedPosts" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

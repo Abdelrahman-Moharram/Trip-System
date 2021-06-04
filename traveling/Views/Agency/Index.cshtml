@@ -1,7 +1,6 @@
-﻿
-@{ ViewBag.Title = "Factory"; }
+﻿@{ ViewBag.Title = "Factory"; }
 
-@model traveling.Models.trip
+@model traveling.Models.post
 
 <div class="new-post-window">
 
@@ -59,7 +58,7 @@
 
         <input type="file" name="file" id="file" class="add-file" data-multiple-caption="{count} files selected" multiple />
         <label class="btn btn-primary  " for="file">choose file <i class="las la-cloud-upload-alt"></i></label>
-        @Html.ValidationMessageFor(model => model.tripImagePath, "", new { @class = "text-danger" })
+        @Html.ValidationMessageFor(model => model.tripImg, "", new { @class = "text-danger" })
 
 
         <div class="newpost-submition">

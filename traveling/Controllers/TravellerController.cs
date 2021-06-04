@@ -12,11 +12,11 @@ namespace traveling.Controllers
 {
     public class TravellerController : Controller
     {
-        private safariEntities2 safari;
+        private  Database1Entities safari;
 
           public TravellerController()
         {
-           safari = new safariEntities2();
+           safari = new Database1Entities();
         }
         public ActionResult Index()
         {
@@ -29,11 +29,11 @@ namespace traveling.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult register(user_s Person)
+        public ActionResult register(user Person)
         {
 
 
-            _ = safari.user_s.Add(Person);
+            _ = safari.users.Add(Person);
             _ = safari.SaveChanges();
             if(Person.userType == "traveller")
                 return RedirectToAction("Index",   "Traveller");
@@ -44,13 +44,13 @@ namespace traveling.Controllers
         }
 
         [HttpPost]
-        public ActionResult login(user_s person)
+        public ActionResult login(user person)
         {
 
             // var result = safari.user_s.Where(user => user.email == person.email).Select(s => { s.password, s.userID, s.userType});
-            var result = from user in safari.user_s
+            var result = from user in safari.users
                          where user.email == person.email
-                         select new { user.userID, user.password, user.userType };
+                         select new { user.Id, user.password, user.userType };
 
 
 

@@ -10,11 +10,11 @@ namespace traveling.Controllers
     public class AgencyController : Controller
     {
 
-        safariEntities2 db;
+        Database1Entities db;
 
         public AgencyController()
         {
-            db = new safariEntities2();
+            db = new Database1Entities();
         }
         // GET: Agency
         public ActionResult Index()
@@ -32,7 +32,7 @@ namespace traveling.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreatePost(trip trp , HttpPostedFileBase file)
+        public ActionResult CreatePost(post trp , HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
@@ -44,11 +44,11 @@ namespace traveling.Controllers
                     file.SaveAs(Server.MapPath(path));
                 }
                
-                trp.tripImagePath = path;
+                trp.tripImg = path;
 
 
 
-                _ = db.trips.Add(trp);
+                _ = db.posts.Add(trp);
                 _ = db.SaveChanges();
                 ViewBag.message = "Post created Successfully";
                 return RedirectToAction("Index");
@@ -58,7 +58,7 @@ namespace traveling.Controllers
 
         public ActionResult MyPosts()
         {
-            var resultDetails = db.trips.ToList();
+            var resultDetails = db.posts.ToList();
             return View(resultDetails);
         }
 

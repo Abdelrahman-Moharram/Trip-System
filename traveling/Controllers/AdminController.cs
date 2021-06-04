@@ -10,6 +10,7 @@ namespace traveling.Controllers
 {
     public class AdminController : Controller
     {
+        // ايه يسطا جاهز للشغل
         private Database1Entities safari;
 
         public AdminController()

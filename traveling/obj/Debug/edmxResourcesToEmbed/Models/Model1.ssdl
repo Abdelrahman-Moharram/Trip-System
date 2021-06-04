@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="commentDetail" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="uid" Type="int" Nullable="false" />
     <Property Name="pid" Type="int" Nullable="false" />
@@ -27,7 +27,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="likes" Type="binary" MaxLength="50" />
     <Property Name="dislikes" Type="binary" MaxLength="50" />
     <Property Name="uid" Type="int" />
@@ -37,7 +37,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="uid" Type="int" Nullable="false" />
     <Property Name="pid" Type="int" Nullable="false" />
   </EntityType>
@@ -52,10 +52,10 @@
     <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="password" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="phone" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="photo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="photo" Type="nvarchar(max)" />
     <Property Name="userType" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <Association Name="FK__comments__pid__4AB81AF0">
+  <Association Name="FK__comments__pid__619B8048">
     <End Role="post" Type="Self.post" Multiplicity="1" />
     <End Role="comments" Type="Self.comments" Multiplicity="*" />
     <ReferentialConstraint>
@@ -67,7 +67,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__comments__uid__49C3F6B7">
+  <Association Name="FK__comments__uid__60A75C0F">
     <End Role="user" Type="Self.user" Multiplicity="1" />
     <End Role="comments" Type="Self.comments" Multiplicity="*" />
     <ReferentialConstraint>
@@ -91,7 +91,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reacts__pid__46E78A0C">
+  <Association Name="FK__Reacts__pid__6383C8BA">
     <End Role="post" Type="Self.post" Multiplicity="0..1" />
     <End Role="Reacts" Type="Self.Reacts" Multiplicity="*" />
     <ReferentialConstraint>
@@ -103,7 +103,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reacts__uid__45F365D3">
+  <Association Name="FK__Reacts__uid__628FA481">
     <End Role="user" Type="Self.user" Multiplicity="0..1" />
     <End Role="Reacts" Type="Self.Reacts" Multiplicity="*" />
     <ReferentialConstraint>
@@ -115,7 +115,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__savedPosts__pid__4E88ABD4">
+  <Association Name="FK__savedPosts__pid__656C112C">
     <End Role="post" Type="Self.post" Multiplicity="1" />
     <End Role="savedPosts" Type="Self.savedPosts" Multiplicity="*" />
     <ReferentialConstraint>
@@ -127,7 +127,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__savedPosts__uid__4D94879B">
+  <Association Name="FK__savedPosts__uid__6477ECF3">
     <End Role="user" Type="Self.user" Multiplicity="1" />
     <End Role="savedPosts" Type="Self.savedPosts" Multiplicity="*" />
     <ReferentialConstraint>
@@ -145,11 +145,11 @@
     <EntitySet Name="Reacts" EntityType="Self.Reacts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="savedPosts" EntityType="Self.savedPosts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__comments__pid__4AB81AF0" Association="Self.FK__comments__pid__4AB81AF0">
+    <AssociationSet Name="FK__comments__pid__619B8048" Association="Self.FK__comments__pid__619B8048">
       <End Role="post" EntitySet="post" />
       <End Role="comments" EntitySet="comments" />
     </AssociationSet>
-    <AssociationSet Name="FK__comments__uid__49C3F6B7" Association="Self.FK__comments__uid__49C3F6B7">
+    <AssociationSet Name="FK__comments__uid__60A75C0F" Association="Self.FK__comments__uid__60A75C0F">
       <End Role="user" EntitySet="user" />
       <End Role="comments" EntitySet="comments" />
     </AssociationSet>
@@ -157,19 +157,19 @@
       <End Role="user" EntitySet="user" />
       <End Role="post" EntitySet="post" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reacts__pid__46E78A0C" Association="Self.FK__Reacts__pid__46E78A0C">
+    <AssociationSet Name="FK__Reacts__pid__6383C8BA" Association="Self.FK__Reacts__pid__6383C8BA">
       <End Role="post" EntitySet="post" />
       <End Role="Reacts" EntitySet="Reacts" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reacts__uid__45F365D3" Association="Self.FK__Reacts__uid__45F365D3">
+    <AssociationSet Name="FK__Reacts__uid__628FA481" Association="Self.FK__Reacts__uid__628FA481">
       <End Role="user" EntitySet="user" />
       <End Role="Reacts" EntitySet="Reacts" />
     </AssociationSet>
-    <AssociationSet Name="FK__savedPosts__pid__4E88ABD4" Association="Self.FK__savedPosts__pid__4E88ABD4">
+    <AssociationSet Name="FK__savedPosts__pid__656C112C" Association="Self.FK__savedPosts__pid__656C112C">
       <End Role="post" EntitySet="post" />
       <End Role="savedPosts" EntitySet="savedPosts" />
     </AssociationSet>
-    <AssociationSet Name="FK__savedPosts__uid__4D94879B" Association="Self.FK__savedPosts__uid__4D94879B">
+    <AssociationSet Name="FK__savedPosts__uid__6477ECF3" Association="Self.FK__savedPosts__uid__6477ECF3">
       <End Role="user" EntitySet="user" />
       <End Role="savedPosts" EntitySet="savedPosts" />
     </AssociationSet>

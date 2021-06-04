@@ -4,19 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="33e9eea016c5423daf97023471a2b375" Name="Diagram1">
+      <Diagram DiagramId="d313c2cf5bca4e21a98efa25dd251d15" Name="Diagram1">
         <EntityTypeShape EntityType="Database1Model.comment" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Database1Model.post" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Database1Model.React" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Database1Model.savedPost" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Database1Model.user" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
-        <AssociationConnector Association="Database1Model.FK__comments__pid__4AB81AF0" ManuallyRouted="false" />
-        <AssociationConnector Association="Database1Model.FK__comments__uid__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__comments__pid__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__comments__uid__60A75C0F" ManuallyRouted="false" />
         <AssociationConnector Association="Database1Model.FK__post__uid__412EB0B6" ManuallyRouted="false" />
-        <AssociationConnector Association="Database1Model.FK__Reacts__pid__46E78A0C" ManuallyRouted="false" />
-        <AssociationConnector Association="Database1Model.FK__savedPosts__pid__4E88ABD4" ManuallyRouted="false" />
-        <AssociationConnector Association="Database1Model.FK__Reacts__uid__45F365D3" ManuallyRouted="false" />
-        <AssociationConnector Association="Database1Model.FK__savedPosts__uid__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Reacts__pid__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__savedPosts__pid__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Reacts__uid__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__savedPosts__uid__6477ECF3" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

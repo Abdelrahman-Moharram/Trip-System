@@ -82,10 +82,13 @@
 
                             <div class="register-input-cont">
                                 <i class="las la-user single-info-icon"></i>
-
                                 @Html.TextBoxFor(m => m.lname, new { type = "text", placeholder = "Last Name", @class = "sign-input" })
                             </div>
 
+                            <div class="register-input-cont">
+                                <i class="las la-user single-info-icon"></i>
+                                @Html.TextBoxFor(m => m.username, new { type = "text", placeholder = "user name", @class = "sign-input" })
+                            </div>
 
                             <div class="register-input-cont">
                                 <i class="las la-mobile-alt single-info-icon"></i>
@@ -96,53 +99,53 @@
                                 @Html.TextBoxFor(m => m.email, new { type = "email", placeholder = "E-Mail ...", @class = "sign-input" })
                             </div>
                             @*@<div class="register-input-cont">
-                                @Html.TextBoxFor(m => m.User.fname, new { @class = "sign-input" })
-                            </div>*@
+            @Html.TextBoxFor(m => m.User.fname, new { @class = "sign-input" })
+        </div>*@
                             <div class="register-input-cont">
                                 <i class="las la-lock single-info-icon"></i>
-                                @Html.TextBoxFor(m => m.password, new { type="password", placeholder = "Password ...", @class = "sign-input" })
+                                @Html.TextBoxFor(m => m.password, new { type = "password", placeholder = "Password ...", @class = "sign-input" })
                             </div>
                             <div class="register-input-cont">
                                 @*@Html.TextBoxFor(m => m.type.typeNum, new { @class = "sign-input" })*@
                                 <div class="register-input-cont">
                                     <i class="las la-user-tag single-info-icon"></i>
-                                    @Html.DropDownListFor(m => m.userType,new SelectList(new[] {"","agency", "traveller"}), new { placeholder = "Make Your Choice", @class = "sign-input" })
+                                    @Html.DropDownListFor(m => m.userType, new SelectList(new[] { "", "agency", "traveller" }), new { @class = "sign-input" })
                                 </div>
 
 
 
                                 <!--
 
-    <form action="" method="POST" class="regist-form">
-                       <div class="register-input-cont"><i class="las la-user single-info-icon"></i><input placeholder="First Name" name="fname" class="sign-input" type="text"></div>
-                       <div class="register-input-cont"><i class="las la-user single-info-icon"></i><input placeholder="Last Name" name="lname" class="sign-input" type="text"></div>
-                       <div class="register-input-cont"><i class="las la-mobile-alt single-info-icon"></i><input placeholder="Phone ..." name="phone" class="sign-input" type="text"></div>
-                       <div class="register-input-cont"><i class="las la-envelope single-info-icon"></i><input placeholder="E-Mail ..." name="email" class="sign-input" type="email"></div>
-                       <div class="register-input-cont"><i class="las la-lock single-info-icon"></i><input placeholder="Password ..." name="password" class="sign-input" type="password"></div>
+        <form action="" method="POST" class="regist-form">
+                           <div class="register-input-cont"><i class="las la-user single-info-icon"></i><input placeholder="First Name" name="fname" class="sign-input" type="text"></div>
+                           <div class="register-input-cont"><i class="las la-user single-info-icon"></i><input placeholder="Last Name" name="lname" class="sign-input" type="text"></div>
+                           <div class="register-input-cont"><i class="las la-mobile-alt single-info-icon"></i><input placeholder="Phone ..." name="phone" class="sign-input" type="text"></div>
+                           <div class="register-input-cont"><i class="las la-envelope single-info-icon"></i><input placeholder="E-Mail ..." name="email" class="sign-input" type="email"></div>
+                           <div class="register-input-cont"><i class="las la-lock single-info-icon"></i><input placeholder="Password ..." name="password" class="sign-input" type="password"></div>
 
-                       <div class="register-input-cont">
-                           <i class="las la-user-tag single-info-icon"></i>
-                           <select name="" class="sign-input" id="">
-                               <option aria-placeholder="select" value=""></option>
-                               <option value="0">Agency</option>
-                               <option value="1">Traveller</option>
-                           </select>
-                       </div>
-                       <div class="button-reg-cont">
-                           <button type="submit" class="btn register-button submit-data">Submit</button>
-                       </div>
-                   </form>
+                           <div class="register-input-cont">
+                               <i class="las la-user-tag single-info-icon"></i>
+                               <select name="" class="sign-input" id="">
+                                   <option aria-placeholder="select" value=""></option>
+                                   <option value="0">Agency</option>
+                                   <option value="1">Traveller</option>
+                               </select>
+                           </div>
+                           <div class="button-reg-cont">
+                               <button type="submit" class="btn register-button submit-data">Submit</button>
+                           </div>
+                       </form>
 
-    -->
+        -->
 
 
-
-                            </div>
-								<div class="button-reg-cont">
-									<button type="submit" class="btn register-button submit-data">Submit</button>
-								</div>
 
                             </div>
+                            <div class="button-reg-cont">
+                                <button type="submit" class="btn register-button submit-data">Submit</button>
+                            </div>
+
+                        </div>
                             }
 
 

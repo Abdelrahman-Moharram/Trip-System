@@ -4,12 +4,12 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="commentDetail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="uid" Type="Int32" Nullable="false" />
     <Property Name="pid" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="post" Relationship="Self.FK__comments__pid__4AB81AF0" FromRole="comments" ToRole="post" />
-    <NavigationProperty Name="user" Relationship="Self.FK__comments__uid__49C3F6B7" FromRole="comments" ToRole="user" />
+    <NavigationProperty Name="post" Relationship="Self.FK__comments__pid__619B8048" FromRole="comments" ToRole="post" />
+    <NavigationProperty Name="user" Relationship="Self.FK__comments__uid__60A75C0F" FromRole="comments" ToRole="user" />
   </EntityType>
   <EntityType Name="post">
     <Key>
@@ -24,32 +24,32 @@
     <Property Name="tripImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="tripPrice" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="uid" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="comments" Relationship="Self.FK__comments__pid__4AB81AF0" FromRole="post" ToRole="comments" />
+    <NavigationProperty Name="comments" Relationship="Self.FK__comments__pid__619B8048" FromRole="post" ToRole="comments" />
     <NavigationProperty Name="user" Relationship="Self.FK__post__uid__412EB0B6" FromRole="post" ToRole="user" />
-    <NavigationProperty Name="Reacts" Relationship="Self.FK__Reacts__pid__46E78A0C" FromRole="post" ToRole="Reacts" />
-    <NavigationProperty Name="savedPosts" Relationship="Self.FK__savedPosts__pid__4E88ABD4" FromRole="post" ToRole="savedPosts" />
+    <NavigationProperty Name="Reacts" Relationship="Self.FK__Reacts__pid__6383C8BA" FromRole="post" ToRole="Reacts" />
+    <NavigationProperty Name="savedPosts" Relationship="Self.FK__savedPosts__pid__656C112C" FromRole="post" ToRole="savedPosts" />
   </EntityType>
   <EntityType Name="React">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="likes" Type="Binary" MaxLength="50" FixedLength="true" />
     <Property Name="dislikes" Type="Binary" MaxLength="50" FixedLength="true" />
     <Property Name="uid" Type="Int32" />
     <Property Name="pid" Type="Int32" />
-    <NavigationProperty Name="post" Relationship="Self.FK__Reacts__pid__46E78A0C" FromRole="Reacts" ToRole="post" />
-    <NavigationProperty Name="user" Relationship="Self.FK__Reacts__uid__45F365D3" FromRole="Reacts" ToRole="user" />
+    <NavigationProperty Name="post" Relationship="Self.FK__Reacts__pid__6383C8BA" FromRole="Reacts" ToRole="post" />
+    <NavigationProperty Name="user" Relationship="Self.FK__Reacts__uid__628FA481" FromRole="Reacts" ToRole="user" />
   </EntityType>
   <EntityType Name="savedPost">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="uid" Type="Int32" Nullable="false" />
     <Property Name="pid" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="post" Relationship="Self.FK__savedPosts__pid__4E88ABD4" FromRole="savedPosts" ToRole="post" />
-    <NavigationProperty Name="user" Relationship="Self.FK__savedPosts__uid__4D94879B" FromRole="savedPosts" ToRole="user" />
+    <NavigationProperty Name="post" Relationship="Self.FK__savedPosts__pid__656C112C" FromRole="savedPosts" ToRole="post" />
+    <NavigationProperty Name="user" Relationship="Self.FK__savedPosts__uid__6477ECF3" FromRole="savedPosts" ToRole="user" />
   </EntityType>
   <EntityType Name="user">
     <Key>
@@ -62,14 +62,14 @@
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="userType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="comments" Relationship="Self.FK__comments__uid__49C3F6B7" FromRole="user" ToRole="comments" />
+    <NavigationProperty Name="comments" Relationship="Self.FK__comments__uid__60A75C0F" FromRole="user" ToRole="comments" />
     <NavigationProperty Name="posts" Relationship="Self.FK__post__uid__412EB0B6" FromRole="user" ToRole="post" />
-    <NavigationProperty Name="Reacts" Relationship="Self.FK__Reacts__uid__45F365D3" FromRole="user" ToRole="Reacts" />
-    <NavigationProperty Name="savedPosts" Relationship="Self.FK__savedPosts__uid__4D94879B" FromRole="user" ToRole="savedPosts" />
+    <NavigationProperty Name="Reacts" Relationship="Self.FK__Reacts__uid__628FA481" FromRole="user" ToRole="Reacts" />
+    <NavigationProperty Name="savedPosts" Relationship="Self.FK__savedPosts__uid__6477ECF3" FromRole="user" ToRole="savedPosts" />
   </EntityType>
-  <Association Name="FK__comments__pid__4AB81AF0">
+  <Association Name="FK__comments__pid__619B8048">
     <End Role="post" Type="Self.post" Multiplicity="1" />
     <End Role="comments" Type="Self.comment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -81,7 +81,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__comments__uid__49C3F6B7">
+  <Association Name="FK__comments__uid__60A75C0F">
     <End Role="user" Type="Self.user" Multiplicity="1" />
     <End Role="comments" Type="Self.comment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -105,7 +105,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reacts__pid__46E78A0C">
+  <Association Name="FK__Reacts__pid__6383C8BA">
     <End Role="post" Type="Self.post" Multiplicity="0..1" />
     <End Role="Reacts" Type="Self.React" Multiplicity="*" />
     <ReferentialConstraint>
@@ -117,7 +117,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__savedPosts__pid__4E88ABD4">
+  <Association Name="FK__savedPosts__pid__656C112C">
     <End Role="post" Type="Self.post" Multiplicity="1" />
     <End Role="savedPosts" Type="Self.savedPost" Multiplicity="*" />
     <ReferentialConstraint>
@@ -129,7 +129,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reacts__uid__45F365D3">
+  <Association Name="FK__Reacts__uid__628FA481">
     <End Role="user" Type="Self.user" Multiplicity="0..1" />
     <End Role="Reacts" Type="Self.React" Multiplicity="*" />
     <ReferentialConstraint>
@@ -141,7 +141,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__savedPosts__uid__4D94879B">
+  <Association Name="FK__savedPosts__uid__6477ECF3">
     <End Role="user" Type="Self.user" Multiplicity="1" />
     <End Role="savedPosts" Type="Self.savedPost" Multiplicity="*" />
     <ReferentialConstraint>
@@ -159,11 +159,11 @@
     <EntitySet Name="Reacts" EntityType="Self.React" />
     <EntitySet Name="savedPosts" EntityType="Self.savedPost" />
     <EntitySet Name="users" EntityType="Self.user" />
-    <AssociationSet Name="FK__comments__pid__4AB81AF0" Association="Self.FK__comments__pid__4AB81AF0">
+    <AssociationSet Name="FK__comments__pid__619B8048" Association="Self.FK__comments__pid__619B8048">
       <End Role="post" EntitySet="posts" />
       <End Role="comments" EntitySet="comments" />
     </AssociationSet>
-    <AssociationSet Name="FK__comments__uid__49C3F6B7" Association="Self.FK__comments__uid__49C3F6B7">
+    <AssociationSet Name="FK__comments__uid__60A75C0F" Association="Self.FK__comments__uid__60A75C0F">
       <End Role="user" EntitySet="users" />
       <End Role="comments" EntitySet="comments" />
     </AssociationSet>
@@ -171,19 +171,19 @@
       <End Role="user" EntitySet="users" />
       <End Role="post" EntitySet="posts" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reacts__pid__46E78A0C" Association="Self.FK__Reacts__pid__46E78A0C">
+    <AssociationSet Name="FK__Reacts__pid__6383C8BA" Association="Self.FK__Reacts__pid__6383C8BA">
       <End Role="post" EntitySet="posts" />
       <End Role="Reacts" EntitySet="Reacts" />
     </AssociationSet>
-    <AssociationSet Name="FK__savedPosts__pid__4E88ABD4" Association="Self.FK__savedPosts__pid__4E88ABD4">
+    <AssociationSet Name="FK__savedPosts__pid__656C112C" Association="Self.FK__savedPosts__pid__656C112C">
       <End Role="post" EntitySet="posts" />
       <End Role="savedPosts" EntitySet="savedPosts" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reacts__uid__45F365D3" Association="Self.FK__Reacts__uid__45F365D3">
+    <AssociationSet Name="FK__Reacts__uid__628FA481" Association="Self.FK__Reacts__uid__628FA481">
       <End Role="user" EntitySet="users" />
       <End Role="Reacts" EntitySet="Reacts" />
     </AssociationSet>
-    <AssociationSet Name="FK__savedPosts__uid__4D94879B" Association="Self.FK__savedPosts__uid__4D94879B">
+    <AssociationSet Name="FK__savedPosts__uid__6477ECF3" Association="Self.FK__savedPosts__uid__6477ECF3">
       <End Role="user" EntitySet="users" />
       <End Role="savedPosts" EntitySet="savedPosts" />
     </AssociationSet>

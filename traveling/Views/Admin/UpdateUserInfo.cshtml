@@ -15,34 +15,38 @@
 
                         @using (Html.BeginForm("update", "Admin"))
                         {
-                            <div class="user-typed-infos col-lg-6 col-md-12">
+                        <div class="user-typed-infos col-lg-6 col-md-12">
 
-                                <div class="edit-info-container ">
-                                    <i class="las la-user single-info-icon"></i>
+                            <div class="edit-info-container ">
+                                <i class="las la-user single-info-icon"></i>
 
-                                    @Html.TextBoxFor(m => m.user.fname, new { type = "text", placeholder = "First Name", @class = "sign-input" })
-                                </div>
-
-
-                                <div class="edit-info-container">
-                                    <i class="las la-user single-info-icon"></i>
-
-                                    @Html.TextBoxFor(m => m.user.lname, new { type = "text", placeholder = "Last Name", @class = "sign-input" })
-                                </div>
-
-
-                                <div class="edit-info-container">
-                                    <i class="las la-mobile-alt single-info-icon"></i>
-                                    @Html.TextBoxFor(m => m.user.phone, new { type = "text", placeholder = "Phone ...", @class = "sign-input" })
-                                </div>
-                                <div class="register-input-cont">
-                                    <i class="las la-envelope single-info-icon"></i>
-                                    @Html.TextBoxFor(m => m.user.email, new { type = "email", placeholder = "E-Mail ...", @class = "sign-input" })
-                                </div>
-
-                                
-
+                                @Html.TextBoxFor(m => m.user.fname, new { type = "text", placeholder = "First Name", @class = "sign-input" })
                             </div>
+
+
+                            <div class="edit-info-container">
+                                <i class="las la-user single-info-icon"></i>
+
+                                @Html.TextBoxFor(m => m.user.lname, new { type = "text", placeholder = "Last Name", @class = "sign-input" })
+                            </div>
+
+                            <div class="register-input-cont">
+                                <i class="las la-envelope single-info-icon"></i>
+                                @Html.TextBoxFor(m => m.user.username, new { type = "text", placeholder = "username", @class = "sign-input" })
+                            </div>
+
+                            <div class="edit-info-container">
+                                <i class="las la-mobile-alt single-info-icon"></i>
+                                @Html.TextBoxFor(m => m.user.phone, new { type = "text", placeholder = "Phone ...", @class = "sign-input" })
+                            </div>
+                            <div class="register-input-cont">
+                                <i class="las la-envelope single-info-icon"></i>
+                                @Html.TextBoxFor(m => m.user.email, new { type = "email", placeholder = "E-Mail ...", @class = "sign-input" })
+                            </div>
+
+
+
+                        </div>
 
 
                             <div class="col-lg-6 col-md-12 edit-info-tail">

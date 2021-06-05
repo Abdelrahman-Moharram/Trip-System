@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c6265f37b883470883d78da9fd75c82a" Name="Diagram1">
+        <EntityTypeShape EntityType="Database1Model1.comment" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.post" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.React" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.savedPost" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.user" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="Database1Model1.FK__comments__pid__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK__comments__uid__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK__post__uid__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK__Reacts__pid__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK__savedPosts__pid__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK__Reacts__uid__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK__savedPosts__uid__6477ECF3" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

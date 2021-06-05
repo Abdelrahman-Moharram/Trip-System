@@ -135,7 +135,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\comment.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -152,17 +152,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Model9.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model9.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model9.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model9.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\post.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\React.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\savedPost.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="viewModel\userUpdateView.cs" />
@@ -196,6 +211,16 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Model9.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model9.edmx</DependentUpon>
+      <LastGenOutput>Model9.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model9.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model9.edmx</DependentUpon>
+      <LastGenOutput>Model9.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\notifications.js" />
     <Content Include="Scripts\posts.js" />
     <Content Include="Scripts\profileSettings.js" />
@@ -216,6 +241,13 @@
     </EntityDeploy>
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Model9.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model9.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model9.edmx.diagram">
+      <DependentUpon>Model9.edmx</DependentUpon>
     </Content>
     <None Include="Views\Traveller\profile.cshtml" />
     <Content Include="Web.config" />

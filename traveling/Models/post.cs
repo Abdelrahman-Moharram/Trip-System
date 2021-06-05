@@ -31,6 +31,7 @@ namespace traveling.Models
         public string tripImg { get; set; }
         public string tripPrice { get; set; }
         public int uid { get; set; }
+        public byte[] approved { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<comment> comments { get; set; }

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1Model1StoreContainer" CdmEntityContainer="safariEn9">
+    <EntitySetMapping Name="comments">
+      <EntityTypeMapping TypeName="Database1Model1.comment">
+        <MappingFragment StoreEntitySet="comments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="commentDetail" ColumnName="commentDetail" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="posts">
+      <EntityTypeMapping TypeName="Database1Model1.post">
+        <MappingFragment StoreEntitySet="post">
+          <ScalarProperty Name="postId" ColumnName="postId" />
+          <ScalarProperty Name="tripTitle" ColumnName="tripTitle" />
+          <ScalarProperty Name="tripDetails" ColumnName="tripDetails" />
+          <ScalarProperty Name="postDate" ColumnName="postDate" />
+          <ScalarProperty Name="tripDate" ColumnName="tripDate" />
+          <ScalarProperty Name="tripDestination" ColumnName="tripDestination" />
+          <ScalarProperty Name="tripImg" ColumnName="tripImg" />
+          <ScalarProperty Name="tripPrice" ColumnName="tripPrice" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="approved" ColumnName="approved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reacts">
+      <EntityTypeMapping TypeName="Database1Model1.React">
+        <MappingFragment StoreEntitySet="Reacts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="likes" ColumnName="likes" />
+          <ScalarProperty Name="dislikes" ColumnName="dislikes" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="savedPosts">
+      <EntityTypeMapping TypeName="Database1Model1.savedPost">
+        <MappingFragment StoreEntitySet="savedPosts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="Database1Model1.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

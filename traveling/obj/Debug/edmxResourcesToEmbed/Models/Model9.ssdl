@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="comments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="commentDetail" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="uid" Type="int" Nullable="false" />
+    <Property Name="pid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="post">
+    <Key>
+      <PropertyRef Name="postId" />
+    </Key>
+    <Property Name="postId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tripTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tripDetails" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="postDate" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="tripDate" Type="datetime" Nullable="false" />
+    <Property Name="tripDestination" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="tripImg" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="tripPrice" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="uid" Type="int" Nullable="false" />
+    <Property Name="approved" Type="binary" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reacts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="likes" Type="binary" MaxLength="50" />
+    <Property Name="dislikes" Type="binary" MaxLength="50" />
+    <Property Name="uid" Type="int" />
+    <Property Name="pid" Type="int" />
+  </EntityType>
+  <EntityType Name="savedPosts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="int" Nullable="false" />
+    <Property Name="pid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="lname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="phone" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="photo" Type="nvarchar(max)" />
+    <Property Name="userType" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__comments__pid__619B8048">
+    <End Role="post" Type="Self.post" Multiplicity="1" />
+    <End Role="comments" Type="Self.comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="post">
+        <PropertyRef Name="postId" />
+      </Principal>
+      <Dependent Role="comments">
+        <PropertyRef Name="pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__comments__uid__60A75C0F">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="comments" Type="Self.comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="comments">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__post__uid__412EB0B6">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="post" Type="Self.post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="post">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reacts__pid__6383C8BA">
+    <End Role="post" Type="Self.post" Multiplicity="0..1" />
+    <End Role="Reacts" Type="Self.Reacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="post">
+        <PropertyRef Name="postId" />
+      </Principal>
+      <Dependent Role="Reacts">
+        <PropertyRef Name="pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reacts__uid__628FA481">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="Reacts" Type="Self.Reacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reacts">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__savedPosts__pid__656C112C">
+    <End Role="post" Type="Self.post" Multiplicity="1" />
+    <End Role="savedPosts" Type="Self.savedPosts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="post">
+        <PropertyRef Name="postId" />
+      </Principal>
+      <Dependent Role="savedPosts">
+        <PropertyRef Name="pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__savedPosts__uid__6477ECF3">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="savedPosts" Type="Self.savedPosts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="savedPosts">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Database1Model1StoreContainer">
+    <EntitySet Name="comments" EntityType="Self.comments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="post" EntityType="Self.post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reacts" EntityType="Self.Reacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="savedPosts" EntityType="Self.savedPosts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__comments__pid__619B8048" Association="Self.FK__comments__pid__619B8048">
+      <End Role="post" EntitySet="post" />
+      <End Role="comments" EntitySet="comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__comments__uid__60A75C0F" Association="Self.FK__comments__uid__60A75C0F">
+      <End Role="user" EntitySet="user" />
+      <End Role="comments" EntitySet="comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__post__uid__412EB0B6" Association="Self.FK__post__uid__412EB0B6">
+      <End Role="user" EntitySet="user" />
+      <End Role="post" EntitySet="post" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reacts__pid__6383C8BA" Association="Self.FK__Reacts__pid__6383C8BA">
+      <End Role="post" EntitySet="post" />
+      <End Role="Reacts" EntitySet="Reacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reacts__uid__628FA481" Association="Self.FK__Reacts__uid__628FA481">
+      <End Role="user" EntitySet="user" />
+      <End Role="Reacts" EntitySet="Reacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__savedPosts__pid__656C112C" Association="Self.FK__savedPosts__pid__656C112C">
+      <End Role="post" EntitySet="post" />
+      <End Role="savedPosts" EntitySet="savedPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__savedPosts__uid__6477ECF3" Association="Self.FK__savedPosts__uid__6477ECF3">
+      <End Role="user" EntitySet="user" />
+      <End Role="savedPosts" EntitySet="savedPosts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

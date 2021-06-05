@@ -11,11 +11,11 @@ namespace traveling.Controllers
     public class AdminController : Controller
     {
         // ايه يسطا جاهز للشغل
-        private Database1Entities safari;
+        private safariEn9 safari;
 
         public AdminController()
         {
-            safari = new Database1Entities();
+            safari = new safariEn9();
         }
         // GET: Admin
         public ActionResult Index()

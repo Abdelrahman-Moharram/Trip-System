@@ -12,11 +12,11 @@ namespace traveling.Controllers
 {
     public class TravellerController : Controller
     {
-        private  Database1Entities safari;
+        private  safariEn9 safari;
 
           public TravellerController()
         {
-           safari = new Database1Entities();
+           safari = new safariEn9();
         }
         public ActionResult Index()
         {

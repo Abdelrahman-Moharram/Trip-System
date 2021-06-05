@@ -10,11 +10,11 @@ namespace traveling.Controllers
     public class AgencyController : Controller
     {
 
-        Database1Entities db;
+        private safariEn9 db;
 
         public AgencyController()
         {
-            db = new Database1Entities();
+            db = new safariEn9();
         }
         // GET: Agency
         public ActionResult Index()

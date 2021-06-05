@@ -30,10 +30,12 @@
 								<div class="register-input-cont">
 									<i class="las la-lock single-info-icon"></i>
 									@Html.TextBoxFor(m => m.password, new { type = "password", placeholder = "Password ...", @class = "sign-input" })
+									@Html.HiddenFor(m => m.Id)
 								</div>
 								
 								<div class="button-reg-cont">
 									<button type="submit" class="btn register-button submit-data">Submit</button>
+									
 								</div>
 
 							</div>

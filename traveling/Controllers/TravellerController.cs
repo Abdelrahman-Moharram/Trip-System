@@ -35,10 +35,12 @@ namespace traveling.Controllers
 
             _ = safari.users.Add(Person);
             _ = safari.SaveChanges();
-            if(Person.userType == "traveller")
-                return RedirectToAction("Index",   "Traveller");
-            else
-                return RedirectToAction("Index", "Agency");
+
+            return login(Person);
+           // if(Person.userType == "traveller")
+             //   return RedirectToAction("Index",   "Traveller");
+           // else
+             //   return RedirectToAction("Index", "Agency");
 
 
         }
@@ -48,28 +50,37 @@ namespace traveling.Controllers
         {
 
             // var result = safari.user_s.Where(user => user.email == person.email).Select(s => { s.password, s.userID, s.userType});
-            var result = from user in safari.users
-                         where user.email == person.email
-                         select new { user.Id, user.password, user.userType };
+         
+                var result = from user in safari.users
+                             where user.username == person.username
+                             select user;
 
 
-
-
-            foreach (var x in result)
-            {
-                if (x.password == person.password)
+                foreach (var x in result)
                 {
-                    if (x.userType == "traveller")
-                        return RedirectToAction("Index", "Traveller");
-                    else if (x.userType == "agency")
-                        return RedirectToAction("Index", "Agency");
-                    else
-                        return RedirectToAction("Index", "Admin");
+                    if (x.password == person.password)
+                    {
 
-                }   
+                        Session["user"] = x;
+                        if (x.userType == "traveller")
+                            return RedirectToAction("Index", "Traveller");
+                        else if (x.userType == "agency")
+                            return RedirectToAction("Index", "Agency");
+                        else
+                            return RedirectToAction("Index", "Admin");
 
-            }
-                return RedirectToAction("loginError");
+                    }
+
+                }
+                return RedirectToAction("login");
+
+
+
+
+
+           
+
+           
 
 
         }

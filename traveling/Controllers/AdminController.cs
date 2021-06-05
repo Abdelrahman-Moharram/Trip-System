@@ -33,7 +33,18 @@ namespace traveling.Controllers
 
         public ActionResult PendingPosts()
         {
-            return View();
+            var result = safari.posts.ToList();
+
+            var viewPosts = new viewAdminPosts
+            {
+                posts = result
+            };
+
+            return View(viewPosts);
+
+
+
+
         }
 
         public ActionResult UpdateUserInfo(int id)
@@ -103,6 +114,70 @@ namespace traveling.Controllers
             return View();
         }
 
+        public ActionResult approve(int id)
+        {
+
+          
+
+
+            var returnedUser = safari.posts.SingleOrDefault(c => c.postId == id);
+            byte[] b = { 1 };
+            returnedUser.approved = b;
+            
+
+
+            _ = safari.SaveChanges();
+
+
+            return View("PendingPosts");
+        }
+
+        public ActionResult unapprove(int id)
+        {
+            var returnedUser = safari.posts.SingleOrDefault(c => c.postId == id);
+            byte[] b = { 2 };
+            returnedUser.approved = b;
+
+
+
+            _ = safari.SaveChanges();
+
+
+           
+
+
+
+
+
+            return View("PendingPosts");
+        }
+
+
+
+
 
     }
 }
+
+
+
+/*
+  //adding data to session
+//assuming the method below will return list of Products
+
+var products=Db.GetProducts();
+
+//Store the products to a session
+
+Session["products"]=products;
+
+//To get what you have stored to a session
+
+var products=Session["products"] as List<Product>;
+
+//to clear the session value
+
+Session["products"]=null;
+
+    */
+    

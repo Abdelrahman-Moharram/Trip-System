@@ -181,6 +181,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="viewModel\userUpdateView.cs" />
+    <Compile Include="viewModel\viewAdminPosts.cs" />
     <Compile Include="viewModel\viewUserModel.cs" />
   </ItemGroup>
   <ItemGroup>

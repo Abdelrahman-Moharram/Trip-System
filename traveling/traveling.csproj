@@ -254,6 +254,8 @@
     <Content Include="Views\Shared\FactoryLayout.cshtml" />
     <Content Include="Views\Agency\profile.cshtml" />
     <Content Include="Views\Traveller\login.cshtml" />
+    <Content Include="Views\Admin\profile.cshtml" />
+    <Content Include="Views\Admin\AllPosts.cshtml" />
     <None Include="Views\Traveller\profile.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

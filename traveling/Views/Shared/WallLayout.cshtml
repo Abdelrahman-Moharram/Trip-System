@@ -1,14 +1,74 @@
 ﻿
-
+<style>
+    .search-result-container{
+        width:120%;
+        position:absolute;
+        padding:10px;
+        margin-top:40px;
+        background-color:#eee;
+        z-index:3;
+    }
+    .search-result-single-cont{
+        width:100%;
+        padding:0px;
+        border-radius:10px;
+        background-color:#808080;
+        overflow:hidden;
+        height:auto;
+    }
+    .result-title {
+        margin: 0px;
+        color: #0067ff;
+    }
+    .result-img{
+        width:100%;
+        border-radius:10px;
+    }
+    .result-trip-date{
+        margin:5px 0px 0px 0px;
+        font-size:12px;
+        color:rgba(0,0,0,.7);
+    }
+    .single-search-result{
+        background-color:#fff;
+        margin:10px 0px;
+        padding:10px;
+        border-radius:10px;
+    }
+    
+</style>
 
 <nav class="navbar fixed-top">
     <div class="container-fluid">
 
         <a href="@Url.Action("Index", "Traveller")" class="nav-brand">Wall-Layout</a>
 
-        <form class="d-flex justify-content-center hidden-md-down">
+        <form class="d-flex justify-content-center d-lg-flex d-md-none d-sm-none col-lg-4 col-md-3">
             <input class="form-search" type="search" placeholder="Search" aria-label="Search">
             <button class="search-btn" type="submit"><i class="las la-search"></i></button>
+            
+            <div class="search-result-container">
+
+                <div class="d-flex single-search-result">
+                    <div class="justify-content-start col-lg-3 col-md-2 d-lg-block d-md-none" style="border-radius:10px;overflow:hidden;padding:0px;margin:auto"> <img class="result-img" src="~/assets/postsImgs/slide-hawaii.jpg" /></div>
+                    <div class="justify-content-end ml-3">
+                        <div>
+                            <h4 class="result-title">Post-Title</h4>
+                            <div class="d-block">
+                                <span style="float:left" class="result-trip-date">published at: 22-2-2022</span>
+                                <span style="float:right;margin-right:20px" class="result-trip-date">location: giza,cairo</span>
+                            </div>
+                        </div>
+                        <div>aoscaklnscoanclnaoscnalkscnaknscka sk ak ckasncoano nansoncak akkbs naosn jabsi baks ia ian iabs jasbiuusciuans .</div>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
         </form>
 
 

@@ -1,0 +1,122 @@
+﻿@{ ViewBag.Title = "All Posts"; }
+@model IEnumerable<traveling.Models.post>
+
+@Html.Partial("~/Views/Shared/DashboardLayout.cshtml")
+
+<!------------------------------------------------------------------------------------------------------------------>
+
+
+
+
+
+<div class="massive-container">
+    <div>
+
+        <div class="container">
+            <div class="row">
+
+
+
+                <div class="post col-lg-8 col-md-10 col-sm-12" id="0">
+                    <div class="post-header">
+                        <div class="post-auther">
+                            <img class="user-post-pic" src="@Url.Content("~/assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg")" alt="">
+                            <div class="post-auther-name">Abdelrahman Moharram</div>
+                            <div class="dropdown  post-options">
+                                <i class="las la-ellipsis-v" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" onclick="hidePost(0)"><i class="las la-ban"></i>hide</a>
+                                    <a class="dropdown-item"><i class="las la-bookmark"></i> save</a>
+                                </div>
+                            </div>
+                            <div class="post-date">published at: 28 April 2025</div>
+                        </div>
+
+                        <div class="post-title">
+                            Travel to helwan university
+                        </div>
+                        <div class="post-detials">
+                            صباح النصر علي اوسخ جامعه في مصر
+                        </div>
+                    </div>
+
+
+                    <img class="post-img" src="@Url.Content("~/assets/postsImgs/slide-hawaii.jpg")">
+                    <div class="date-location-cont">
+                        <div class="trip-location"><i class="las la-map-marker-alt"></i> country, city</div>
+                        <div class="trip-date"><i class="lar la-clock" style="font-size: 17px;margin-right: 10px;position: absolute;margin-top: 2px;"></i><span style="margin-left: 24px;">launched at : 22 Dec 2021 at 11:30am</span></div>
+                    </div>
+                    <div class="post-tail">
+                        <i class="las la-thumbs-up post-like-icon" onclick="like(0,10,3)"></i>
+                        <i class="las la-thumbs-down post-dislike-icon" onclick="dislike(0,10,3)"></i>
+                        <div class="likes-counter">
+                            <div class="gaven-likes-counter"></div>
+                            <div class="gaven-dislikes-counter"></div>
+                        </div>
+                        <i class="lar la-comment post-comment-icon" onclick="comment_show(0)"></i>
+                    </div>
+
+                    <div class="post-comments">
+                        <div class="post-single-comment">
+                            <div class="comment-auther">
+                                <img class="user-post-pic" src="@Url.Content("~/assets/userimgs/saeed.jpg")" alt="">
+                                <div class="comment-auther-name">saeed Mohamed</div>
+                                <div class="comment-date">28 April 2025</div>
+                            </div>
+                            <div class="comment-content">
+                                welcome in hell
+                            </div>
+                        </div>
+
+
+                        <div class="post-single-comment">
+                            <div class="comment-auther">
+                                <img class="user-post-pic" src="@Url.Content("~/assets/userimgs/hamed.jpg")" alt="">
+                                <div class="comment-auther-name">حامد فرج</div>
+                                <div class="comment-date">28 April 2025</div>
+                            </div>
+                            <div class="comment-content">
+                                ايه يسطا اخبار شمردن ايه سلملي عليه وقوله ربنا يحرق انت والكلية
+                            </div>
+                        </div>
+
+
+                        <div class="post-single-comment">
+                            <div class="comment-auther">
+                                <img class="user-post-pic" src="@Url.Content("~/assets/userimgs/atef.jpg")" alt="">
+                                <div class="comment-auther-name">Atef Hamdy</div>
+                                <div class="comment-date">28 April 2025</div>
+                            </div>
+                            <div class="comment-content" dir=auto>
+                                عقبال ما تتخرج سنه 2130
+                            </div>
+                        </div>
+
+                        <form action="" method="POST" class="add-comment">
+                            <div class="comment-auther">
+                                <img class="user-post-pic" src="@Url.Content("~/assets/userimgs/hamed.jpg")" alt="">
+                                <div class="post-auther-name">حامد فرج</div>
+                            </div>
+                            <!-- onclick="comment(2)" -->
+                            <input type="text" class="write-comment">
+                            <button type="submit" class="btn btn-primary comment-submit-button" dir="auto">Post</button>
+                        </form>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+<script src="@Url.Content("~/Scripts/posts.js")"></script>

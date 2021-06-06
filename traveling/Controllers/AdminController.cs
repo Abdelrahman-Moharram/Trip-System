@@ -151,8 +151,14 @@ namespace traveling.Controllers
         }
 
 
-
-
+        public ActionResult profile()
+        {
+            return View();
+        }
+        public ActionResult AllPosts()
+        {
+            return View();
+        }
 
     }
 }

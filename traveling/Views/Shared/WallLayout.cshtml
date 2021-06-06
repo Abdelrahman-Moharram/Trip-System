@@ -1,0 +1,25 @@
+﻿
+
+
+<nav class="navbar fixed-top">
+    <div class="container-fluid">
+
+        <a href="@Url.Action("Index", "Traveller")" class="nav-brand">Wall-Layout</a>
+
+        <form class="d-flex justify-content-center hidden-md-down">
+            <input class="form-search" type="search" placeholder="Search" aria-label="Search">
+            <button class="search-btn" type="submit"><i class="las la-search"></i></button>
+        </form>
+
+
+        <div class="justify-content-end" style="margin-right:3%">
+            
+                <div onclick="showPopup('login-form')" class="sign-nav-button">Login</div>
+                <div onclick="showPopup('register-form')" class="sign-nav-button">Register</div>
+            
+
+        </div>
+
+    </div>
+</nav>
+

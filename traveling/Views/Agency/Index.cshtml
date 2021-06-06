@@ -2,6 +2,10 @@
 
 @model traveling.Models.post
 
+
+@Html.Partial("~/Views/Shared/FactoryLayout.cshtml")
+
+
 <div class="new-post-window">
 
     @using (Html.BeginForm("CreatePost", "Agency", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -10,137 +14,68 @@
         @Html.AntiForgeryToken()
 
 
-    <div class="new-post">
-        <i class="las la-times close-new-post" onclick="closePost()"></i>
-        <div class="header-container">
+        <div class="new-post">
+            <div style="background-color: #004bb9;padding: 20px">
+                <i class="las la-times close-new-post" onclick="closePost()"></i>
+                <div class="header-container">
 
-            @Html.EditorFor(model => model.tripTitle, new { htmlAttributes = new { placeholder = "add title ...", @class = "newpost-header" } })
-            @Html.ValidationMessageFor(model => model.tripTitle, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.tripTitle, new { htmlAttributes = new { placeholder = "add title ...", @class = "newpost-header" ,@onclick= "showLine('header-container')" } })
+                    @Html.ValidationMessageFor(model => model.tripTitle, "", new { @class = "text-danger" })
 
-            <div class="form-input-divider"><div class="form-input-insider"></div></div>
+                    <div class="form-input-divider"><div class="form-input-insider"></div></div>
 
+                </div>
+
+                <div class="newpost-body-container" style="margin-bottom: 0px;">
+
+                    @Html.EditorFor(model => model.tripDetails, new { htmlAttributes = new { placeholder = "Write Post", @class = "newpost-content", @onclick = "showLine('newpost-body-container')" } })
+                    @Html.ValidationMessageFor(model => model.tripDetails, "", new { @class = "text-danger" })
+
+                    <div class="form-input-divider"><div class="form-input-insider" style="margin-top: 0px;"></div></div>
+                </div>
+
+                <div class="tripDestination-container">
+
+                    @Html.EditorFor(model => model.tripDestination, new { htmlAttributes = new { placeholder = "add Destination ...", @class = "newpost-header", @onclick = "showLine('tripDestination-container')" } })
+                    @Html.ValidationMessageFor(model => model.tripDestination, "", new { @class = "text-danger" })
+
+                    <div class="form-input-divider"><div class="form-input-insider"></div></div>
+
+                </div>
+
+                <div class="tripPrice-container">
+
+                    @Html.EditorFor(model => model.tripPrice, new { htmlAttributes = new { placeholder = "add Price ...", @class = "newpost-header", @onclick = "showLine('tripPrice-container')" } })
+                    @Html.ValidationMessageFor(model => model.tripPrice, "", new { @class = "text-danger" })
+
+                    <div class="form-input-divider"><div class="form-input-insider"></div></div>
+
+                </div>
+                <div class="tripDate-container">
+
+                    @Html.EditorFor(model => model.tripDate, new { htmlAttributes = new { type = "date", placeholder = "add date ...", @class = "newpost-header", @onclick = "showLine('tripDate-container')" } })
+                    @Html.ValidationMessageFor(model => model.tripDate, "", new { @class = "text-danger" })
+
+                    <div class="form-input-divider"><div class="form-input-insider"></div></div>
+
+                </div>
+
+
+                <input type="file" name="file" id="file" class="add-file" data-multiple-caption="{count} files selected" multiple />
+                <label class="btn btn-primary  " for="file">choose file <i class="las la-cloud-upload-alt"></i></label>
+                @Html.ValidationMessageFor(model => model.tripImg, "", new { @class = "text-danger" })
+
+
+                <div class="newpost-submition">
+                    <button class="btn btn-primary mb-3 submit-post">Submit</button>
+                    <button class="btn btn-primary mb-3 cancel-post">Cancel</button>
+                </div>
+            </div>
         </div>
-
-        <div class="newpost-body-container" style="margin-bottom: 0px;">
-
-            @Html.EditorFor(model => model.tripDetails, new { htmlAttributes = new { placeholder = "Write Post", @class = "newpost-content" } })
-            @Html.ValidationMessageFor(model => model.tripDetails, "", new { @class = "text-danger" })
-
-            <div class="form-input-divider"><div class="form-input-insider" style="margin-top: -6px;"></div></div>
-        </div>
-
-        <div class="header-container">
-
-            @Html.EditorFor(model => model.tripDestination, new { htmlAttributes = new { placeholder = "add Destination ...", @class = "newpost-header" } })
-            @Html.ValidationMessageFor(model => model.tripDestination, "", new { @class = "text-danger" })
-
-            <div class="form-input-divider"><div class="form-input-insider"></div></div>
-
-        </div>
-
-        <div class="header-container">
-
-            @Html.EditorFor(model => model.tripPrice, new { htmlAttributes = new { placeholder = "add Price ...", @class = "newpost-header" } })
-            @Html.ValidationMessageFor(model => model.tripPrice, "", new { @class = "text-danger" })
-
-            <div class="form-input-divider"><div class="form-input-insider"></div></div>
-
-        </div>
-        <div class="header-container">
-
-            @Html.EditorFor(model => model.tripDate, new { htmlAttributes = new { type = "date", placeholder = "add date ...", @class = "newpost-header" } })
-            @Html.ValidationMessageFor(model => model.tripDate, "", new { @class = "text-danger" })
-
-            <div class="form-input-divider"><div class="form-input-insider"></div></div>
-
-        </div>
-
-
-        <input type="file" name="file" id="file" class="add-file" data-multiple-caption="{count} files selected" multiple />
-        <label class="btn btn-primary  " for="file">choose file <i class="las la-cloud-upload-alt"></i></label>
-        @Html.ValidationMessageFor(model => model.tripImg, "", new { @class = "text-danger" })
-
-
-        <div class="newpost-submition">
-            <button class="btn btn-primary mb-3 submit-post">Submit</button>
-            <button class="btn btn-primary mb-3 cancel-post">Cancel</button>
-        </div>
-    </div>
     }
 
 
 </div>
-
-
-
-
-
-<nav class="navbar" style="display:block;">
-
-    <a href="javascript:void(0)" class="open-nav" onclick="openNav()"><i class="las la-bars"></i></a>
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="las la-times"></i></a>
-    <a class="nav-brand" href="agency.html" style="color: #171717;">Factory</a>
-
-
-</nav>
-<!-------------------------------------------------------nav bar and side nav bar----------------------------------------------------------->
-<div id="mySidenav" class="sidenav">
-
-    <a href="profile.html" class="link-item"><i class="las la-user" style="margin-left: 8px;margin-right: 5px;"></i> <span class="nav-text">profile </span></a>
-
-
-    <a class="link-item" onclick="createPost()" id="create-post"><i class="las la-plus" id="create-post-icon" style="margin-left: 8px;margin-right: 5px;cursor: pointer;"></i> <span class="nav-text">Create Post </span></a>
-    <a href="@Url.Action("MyPosts","Agency")" class="link-item"><i class="las la-photo-video" style="margin-left: 8px;margin-right: 5px;"></i><span class="nav-text"> My Posts</span></a>
-    <a id="notifis" onclick="showNotifi()" class="link-item"><div id="notify-num">200</div><i class="las la-bell" style="margin-left: 8px;margin-right: 5px;"></i><span class="nav-text"> Recived Questions </span></a>
-</div>
-
-
-<div class="container-fluid">
-    <div class="row">
-        <div id="notification-menu" class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-            <a href="notifications.html" class="notifi-tab">
-                see all notifications
-            </a>
-
-            <div class="notfis-list">
-
-                <a class="single-notifi" id="comment-0">
-                    <i class="las la-times-circle close-notifi" onclick="closeNotifi('comment-0')"></i>
-                    <div class="notifi-name">Abdelrahman Moharram</div>
-                    <img src="@Url.Content("~/assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg")" class="user-post-pic" alt="">
-                    <div class="notifi-body">
-                        <div>is asked you a questions on your post at 02:00pm 11-3-2021</div>
-                    </div>
-                </a>
-
-
-
-                <a class="single-notifi" id="comment-1">
-                    <i class="las la-times-circle close-notifi" onclick="closeNotifi('comment-1')"></i>
-                    <div class="notifi-name">Atef Hamdy</div>
-                    <img src="@Url.Content("~/assets/userimgs/atef.jpg")" class="user-post-pic" alt="">
-                    <div class="notifi-body">
-                        <div>is asked you a questions on your post at 02:00pm 11-3-2021</div>
-                    </div>
-                </a>
-
-
-
-
-                <a class="single-notifi" id="comment-2">
-                    <i class="las la-times-circle close-notifi" onclick="closeNotifi('comment-2')"></i>
-                    <div class="notifi-name">حامد فرج</div>
-                    <img src="@Url.Content("~/assets/userimgs/hamed.jpg")" class="user-post-pic" alt="">
-                    <div class="notifi-body">
-                        <div>is asked you a questions on your post at 02:00pm 11-3-2021</div>
-                    </div>
-                </a>
-            </div>
-
-        </div>
-    </div>
-</div>
-
 
 
 <!---------------------------------------------------------------- body and cards -------------------------------------------------->
@@ -244,11 +179,6 @@
 
 
 
-
-
-<script src="@Url.Content("~/Scripts/notifications.js")"></script>
-<script src="@Url.Content("~/Scripts/script.js")"></script>
-<script src="@Url.Content("~/Scripts/sideNav.js")"></script>
 
 
 <!-- <label for="exampleColorInput" class="form-label">Color picker</label>

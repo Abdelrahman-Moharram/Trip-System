@@ -10,11 +10,11 @@ namespace traveling.Controllers
     public class AgencyController : Controller
     {
 
-        private safariEn9 db;
+        private Database1Entities db;
 
         public AgencyController()
         {
-            db = new safariEn9();
+            db = new Database1Entities();
         }
         // GET: Agency
         public ActionResult Index()
@@ -62,8 +62,11 @@ namespace traveling.Controllers
             return View(resultDetails);
         }
 
+        public ActionResult profile()
+        {
+            return View();
+        }
 
-       
 
 
     }

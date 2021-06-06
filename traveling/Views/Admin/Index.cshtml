@@ -1,50 +1,44 @@
 ﻿@model traveling.viewModel.viewUserModel
-
-            <nav class="navbar" style="display:block;">
-
-
-                <a class="nav-brand" href="agency.html">Factory</a>
+@Html.Partial("~/Views/Shared/DashboardLayout.cshtml")
 
 
-            </nav>
+<div class="container-fluid users-table-cont" style="margin-top:60px">
 
-                <div class="container-fluid users-table-cont">
+    <div class="row">
 
-                    <div class="row">
+        <table class="table  bg-light table-borderless users-table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">USER Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">usertype</th>
+                    <th scope="col">Edit Informations</th>
+                </tr>
+            </thead>
+            <tbody>
 
-                        <table class="table  bg-light table-borderless users-table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">id</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">USER Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">usertype</th>
-                                    <th scope="col">Edit Informations</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                @foreach (var user in Model.users)
+                {
 
-                                @foreach (var user in Model.users)
-                                {
-
-                                <tr>
-                                    <th>@user.Id</th>
-                                    <td>@user.fname</td>
-                                    <td>@user.lname</td>
-                                    <td>@user.username</td>
-                                    <td>@user.email</td>
-                                    <td>@user.phone</td>
-                                    <td>@user.userType</td>
-                                    <td>@Html.ActionLink("view profile", "UpdateUserInfo", new { id = user.Id }, new { @class = "btn btn-primary" })</td>
-                                </tr>
-                                }
-                                </tbody>
-                        </table>
-                    </div>
-                </div>
+                    <tr>
+                        <th>@user.Id</th>
+                        <td>@user.fname</td>
+                        <td>@user.lname</td>
+                        <td>@user.username</td>
+                        <td>@user.email</td>
+                        <td>@user.phone</td>
+                        <td>@user.userType</td>
+                        <td>@Html.ActionLink("view profile", "UpdateUserInfo", new { id = user.Id }, new { @class = "btn btn-primary" })</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 
 
 

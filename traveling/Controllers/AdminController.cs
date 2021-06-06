@@ -11,11 +11,11 @@ namespace traveling.Controllers
     public class AdminController : Controller
     {
         // ايه يسطا جاهز للشغل
-        private safariEn9 safari;
+        private Database1Entities safari;
 
         public AdminController()
         {
-            safari = new safariEn9();
+            safari = new Database1Entities();
         }
         // GET: Admin
         public ActionResult Index()
@@ -116,8 +116,6 @@ namespace traveling.Controllers
 
         public ActionResult approve(int id)
         {
-
-          
 
 
             var returnedUser = safari.posts.SingleOrDefault(c => c.postId == id);

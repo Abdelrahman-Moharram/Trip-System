@@ -232,7 +232,6 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\UpdateUserInfo.cshtml" />
     <Content Include="Views\Admin\PendingPosts.cshtml" />
-    <Content Include="Views\Traveller\login.cshtml" />
     <Content Include="Views\Admin\removeUser.cshtml" />
     <Content Include="Views\Admin\updateTestView.cshtml" />
     <Content Include="Views\Admin\update.cshtml" />
@@ -250,6 +249,11 @@
     <Content Include="Models\Model9.edmx.diagram">
       <DependentUpon>Model9.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Shared\WallLayout.cshtml" />
+    <Content Include="Views\Shared\DashboardLayout.cshtml" />
+    <Content Include="Views\Shared\FactoryLayout.cshtml" />
+    <Content Include="Views\Agency\profile.cshtml" />
+    <Content Include="Views\Traveller\login.cshtml" />
     <None Include="Views\Traveller\profile.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

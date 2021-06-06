@@ -12,11 +12,11 @@ namespace traveling.Controllers
 {
     public class TravellerController : Controller
     {
-        private  safariEn9 safari;
+        private Database1Entities safari;
 
           public TravellerController()
         {
-           safari = new safariEn9();
+           safari = new Database1Entities();
         }
         public ActionResult Index()
         {
@@ -61,7 +61,7 @@ namespace traveling.Controllers
                     if (x.password == person.password)
                     {
 
-                        Session["user"] = x;
+                        Session["user"] = person;
                         if (x.userType == "traveller")
                             return RedirectToAction("Index", "Traveller");
                         else if (x.userType == "agency")
@@ -69,20 +69,11 @@ namespace traveling.Controllers
                         else
                             return RedirectToAction("Index", "Admin");
 
+
                     }
 
                 }
                 return RedirectToAction("login");
-
-
-
-
-
-           
-
-           
-
-
         }
 
     }

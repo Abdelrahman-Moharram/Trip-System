@@ -1,0 +1,83 @@
+﻿
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div id="notification-menu" class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+            <a href="@Url.Action("Index", "Agency")" class="notifi-tab">
+                see all notifications
+            </a>
+
+            <div class="notfis-list">
+
+                <a class="single-notifi" id="comment-0">
+                    <i class="las la-times-circle close-notifi" onclick="closeNotifi('comment-0')"></i>
+                    <div class="notifi-name">Abdelrahman Moharram</div>
+                    <img src="@Url.Content("~/assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg")" class="user-post-pic" alt="">
+                    <div class="notifi-body">
+                        <div>is asked you a questions on your post at 02:00pm 11-3-2021</div>
+                    </div>
+                </a>
+
+
+
+                <a class="single-notifi" id="comment-1">
+                    <i class="las la-times-circle close-notifi" onclick="closeNotifi('comment-1')"></i>
+                    <div class="notifi-name">Atef Hamdy</div>
+                    <img src="@Url.Content("~/assets/userimgs/atef.jpg")" class="user-post-pic" alt="">
+                    <div class="notifi-body">
+                        <div>is asked you a questions on your post at 02:00pm 11-3-2021</div>
+                    </div>
+                </a>
+
+
+
+
+                <a class="single-notifi" id="comment-2">
+                    <i class="las la-times-circle close-notifi" onclick="closeNotifi('comment-2')"></i>
+                    <div class="notifi-name">حامد فرج</div>
+                    <img src="@Url.Content("~/assets/userimgs/hamed.jpg")" class="user-post-pic" alt="">
+                    <div class="notifi-body">
+                        <div>is asked you a questions on your post at 02:00pm 11-3-2021</div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<nav class="navbar  fixed-top">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="d-flex justify-content-start">
+                <a href="javascript:void(0)" class="open-nav" onclick="openNav()"><i class="las la-bars"></i></a>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="las la-times"></i></a>
+
+            </div>
+        </div>
+    </div>
+
+
+</nav>
+<!-------------------------------------------------------nav bar and side nav bar----------------------------------------------------------->
+<div id="mySidenav" class="sidenav">
+
+    <a href="@Url.Action("profile","Agency")" class="link-item"><i class="las la-user" style="margin-left: 8px;margin-right: 5px;"></i> <span class="nav-text">profile </span></a>
+
+
+    <a class="link-item" onclick="createPost()" id="create-post"><i class="las la-plus" id="create-post-icon" style="margin-left: 8px;margin-right: 5px;cursor: pointer;"></i> <span class="nav-text">Create Post </span></a>
+    <a href="@Url.Action("MyPosts","Agency")" class="link-item"><i class="las la-photo-video" style="margin-left: 8px;margin-right: 5px;"></i><span class="nav-text"> My Posts</span></a>
+    <a id="notifis" onclick="showNotifi()" class="link-item"><div id="notify-num">200</div><i class="las la-bell" style="margin-left: 8px;margin-right: 5px;"></i><span class="nav-text"> Recived Questions </span></a>
+</div>
+
+<script src="@Url.Content("~/Scripts/notifications.js")"></script>
+<script src="@Url.Content("~/Scripts/script.js")"></script>
+<script src="@Url.Content("~/Scripts/sideNav.js")"></script>

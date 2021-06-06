@@ -1,0 +1,184 @@
+﻿
+<div id="user-profile-full-cont">
+    <div class="pic-options">
+        <i class="las la-times option-profile-pic-icon" onclick="hidePopup('user-profile-full-cont')"></i>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="user-profile-ing-child col-lg-6 col-md-9 col-sm-10 col-xs-11">
+                <img id="full-user-img" src="@Url.Content("~/assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg")" onerror='this.onerror=null;this.src="assets/defaultpics/940-9406687_already-a-proact-user-employee-icon-white-png.png"'>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<form class="container-fluid" method="POST" id="profile-pic-options">
+    <div class="row">
+        <i class="las la-times option-profile-pic-icon" onclick="hidePopup('profile-pic-options')"></i>
+        <div class="user-pic-update-view-child col-lg-4 col-md-8 col-sm-10 col-xs-12">
+            <input type="file" name="profilePic" id="file" class="add-file" data-multiple-caption="{count} files selected" multiple />
+            <label class="upload-photo-options" for="file"><i class="las la-cloud-upload-alt"></i> choose file </label>
+            <div class="view-photo-options" onclick="showPopup('user-profile-full-cont')"><i class="las la-eye"></i> View Photo</div>
+        </div>
+    </div>
+
+</form>
+
+@Html.Partial("~/Views/Shared/FactoryLayout.cshtml")
+<!-------------------------------------------------------nav bar and side nav bar----------------------------------------------------------->
+
+
+
+<!------------------------------------------------------------------------------------------------------------------>
+
+
+
+<div class="massive-container">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2 col-md-3 col-sm-11 settings-cont">
+                <a onclick="switchProfileSetting('user-info','profile-info-cont')" class="single-setting-cont active-profile-settings" id="user-info">USER Info</a>
+                <a onclick="switchProfileSetting('edit-info','edit-info-cont')" class="single-setting-cont" id="edit-info">Edit Info</a>
+                <a onclick="switchProfileSetting('reset-password','reset-pass-cont')" class="single-setting-cont" id="reset-password">Reset Password</a>
+                <a onclick="switchProfileSetting('delete-detective','delete-user-cont')" class="single-setting-cont" id="delete-detective">Delete or Detictive</a>
+            </div>
+
+
+            <div class="col-lg-9 col-md-7 col-sm-11 info-cont">
+
+                <div class="container-fluid user-info-container" id="profile-info-cont">
+                    <div class="row">
+                        <div class="user-name-pic col-lg-3 col-sm-11">
+                            <img onerror='this.onerror=null;this.src="@Url.Content("~/assets/defaultpics/940-9406687_already-a-proact-user-employee-icon-white-png.png")"' src="@Url.Content("~/assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg")" onclick="showPopup('profile-pic-options')" class="user-profile-pic">
+                            <div class="user-name">Abdelrahman Moharram</div>
+                        </div>
+
+
+
+                        <!-- <div style="margin-left: 20px;"></div> -->
+                        <div class="user-typed-infos col-lg-8">
+
+                            <div class="user-single-info-cont user-email"><i class="las la-envelope single-info-icon"></i>abd0m07arram@yahoo.com</div>
+                            <div class="user-single-info-cont user-phone"><i class="las la-mobile-alt single-info-icon"></i>01033311297</div>
+                            <div class="user-single-info-cont user-location"><i class="las la-map-marker single-info-icon"></i>Egypt,Cairo</div>
+                            <div class="user-single-info-cont user-created-date"><i class="las la-clock single-info-icon"></i>11-3-2017</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="container-fluid user-info-container" id="edit-info-cont" style="padding-top: 30px;">
+                    <div class="row">
+
+                        <form action="">
+                            <div class="user-typed-infos col-lg-6 col-md-12" style="float: left;">
+                                <div class="edit-info-container"><i class="las la-user single-info-icon"></i>       <input name="fname" value="Abdelrahman" class="edit-info-input" type="text"></div>
+                                <div class="edit-info-container"><i class="las la-user single-info-icon"></i>       <input name="lname" value="Moharram" class="edit-info-input" type="text"></div>
+                                <div class="edit-info-container"><i class="las la-mobile-alt single-info-icon"></i> <input name="phone" value="01033311297" class="edit-info-input" type="text"></div>
+                                <div class="edit-info-container"><i class="las la-envelope single-info-icon"></i>   <input name="email" value="abd0m07arram@yahoo.com" class="edit-info-input" type="text"></div>
+
+                            </div>
+
+
+
+
+                            <div class="col-lg-6 col-md-12 edit-info-tail">
+                                <a class="cards warn-card warn-change-data">
+
+                                    <div class="card-title"> Warning!</div>
+                                    <div class="card-cont">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint quidem sed, eveniet accusamus nisi quaerat aliquam sapiente modi sunt similique neque perferendis sit blanditiis doloribus dolorum temporibus consequatur veritatis? Illo. if you change your data you can't return to the same data value again</div>
+
+
+                                </a>
+                                <div class="buttons-conteh">
+                                    <button type="submit" class="btn update-data-button submit-data">Submit</button>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
+
+
+                <div class="container-fluid user-info-container" id="reset-pass-cont">
+                    <div class="row">
+                        <form action="">
+                            <div class="user-typed-infos col-lg-6 col-md-12" style="float: left;">
+                                <div class="edit-info-container"><i class="las la-lock"></i> <input placeholder="old password" class="edit-info-input" type="password"></div>
+                                <div class="edit-info-container"><i class="las la-lock"></i> <input placeholder="new password" class="edit-info-input" type="password"></div>
+                                <div class="edit-info-container"><i class="las la-lock"></i> <input placeholder="submit password" class="edit-info-input" type="password"></div>
+
+                            </div>
+
+
+
+
+                            <div class="col-lg-6 col-md-12 edit-info-tail">
+                                <a class="cards warn-card warn-change-data">
+
+                                    <div class="card-title"> Warning!</div>
+                                    <div class="card-cont"> if you change your data you can't return to the same data value again</div>
+
+
+                                </a>
+                                <div class="buttons-conteh" style="margin-right: 50px;">
+                                    <button type="submit" class="btn update-data-button submit-data">Submit</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+
+
+                <div class="container-fluid user-info-container" id="delete-user-cont" style="padding-top:40px;">
+                    <div class="row">
+                        <form action="">
+                            <div class="user-typed-infos col-lg-6 col-md-12" style="float: left;">
+                                <div class="edit-info-container"><i class="las la-envelope"></i> <input placeholder="E-Mail" class="edit-info-input" type="email"></div>
+                                <div class="edit-info-container"><i class="las la-lock"></i> <input placeholder="password" class="edit-info-input" type="password"></div>
+                            </div>
+
+
+
+
+                            <div class="col-lg-6 col-md-12 edit-info-tail">
+                                <a class="cards warn-card warn-delete-account">
+
+                                    <div class="card-title"> Warning!</div>
+                                    <div class="card-cont"> if you delete your account you will lose all of your data</div>
+
+
+                                </a>
+                            </div>
+                            <button type="submit" class="btn delete-account-btn">Delete your account</button>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+<!------------------------------------------------------------------------------------------------------------------>
+
+
+
+
+
+
+
+<script src="@Url.Content("~/Scripts/profileSettings.js")"></script>

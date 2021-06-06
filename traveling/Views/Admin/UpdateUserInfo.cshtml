@@ -63,9 +63,8 @@
                             </div>
 
                             <div class="d-flex user-options-bar justify-content-center">
-                                
-                                @Html.ActionLink("remove", "removeUser", new { id = Model.user.Id},new {@class="las la-trash user-options-bar-icon" , style = "color: #f00;" , title = "remove user" })
 
+                                @Html.ActionLink("Delete account", "removeUser", new { id = Model.user.Id }, new { @class = "btn delete-account-btn", title = "remove user" })
 
                                 @* @Html.action *@
                             </div>

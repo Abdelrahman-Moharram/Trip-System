@@ -6,8 +6,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
 using traveling.Models;
-//using traveling.Models.user_s;
-
 namespace traveling.Controllers
 {
     public class TravellerController : Controller
@@ -60,9 +58,19 @@ namespace traveling.Controllers
                 {
                     if (x.password == person.password)
                     {
+                        if (person != null)
+                        {
+                            Session["id"] = Convert.ToString(person.Id);
+                            Session["username"] =  Convert.ToString(person.username);
+                            Session["email"] =  Convert.ToString(person.email);
+                            Session["fname"] =  Convert.ToString(person.fname);
+                            Session["lname"] =  Convert.ToString(person.lname);
+                            Session["phone"] =  Convert.ToString(person.phone);
+                            Session["userType"] = Convert.ToString(person.userType);
+                            Session["photo"] =  Convert.ToString(person.photo);
 
-                        Session["user"] = person;
-                        if (x.userType == "traveller")
+                    }
+                    if (x.userType == "traveller")
                             return RedirectToAction("Index", "Traveller");
                         else if (x.userType == "agency")
                             return RedirectToAction("Index", "Agency");

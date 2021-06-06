@@ -27,6 +27,7 @@
           <Property Name="tripImg" Type="nvarchar(max)" Nullable="false" />
           <Property Name="tripPrice" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="uid" Type="int" Nullable="false" />
+          <Property Name="approved" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Reacts">
           <Key>
@@ -208,6 +209,7 @@
           <Property Name="tripImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="tripPrice" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="uid" Type="Int32" Nullable="false" />
+          <Property Name="approved" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="comments" Relationship="Self.FK__comments__pid__619B8048" FromRole="post" ToRole="comments" />
           <NavigationProperty Name="user" Relationship="Self.FK__post__uid__412EB0B6" FromRole="post" ToRole="user" />
           <NavigationProperty Name="Reacts" Relationship="Self.FK__Reacts__pid__6383C8BA" FromRole="post" ToRole="Reacts" />
@@ -400,6 +402,7 @@
                 <ScalarProperty Name="tripImg" ColumnName="tripImg" />
                 <ScalarProperty Name="tripPrice" ColumnName="tripPrice" />
                 <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="approved" ColumnName="approved" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

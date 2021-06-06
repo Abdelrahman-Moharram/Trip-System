@@ -22,6 +22,7 @@
     <Property Name="tripImg" Type="nvarchar(max)" Nullable="false" />
     <Property Name="tripPrice" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="uid" Type="int" Nullable="false" />
+    <Property Name="approved" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Reacts">
     <Key>

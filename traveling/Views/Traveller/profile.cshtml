@@ -67,10 +67,10 @@
                         <!-- <div style="margin-left: 20px;"></div> -->
                         <div class="user-typed-infos col-lg-8">
 
-                            <div class="user-single-info-cont user-email"><i class="las la-envelope single-info-icon"></i>abd0m07arram@yahoo.com</div>
-                            <div class="user-single-info-cont user-phone"><i class="las la-mobile-alt single-info-icon"></i>01033311297</div>
-                            <div class="user-single-info-cont user-location"><i class="las la-map-marker single-info-icon"></i>Egypt,Cairo</div>
-                            <div class="user-single-info-cont user-created-date"><i class="las la-clock single-info-icon"></i>11-3-2017</div>
+                            <div class="user-single-info-cont user-email"><i class="las la-envelope single-info-icon"></i>@Session["email"].ToString()</div>
+                            <div class="user-single-info-cont user-phone"><i class="las la-mobile-alt single-info-icon"></i>@Session["phone"].ToString()</div>
+                            <div class="user-single-info-cont user-location"><i class="las la-map-marker single-info-icon"></i>@Session["fname"].ToString()</div>
+                            <div class="user-single-info-cont user-created-date"><i class="las la-clock single-info-icon"></i>@Session["username"].ToString()</div>
                         </div>
                     </div>
                 </div>
@@ -81,11 +81,11 @@
 
                         <form action="">
                             <div class="user-typed-infos col-lg-6 col-md-12" style="float: left;">
-                                <div class="edit-info-container"><i class="las la-user single-info-icon"></i>       <input name="fname" value="Abdelrahman" class="edit-info-input" type="text"></div>
-                                <div class="edit-info-container"><i class="las la-user single-info-icon"></i>       <input name="lname" value="Moharram" class="edit-info-input" type="text"></div>
-                                <div class="edit-info-container"><i class="las la-user single-info-icon"></i>       <input name="username" value="bo_0dy" class="edit-info-input" type="text"></div>
-                                <div class="edit-info-container"><i class="las la-mobile-alt single-info-icon"></i> <input name="phone" value="01033311297" class="edit-info-input" type="text"></div>
-                                <div class="edit-info-container"><i class="las la-envelope single-info-icon"></i>   <input name="email" value="abd0m07arram@yahoo.com" class="edit-info-input" type="text"></div>
+                                <div class="edit-info-container"><i class="las la-user single-info-icon"></i>       <input name="fname" value="@Session["fname"].ToString()" class="edit-info-input" type="text"></div>
+                                <div class="edit-info-container"><i class="las la-user single-info-icon"></i>       <input name="lname" value="@Session["lname"].ToString()" class="edit-info-input" type="text"></div>
+                                <div class="edit-info-container"><i class="las la-user single-info-icon"></i>       <input name="username" value="@Session["username"].ToString()" class="edit-info-input" type="text"></div>
+                                <div class="edit-info-container"><i class="las la-mobile-alt single-info-icon"></i> <input name="phone" value="@Session["username"].ToString()" class="edit-info-input" type="text"></div>
+                                <div class="edit-info-container"><i class="las la-envelope single-info-icon"></i>   <input name="email" value="@Session["username"].ToString()" class="edit-info-input" type="text"></div>
 
                             </div>
 

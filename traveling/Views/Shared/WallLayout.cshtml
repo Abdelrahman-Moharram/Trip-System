@@ -1,41 +1,45 @@
-﻿
-<style>
-    .search-result-container{
-        width:120%;
-        position:absolute;
-        padding:10px;
-        margin-top:40px;
-        background-color:#eee;
-        z-index:3;
+﻿<style>
+    .search-result-container {
+        width: 120%;
+        position: absolute;
+        padding: 10px;
+        margin-top: 40px;
+        background-color: #eee;
+        z-index: 3;
+        display: none;
     }
-    .search-result-single-cont{
-        width:100%;
-        padding:0px;
-        border-radius:10px;
-        background-color:#808080;
-        overflow:hidden;
-        height:auto;
+
+    .search-result-single-cont {
+        width: 100%;
+        padding: 0px;
+        border-radius: 10px;
+        background-color: #808080;
+        overflow: hidden;
+        height: auto;
     }
+
     .result-title {
         margin: 0px;
         color: #0067ff;
     }
-    .result-img{
-        width:100%;
-        border-radius:10px;
+
+    .result-img {
+        width: 100%;
+        border-radius: 10px;
     }
-    .result-trip-date{
-        margin:5px 0px 0px 0px;
-        font-size:12px;
-        color:rgba(0,0,0,.7);
+
+    .result-trip-date {
+        margin: 5px 0px 0px 0px;
+        font-size: 12px;
+        color: rgba(0,0,0,.7);
     }
-    .single-search-result{
-        background-color:#fff;
-        margin:10px 0px;
-        padding:10px;
-        border-radius:10px;
+
+    .single-search-result {
+        background-color: #fff;
+        margin: 10px 0px;
+        padding: 10px;
+        border-radius: 10px;
     }
-    
 </style>
 
 <nav class="navbar fixed-top">
@@ -46,7 +50,7 @@
         <form class="d-flex justify-content-center d-lg-flex d-md-none d-sm-none col-lg-4 col-md-3">
             <input class="form-search" type="search" placeholder="Search" aria-label="Search">
             <button class="search-btn" type="submit"><i class="las la-search"></i></button>
-            
+
             <div class="search-result-container">
 
                 <div class="d-flex single-search-result">
@@ -72,11 +76,20 @@
         </form>
 
 
+
         <div class="justify-content-end" style="margin-right:3%">
-            
+
+            @if (Session["username"] != null)
+            {
+                <h2> @Session["username"].ToString()</h2>
+            }
+            else
+            {
                 <div onclick="showPopup('login-form')" class="sign-nav-button">Login</div>
                 <div onclick="showPopup('register-form')" class="sign-nav-button">Register</div>
-            
+            }
+
+
 
         </div>
 

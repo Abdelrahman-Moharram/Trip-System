@@ -1,0 +1,83 @@
+﻿@model traveling.Models.post
+@Html.Partial("~/Views/Shared/DashboardLayout.cshtml")
+
+<div class="massive-container" style="margin-top:40px">
+
+    @using (Html.BeginForm("CreatePost", "Agency", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        @Html.AntiForgeryToken()
+
+
+        <div class="new-post">
+            <div style="background-color: #004bb9;padding: 20px">
+
+                <div class="header-container">
+
+                    @Html.EditorFor(model => model.tripTitle, new { htmlAttributes = new { placeholder = "add title ...", @class = "newpost-header", @onclick = "showLine('header-container')" } })
+                    @Html.ValidationMessageFor(model => model.tripTitle, "", new { @class = "text-danger" })
+
+                    <div class="form-input-divider"><div class="form-input-insider"></div></div>
+
+                </div>
+
+                <div class="newpost-body-container" style="margin-bottom: 0px;">
+
+                    @Html.EditorFor(model => model.tripDetails, new { htmlAttributes = new { placeholder = "Write Post", @class = "newpost-content", @onclick = "showLine('newpost-body-container')" } })
+                    @Html.ValidationMessageFor(model => model.tripDetails, "", new { @class = "text-danger" })
+
+                    <div class="form-input-divider"><div class="form-input-insider" style="margin-top: 0px;"></div></div>
+                </div>
+
+                <div class="tripDestination-container">
+
+                    @Html.EditorFor(model => model.tripDestination, new { htmlAttributes = new { placeholder = "add Destination ...", @class = "newpost-header", @onclick = "showLine('tripDestination-container')" } })
+                    @Html.ValidationMessageFor(model => model.tripDestination, "", new { @class = "text-danger" })
+
+                    <div class="form-input-divider"><div class="form-input-insider"></div></div>
+
+                </div>
+
+                <div class="tripPrice-container">
+
+                    @Html.EditorFor(model => model.tripPrice, new { htmlAttributes = new { placeholder = "add Price ...", @class = "newpost-header", @onclick = "showLine('tripPrice-container')" } })
+                    @Html.ValidationMessageFor(model => model.tripPrice, "", new { @class = "text-danger" })
+
+                    <div class="form-input-divider"><div class="form-input-insider"></div></div>
+
+                </div>
+                <div class="tripDate-container">
+
+                    @Html.EditorFor(model => model.tripDate, new { htmlAttributes = new { type = "date", placeholder = "add date ...", @class = "newpost-header", @onclick = "showLine('tripDate-container')" } })
+                    @Html.ValidationMessageFor(model => model.tripDate, "", new { @class = "text-danger" })
+
+                    <div class="form-input-divider"><div class="form-input-insider"></div></div>
+
+                </div>
+
+
+                <input type="file" name="file" id="file" class="add-file" data-multiple-caption="{count} files selected" multiple />
+                <label class="btn btn-primary  " for="file">choose file <i class="las la-cloud-upload-alt"></i></label>
+                @Html.ValidationMessageFor(model => model.tripImg, "", new { @class = "text-danger" })
+
+
+                <div class="newpost-submition">
+                    <button class="btn btn-primary mb-3 submit-post">Submit</button>
+                    <button class="btn btn-primary mb-3 cancel-post">Cancel</button>
+                </div>
+            </div>
+        </div>
+    }
+
+
+</div>
+<script>
+
+    function showLine(id) {
+        var postHeader = document.getElementsByClassName(id)[0];
+        line = postHeader.getElementsByClassName("form-input-divider")[0].getElementsByClassName("form-input-insider")[0];
+        line.style.width = "100%";
+        line.style.marginLeft = "0";
+    }
+
+</script>

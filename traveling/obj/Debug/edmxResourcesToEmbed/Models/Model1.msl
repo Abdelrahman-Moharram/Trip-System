@@ -23,6 +23,7 @@
           <ScalarProperty Name="tripImg" ColumnName="tripImg" />
           <ScalarProperty Name="tripPrice" ColumnName="tripPrice" />
           <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="approved" ColumnName="approved" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -119,7 +119,7 @@ namespace traveling.Controllers
 
 
             var returnedUser = safari.posts.SingleOrDefault(c => c.postId == id);
-            byte[] b = { 1 };
+            bool b = true;
             returnedUser.approved = b;
             
 
@@ -133,17 +133,12 @@ namespace traveling.Controllers
         public ActionResult unapprove(int id)
         {
             var returnedUser = safari.posts.SingleOrDefault(c => c.postId == id);
-            byte[] b = { 2 };
+            bool b = false;
             returnedUser.approved = b;
 
 
 
             _ = safari.SaveChanges();
-
-
-           
-
-
 
 
 
@@ -160,6 +155,18 @@ namespace traveling.Controllers
             return View();
         }
 
+
+        public ActionResult AddUser()
+        {
+            
+            return View();
+        }
+
+        public ActionResult AddPost()
+        {
+
+            return View();
+        }
     }
 }
 

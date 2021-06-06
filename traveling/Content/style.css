@@ -1326,3 +1326,58 @@
 #saved-posts-cont {
     background-color: rgba(199, 199, 199, .9);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.search-result-container {
+    width: 120%;
+    position: absolute;
+    padding: 10px;
+    margin-top: 40px;
+    background-color: #eee;
+    z-index: 3;
+    display: none;
+}
+
+.search-result-single-cont {
+    width: 100%;
+    padding: 0px;
+    border-radius: 10px;
+    background-color: #808080;
+    overflow: hidden;
+    height: auto;
+}
+
+.result-title {
+    margin: 0px;
+    color: #0067ff;
+}
+
+.result-img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.result-trip-date {
+    margin: 5px 0px 0px 0px;
+    font-size: 12px;
+    color: rgba(0,0,0,.7);
+}
+
+.single-search-result {
+    background-color: #fff;
+    margin: 10px 0px;
+    padding: 10px;
+    border-radius: 10px;
+}

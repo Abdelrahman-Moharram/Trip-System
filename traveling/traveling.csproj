@@ -246,7 +246,7 @@
     <Content Include="Views\Shared\DashboardLayout.cshtml" />
     <Content Include="Views\Shared\FactoryLayout.cshtml" />
     <Content Include="Views\Agency\profile.cshtml" />
-    <Content Include="Views\Traveller\login.cshtml" />
+    <Content Include="Views\Traveller\Unauthorized.cshtml" />
     <Content Include="Views\Admin\profile.cshtml" />
     <Content Include="Views\Admin\AllPosts.cshtml" />
     <EntityDeploy Include="Models\Model1.edmx">
@@ -258,6 +258,8 @@
     </Content>
     <Content Include="Views\Admin\AddUser.cshtml" />
     <Content Include="Views\Admin\AddPost.cshtml" />
+    <Content Include="Views\Traveller\error.cshtml" />
+    <Content Include="Views\Traveller\Posts.cshtml" />
     <None Include="Views\Traveller\profile.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -272,6 +274,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Traveller\Index.cshtml" />
     <Content Include="Views\Traveller\Saved.cshtml" />
+    <Content Include="Views\Traveller\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\" />

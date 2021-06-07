@@ -5,6 +5,8 @@
 @model traveling.Models.user
 
 
+@ViewBag.Status
+
 <div id="login-form">
     <i class="las la-times option-profile-pic-icon" onclick="hidePopup('login-form')"></i>
     <div class="container">
@@ -177,7 +179,7 @@
 </div>
 
 
-
+@*
 
 <div class="massive-container">
     <div>
@@ -206,7 +208,7 @@
                             Travel to helwan university
                         </div>
                         <div class="post-detials">
-                            صباح النصر علي اوسخ جامعه في مصر
+                            welcome in our website !
                         </div>
                     </div>
 
@@ -222,6 +224,7 @@
                         <div class="likes-counter">
                             <div class="gaven-likes-counter"></div>
                             <div class="gaven-dislikes-counter"></div>
+                            <div><span class="likes-numbers">10</span> <span class="dislikes-numbers">3</span></div>
                         </div>
                         <i class="lar la-comment post-comment-icon" onclick="comment_show(0)"></i>
                     </div>
@@ -234,7 +237,7 @@
                                 <div class="comment-date">28 April 2025</div>
                             </div>
                             <div class="comment-content">
-                                welcome in hell
+                                welcome in paradise
                             </div>
                         </div>
 
@@ -246,7 +249,7 @@
                                 <div class="comment-date">28 April 2025</div>
                             </div>
                             <div class="comment-content">
-                                ايه يسطا اخبار شمردن ايه سلملي عليه وقوله ربنا يحرق انت والكلية
+                                ايه يسطا اخبارك ايه
                             </div>
                         </div>
 
@@ -258,7 +261,7 @@
                                 <div class="comment-date">28 April 2025</div>
                             </div>
                             <div class="comment-content" dir=auto>
-                                عقبال ما تتخرج سنه 2130
+                                كل سنه وانت طيب يا قلبي الصغير
                             </div>
                         </div>
 
@@ -283,6 +286,6 @@
 
     </div>
 </div>
-
+    *@
 <script src="@Url.Content("~/Scripts/posts.js")"></script>
 <script src="@Url.Content("~/Scripts/script.js")"></script>

@@ -58,7 +58,7 @@
                 <div class="container-fluid user-info-container" id="profile-info-cont">
                     <div class="row">
                         <div class="user-name-pic col-lg-3 col-sm-11">
-                            <img onerror='this.onerror=null;this.src="@Url.Content("~/assets/defaultpics/940-9406687_already-a-proact-user-employee-icon-white-png.png")"' src="@Url.Content("~/assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg")" onclick="showPopup('profile-pic-options')" class="user-profile-pic">
+                            <img onerror='this.onerror=null;this.src="@Url.Content("~/assets/defaultpics/download.jpg")"' src="@Session["photo"].ToString()" onclick="showPopup('profile-pic-options')" class="user-profile-pic">
                             <div class="user-name">Abdelrahman Moharram</div>
                         </div>
 
@@ -67,10 +67,11 @@
                         <!-- <div style="margin-left: 20px;"></div> -->
                         <div class="user-typed-infos col-lg-8">
 
+                            <div class="user-single-info-cont user-location"><i class="las la-map-marker single-info-icon"></i>@Session["fname"].ToString()</div>
+                            <div class="user-single-info-cont user-location"><i class="las la-map-marker single-info-icon"></i>@Session["lname"].ToString()</div>
+                            <div class="user-single-info-cont user-created-date"><i class="las la-clock single-info-icon"></i>@Session["username"].ToString()</div>
                             <div class="user-single-info-cont user-email"><i class="las la-envelope single-info-icon"></i>@Session["email"].ToString()</div>
                             <div class="user-single-info-cont user-phone"><i class="las la-mobile-alt single-info-icon"></i>@Session["phone"].ToString()</div>
-                            <div class="user-single-info-cont user-location"><i class="las la-map-marker single-info-icon"></i>@Session["fname"].ToString()</div>
-                            <div class="user-single-info-cont user-created-date"><i class="las la-clock single-info-icon"></i>@Session["username"].ToString()</div>
                         </div>
                     </div>
                 </div>

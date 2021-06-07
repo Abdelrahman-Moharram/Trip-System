@@ -81,7 +81,7 @@
 
             @if (Session["username"] != null)
             {
-                <h2> @Session["username"].ToString()</h2>
+                <div onclick="showPopup('login-form')" class="sign-nav-button">@Session["username"]</div>
             }
             else
             {

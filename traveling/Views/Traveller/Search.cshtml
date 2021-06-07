@@ -1,0 +1,45 @@
+﻿@model IEnumerable<traveling.Models.post>
+
+
+    @Html.Partial("~/Views/Shared/FactoryLayout.cshtml")
+
+
+
+
+
+
+
+    @foreach (var item in Model)
+{
+
+
+    <div class="search-result-container">
+
+        <div class="d-flex single-search-result">
+            <div class="justify-content-start col-lg-3 col-md-2 d-lg-block d-md-none" style="border-radius:10px;overflow:hidden;padding:0px;margin:auto"> <img class="result-img" src="@Url.Content(item.tripImg)" /></div>
+            <div class="justify-content-end ml-3">
+                <div>
+                    <h4 class="result-title">@Html.DisplayFor(modelItem => item.tripTitle)</h4>
+                    <div class="d-block">
+                        <span style="float:left" class="result-trip-date">published at: @Html.DisplayFor(modelItem => item.tripDate)</span>
+                        <span style="float:right;margin-right:20px" class="result-trip-date">location: @Html.DisplayFor(modelItem => item.tripDestination)</span>
+                        <span style="float:right;margin-right:20px" class="result-trip-date">location: @Html.DisplayFor(modelItem => item.tripPrice)</span>
+
+                    </div>
+                </div>
+
+
+                <div>@Html.DisplayFor(modelItem => item.tripDetails)</div>
+            </div>
+        </div>
+    </div>
+        }
+
+
+
+
+
+
+    <script src="@Url.Content("~/Scripts/posts.js")"></script>
+
+

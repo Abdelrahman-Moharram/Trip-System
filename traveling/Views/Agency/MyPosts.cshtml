@@ -1,16 +1,16 @@
 ﻿@{ ViewBag.Title = "MyPosts"; }
 @model IEnumerable<traveling.Models.post>
 
-@Html.Partial("~/Views/Shared/FactoryLayout.cshtml")
-
-<!------------------------------------------------------------------------------------------------------------------>
-@{ ViewBag.Title = "MyPosts"; }
+    @Html.Partial("~/Views/Shared/FactoryLayout.cshtml")
 
 
+    @{ ViewBag.Title = "MyPosts"; }
 
 
-<div class="massive-container">
-    @foreach (var item in Model)
+
+
+    <div class="massive-container">
+        @foreach (var item in Model)
     {
 
 
@@ -23,7 +23,7 @@
                     <div class="post-header">
                         <div class="post-auther">
                             <img class="user-post-pic" src="@Url.Content("~/assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg")" alt="">
-                            <div class="post-auther-name">Abdelrahman Moharram</div>
+                            <div class="post-auther-name">@Html.DisplayFor(modelItem => item.user.username).</div>
                             <div class="dropdown  post-options">
                                 <i class="las la-ellipsis-v" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -39,6 +39,9 @@
                         </div>
                         <div class="post-detials">
                             @Html.DisplayFor(modelItem => item.tripDetails)
+                        </div>
+                        <div class="post-detials">
+                            @Html.DisplayFor(modelItem => item.tripPrice)
                         </div>
 
                     </div>
@@ -64,12 +67,7 @@
         </div>
     }
 
-</div>
+    </div>
 
 
-
-
-
-
-
-<script src="@Url.Content("~/Scripts/posts.js")"></script>
+    <script src="@Url.Content("~/Scripts/posts.js")"></script>

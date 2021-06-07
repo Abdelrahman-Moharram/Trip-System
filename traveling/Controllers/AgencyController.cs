@@ -5,20 +5,25 @@ using System.Web;
 using System.Web.Mvc;
 using traveling.Models;
 using System.IO;
+using traveling.viewModel;
+
 namespace traveling.Controllers
 {
     public class AgencyController : Controller
     {
 
-        private Database1Entities db;
+        Database1Entities db;
 
         public AgencyController()
         {
             db = new Database1Entities();
         }
         // GET: Agency
+     
         public ActionResult Index()
         {
+
+          
             return View();
         }
 
@@ -32,7 +37,7 @@ namespace traveling.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreatePost(post trp , HttpPostedFileBase file)
+        public ActionResult CreatePost(post p,user us, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
@@ -43,29 +48,29 @@ namespace traveling.Controllers
                     path = "~/images/" + Path.GetFileName(file.FileName);
                     file.SaveAs(Server.MapPath(path));
                 }
-               
-                trp.tripImg = path;
 
+                p.tripImg = path;
 
+                p.uid =us.Id;
 
-                _ = db.posts.Add(trp);
+                _ = db.posts.Add(p); 
                 _ = db.SaveChanges();
                 ViewBag.message = "Post created Successfully";
                 return RedirectToAction("Index");
             }
-            return View(trp);
+            return View(p);
         }
 
-        public ActionResult MyPosts()
+
+        public ActionResult MyPosts(int id)
         {
+            //  id = this.id;
+
             var resultDetails = db.posts.ToList();
             return View(resultDetails);
         }
 
-        public ActionResult profile()
-        {
-            return View();
-        }
+
 
 
 

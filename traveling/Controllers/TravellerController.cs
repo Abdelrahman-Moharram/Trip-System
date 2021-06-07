@@ -42,7 +42,10 @@ namespace traveling.Controllers
 
 
         }
-
+        public ActionResult error()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult login(user person)
         {
@@ -52,25 +55,23 @@ namespace traveling.Controllers
                 var result = from user in safari.users
                              where user.username == person.username
                              select user;
-
-
-                foreach (var x in result)
+             foreach (var x in result)
                 {
                     if (x.password == person.password)
                     {
                         if (person != null)
                         {
                             Session["id"] = Convert.ToString(person.Id);
-                            Session["username"] =  Convert.ToString(person.username);
-                            Session["email"] =  Convert.ToString(person.email);
-                            Session["fname"] =  Convert.ToString(person.fname);
-                            Session["lname"] =  Convert.ToString(person.lname);
-                            Session["phone"] =  Convert.ToString(person.phone);
+                            Session["username"] = Convert.ToString(person.username);
+                            Session["email"] = Convert.ToString(person.email);
+                            Session["fname"] = Convert.ToString(person.fname);
+                            Session["lname"] = Convert.ToString(person.lname);
+                            Session["phone"] = Convert.ToString(person.phone);
                             Session["userType"] = Convert.ToString(person.userType);
-                            Session["photo"] =  Convert.ToString(person.photo);
+                            Session["photo"] = Convert.ToString(person.photo);
 
-                    }
-                    if (x.userType == "traveller")
+                        }
+                        if (x.userType == "traveller")
                             return RedirectToAction("Index", "Traveller");
                         else if (x.userType == "agency")
                             return RedirectToAction("Index", "Agency");
@@ -81,8 +82,38 @@ namespace traveling.Controllers
                     }
 
                 }
-                return RedirectToAction("login");
+            return RedirectToAction("error", "Traveller");
+
+
         }
+
+
+
+        public ActionResult Posts()
+        {
+            var result = safari.posts.ToList();
+            return View(result);
+        }
+
+
+        public ActionResult Search()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Search(string search)
+        {
+
+            var result = safari.posts.Where(a => a.tripTitle.Contains(search)
+                || a.tripPrice.Contains(search)
+                || a.tripDate.ToString().Contains(search)).ToList();
+
+
+            return View(result);
+
+        }
+
 
     }
 }

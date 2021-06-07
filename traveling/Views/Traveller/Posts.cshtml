@@ -1,0 +1,77 @@
+﻿
+@Html.Partial("~/Views/Shared/WallLayout.cshtml")
+@model IEnumerable<traveling.Models.post>
+
+
+    @{ ViewBag.Title = "Posts"; }
+
+
+    <div class="massive-container">
+        @foreach (var item in Model)
+    {
+
+
+
+        <div class="container">
+            <div class="row">
+
+
+                <div class="post col-lg-8 col-md-10 col-sm-12" id="0">
+                    <div class="post-header">
+                        <div class="post-auther">
+                            <img class="user-post-pic" src="@Url.Content("~/assets/userimgs/120848203_2536910433266011_277101403616029040_n.jpg")" alt="">
+                            <div class="post-auther-name">@Html.DisplayFor(modelItem => item.user.username).</div>
+                            <div class="dropdown  post-options">
+                                <i class="las la-ellipsis-v" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" onclick="hidePost(0)"><i class="las la-ban"></i>hide</a>
+                                    <a class="dropdown-item" href="#"><i class="las la-trash"></i>remove post</a>
+                                </div>
+                            </div>
+                            <div class="post-date">published at: @Html.DisplayFor(modelItem => item.postDate)</div>
+                        </div>
+
+                        <div class="post-title">
+                            @Html.DisplayFor(modelItem => item.tripTitle)
+                        </div>
+                        <div class="post-detials">
+                            @Html.DisplayFor(modelItem => item.tripDetails)
+                        </div>
+                        <div class="post-detials">
+                            Trip Price :
+                            @Html.DisplayFor(modelItem => item.tripPrice)
+                            EGP
+                        </div>
+                    </div>
+
+
+                    <img class="post-img" src="@Url.Content(item.tripImg)">
+                    <div class="date-location-cont">
+                        <div class="trip-location"><i class="las la-map-marker-alt"></i>  @Html.DisplayFor(modelItem => item.tripDestination)</div>
+                        <div class="trip-date"><i class="lar la-clock" style="font-size: 17px;margin-right: 10px;position: absolute;margin-top: 2px;"></i><span style="margin-left: 24px;">launched at : @Html.DisplayFor(modelItem => item.tripDate)</span></div>
+                    </div>
+                    <div class="post-tail">
+                        <i class="las la-thumbs-up post-like-icon" onclick="like(0,10,3)"></i>
+                        <i class="las la-thumbs-down post-dislike-icon" onclick="dislike(0,10,3)"></i>
+                        <div class="likes-counter">
+                            <div class="gaven-likes-counter"></div>
+                            <div class="gaven-dislikes-counter"></div>
+                        </div>
+                        <i class="lar la-comment post-comment-icon" onclick="comment_show(0)"></i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+
+    </div>
+
+
+
+
+
+
+
+    <script src="@Url.Content("~/Scripts/posts.js")"></script>
+

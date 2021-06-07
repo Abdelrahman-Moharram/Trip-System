@@ -27,11 +27,16 @@ for (var i = 0; i < ids.length; i++){
 
 function like(id,likes, dislikes){
 var like = document.getElementsByClassName("post-like-icon");
-var dislike =document.getElementsByClassName("post-dislike-icon");
+    var dislike = document.getElementsByClassName("post-dislike-icon");
+    var likeNums = document.getElementsByClassName("likes-number");
+    var dislikeNums = document.getElementsByClassName("dislikes-number");
+    
 if(dislike[id].style.color === "#1a8cff"){
     dislikes--;
 }
-likes++;
+    likes++;
+    likeNums.innerHtml +=  1;
+    dislikeNums.innerHtml -=1 ;
 
 var likesFactor = (likes/(likes + dislikes) )*100;
 if(likesFactor < 0){
@@ -59,8 +64,14 @@ dislike[id].style.transform = "scale(1.0,1.0)";
 
 function dislike(id,likes,dislikes){
 var dislike =document.getElementsByClassName("post-dislike-icon"); 
-var like = document.getElementsByClassName("post-like-icon");
-dislikes++;
+    var like = document.getElementsByClassName("post-like-icon");
+    var likeNums = document.getElementsByClassName("likes-number");
+    var dislikeNums = document.getElementsByClassName("dislikes-number");
+    dislikes++;
+    likeNums.innerHtml -= 1;
+    dislikeNums.innerHtml += 1;
+    console.log(likeNums);
+
 if(dislike[id].style.color === "#1a8cff"){
     likes--;
 }
@@ -68,7 +79,7 @@ var likesFactor = (likes/(likes + dislikes) )*100;
 if(likesFactor < 0){
     likesFactor += 1;
 }
-console.log(likesFactor);
+
 
 
 var likesBar = document.getElementsByClassName("gaven-likes-counter");
